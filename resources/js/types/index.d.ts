@@ -42,3 +42,21 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+
+export interface Media {
+    id: number;
+    name: string;
+    path: string;
+    created_at: string;
+    updated_at: string;
+}
+
+export interface CursorPaginate<T> {
+    data: T[];
+    next_cursor: string | null;
+    next_page_url: string | null;
+    path: string;
+    per_page: number;
+    prev_cursor: string | null;
+    prev_page_url: string | null;
+}

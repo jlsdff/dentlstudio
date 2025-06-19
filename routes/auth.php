@@ -59,7 +59,7 @@ Route::middleware('auth')->group(function () {
         return Inertia::render('posts/create');
     });
 
-    Route::get('/post/index', function () {
+    Route::get('/post', function () {
         return Inertia::render('posts/index');
     });
 });

@@ -8,10 +8,18 @@ type PostForm = {
     title: 'string',
     content: 'string'
 }
-const breadcrumbs: BreadcrumbItem[] = [{
-    title: 'New post',
-    href: '/post/create'
-}]
+const breadcrumbs: BreadcrumbItem[] = [
+
+    {
+        title: "Posts",
+        href: '/post/index'
+    },
+    {
+        title: 'New post',
+        href: '/post/create'
+    },
+
+]
 
 export default function NewPost() {
 
@@ -21,11 +29,11 @@ export default function NewPost() {
     // })
 
     return (
-        <AppLayout breadcrumbs={breadcrumbs}>
+        <main className='bg-gray-950 min-h-svh'>
             <Head title='New Post' />
 
             <Tiptap />
+        </main>
 
-        </AppLayout>
     )
 }
