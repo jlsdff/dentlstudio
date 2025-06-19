@@ -60,3 +60,24 @@ export interface CursorPaginate<T> {
     prev_cursor: string | null;
     prev_page_url: string | null;
 }
+
+export interface PaginateLink {
+    url: string;
+    label: string;
+    active: boolean;
+}
+
+export interface Paginate<T> {
+    current_page: number;
+    data: T[];
+    first_page_url: string | null;
+    from: number | null;
+    last_page: number | null;
+    last_page_url: string | null;
+    links: PaginateLink[];
+    next_page_url: string | null;
+    path: string;
+    per_page: number;
+    to: number;
+    total: number;
+}

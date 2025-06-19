@@ -1,11 +1,11 @@
 import { Media } from "@/types";
-import { Table, TableBody, TableCaption, TableHead, TableHeader, TableRow, TableCell } from "../ui/table";
+import { Table, TableBody, TableHead, TableRow, TableCell } from "../ui/table";
 import { formatDistanceToNow } from "date-fns";
-import { TableOptions, useReactTable, getCoreRowModel, ColumnDef, flexRender, } from "@tanstack/react-table";
+import { useReactTable, getCoreRowModel, ColumnDef, flexRender, } from "@tanstack/react-table";
 import { Button } from "../ui/button";
 import { Delete, LoaderCircle } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
-import { FormEvent } from "react";
+import { FormEvent, useState } from 'react';
 import { useForm } from "@inertiajs/react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTrigger } from "../ui/dialog";
@@ -45,32 +45,34 @@ const columns: ColumnDef<Media>[] = [
 
 function DeleteButton({ id }: { id: string }) {
 
-    const { delete: deleteMedia, processing, reset } = useForm()
+    const { delete: deleteMedia, processing, reset } = useForm();
+    const [isOpen, setIsOpen] = useState(false);
 
     const onSubmit = (e: FormEvent) => {
-        e.preventDefault()
+        e.preventDefault();
         deleteMedia(route('media.destroy', id), {
             onSuccess: () => {
-                toast.success("Delete successfull")
-                reset()
+                toast.success('Delete successfully');
+                setIsOpen(false)
+                reset();
             },
             onError: () => {
-                toast.error("Something went wrong.")
+                toast.error('Something went wrong.');
             }
-        })
-    }
+        });
+    };
 
     return (
         <Tooltip>
             <TooltipTrigger>
-                <Dialog>
+                <Dialog open={isOpen} onOpenChange={(bool:boolean) => setIsOpen(bool)}>
                     <DialogTrigger>
-                        <Button size="icon" variant='destructive'>
+                        <Button size="icon" variant="destructive">
                             {processing ? <LoaderCircle className="animate-spin" /> : <Delete />}
                         </Button>
                     </DialogTrigger>
                     <DialogContent>
-                        <form onSubmit={onSubmit} action={`/medias/${id}`} method="POST" >
+                        <form onSubmit={onSubmit} action={`/medias/${id}`} method="POST">
                             <DialogHeader className="font-bold">
                                 Delete this image
                             </DialogHeader>
@@ -79,10 +81,10 @@ function DeleteButton({ id }: { id: string }) {
                             </DialogDescription>
                             <DialogFooter className="my-4">
                                 <DialogClose>
-                                    <Button variant='ghost'>Close</Button>
+                                    <Button type={'button'} variant="ghost">Close</Button>
                                 </DialogClose>
-                                <Button type="submit" variant='destructive'>
-                                    Delete
+                                <Button type="submit" variant="destructive" disabled={processing}>
+                                    {processing ? <LoaderCircle className="animate-spin" /> : 'Delete'}
                                 </Button>
                             </DialogFooter>
                         </form>
@@ -93,7 +95,7 @@ function DeleteButton({ id }: { id: string }) {
                 <p>Delete Image</p>
             </TooltipContent>
         </Tooltip>
-    )
+    );
 }
 
 export default function MediaTable({ medias }: { medias: Media[] }) {
@@ -107,7 +109,6 @@ export default function MediaTable({ medias }: { medias: Media[] }) {
     return (
         <section className="w-full">
             <Table className="w-full">
-                <TableCaption>A list of medias uploaded.</TableCaption>
                 {
                     table.getHeaderGroups().map(headerGroup => (
                         <TableRow key={headerGroup.id}>

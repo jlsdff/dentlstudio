@@ -13,7 +13,7 @@ class MediaController extends Controller
     public function index()
     {
         $medias = Media::orderBy('created_at', 'desc')
-            ->cursorPaginate(10);
+            ->paginate(10);
 
         return Inertia::render('media/index', ['medias' => $medias]);
     }

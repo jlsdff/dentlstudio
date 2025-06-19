@@ -1,10 +1,9 @@
 import AppLayout from "@/layouts/app-layout";
-import { BreadcrumbItem, CursorPaginate, Media } from "@/types";
+import { BreadcrumbItem, Media, Paginate } from '@/types';
 import { Head } from "@inertiajs/react";
 import MediaDialog from "@/components/media/media-dialog";
 import MediaTable from "@/components/media/media-table";
-import { Pagination, PaginationContent, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
-
+import PaginationComponent from "@/components/custom-pagination"
 const breadcrumbs: BreadcrumbItem[] = [
     {
         title: "Medias",
@@ -12,9 +11,10 @@ const breadcrumbs: BreadcrumbItem[] = [
     }
 ]
 
-export default function MediaPage({ medias }: { medias: CursorPaginate<Media> }) {
+export default function MediaPage({ medias }: { medias: Paginate<Media> }) {
 
     console.log("data", medias.data)
+    console.log("medias", medias)
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -24,12 +24,7 @@ export default function MediaPage({ medias }: { medias: CursorPaginate<Media> })
             </section>
             <main className="px-4">
                 <MediaTable medias={medias.data} />
-                <Pagination>
-                    <PaginationContent>
-                        <PaginationPrevious href={`${medias.prev_page_url}`} isActive={medias.prev_page_url ? true : false} />
-                        <PaginationNext href={`${medias.next_page_url}`} />
-                    </PaginationContent>
-                </Pagination>
+                <PaginationComponent paginatedData={medias} />
             </main>
         </AppLayout>
     )
