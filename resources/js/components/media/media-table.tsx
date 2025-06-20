@@ -3,7 +3,7 @@ import { Table, TableBody, TableHead, TableRow, TableCell } from "../ui/table";
 import { formatDistanceToNow } from "date-fns";
 import { useReactTable, getCoreRowModel, ColumnDef, flexRender, } from "@tanstack/react-table";
 import { Button } from "../ui/button";
-import { Delete, LoaderCircle } from "lucide-react";
+import { LoaderCircle, Trash } from "lucide-react";
 import { Tooltip, TooltipTrigger, TooltipContent } from "../ui/tooltip";
 import { FormEvent, useState } from 'react';
 import { useForm } from "@inertiajs/react";
@@ -65,10 +65,10 @@ function DeleteButton({ id }: { id: string }) {
     return (
         <Tooltip>
             <TooltipTrigger>
-                <Dialog open={isOpen} onOpenChange={(bool:boolean) => setIsOpen(bool)}>
+                <Dialog open={isOpen} onOpenChange={(bool: boolean) => setIsOpen(bool)}>
                     <DialogTrigger>
                         <Button size="icon" variant="destructive">
-                            {processing ? <LoaderCircle className="animate-spin" /> : <Delete />}
+                            {processing ? <LoaderCircle className="animate-spin" /> : <Trash />}
                         </Button>
                     </DialogTrigger>
                     <DialogContent>

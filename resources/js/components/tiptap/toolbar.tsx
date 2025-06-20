@@ -19,6 +19,7 @@ import {
     Type,
     ImagePlus
 } from 'lucide-react'
+import MediaSheet from '../media/media-sheet'
 
 interface TiptapToolbarProps {
     editor: Editor
@@ -160,24 +161,12 @@ const TiptapToolbar = ({ editor }: TiptapToolbarProps) => {
             </Button>
 
             <Separator orientation="vertical" className="h-6" />
-            <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => editor.chain().focus().setImage({ src: '' }).run()}
-                className="h-8 px-2"
-            >
-                <Image className="h-4 w-4" />
-            </Button>
+            <MediaSheet />
 
             <Separator orientation="vertical" className="h-6" />
-            <Button
-                variant='ghost'
-                size="sm"
-                onClick={() => console.log("Set Image...")}
-                className='h-8 px-2'
-            >
-                <ImagePlus />
-            </Button>
+
+
+
         </div>
     )
 }

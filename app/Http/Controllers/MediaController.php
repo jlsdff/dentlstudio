@@ -15,6 +15,10 @@ class MediaController extends Controller
         $medias = Media::orderBy('created_at', 'desc')
             ->paginate(10);
 
+        if (request()->wantsJson()) {
+            return response()->json($medias);
+        }
+
         return Inertia::render('media/index', ['medias' => $medias]);
     }
 
