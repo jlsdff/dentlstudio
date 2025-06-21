@@ -48,9 +48,10 @@ class MediaController extends Controller
             $filename = Str::slug($name) . '.' . $extension;
 
             $path = $file->storeAs('photos', $filename, 'public');
+
             Media::create([
                 'path' => $path,
-                'name' => $filename
+                'name' => request()->name
             ]);
         }
 
