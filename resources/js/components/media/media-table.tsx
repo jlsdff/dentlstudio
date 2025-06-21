@@ -16,12 +16,12 @@ const columns: ColumnDef<Media>[] = [
     {
         accessorKey: 'image',
         header: "Image",
-        cell: ({ row }) => <img className="max-w-[50px] aspect-square object-contain" src={`/storage/${row.getValue('path')}`} alt={`${row.getValue('name')}`} />
+        cell: ({ row }) => <img className="max-w-[50px] aspect-square object-contain overflow-hidden" src={`/storage/${row.getValue('path')}`} alt={`${row.getValue('name')}`} />
     },
     {
         accessorKey: 'path',
         header: "Path",
-        cell: ({ row }) => <p>{row.getValue('path')}</p>
+        cell: ({ row }) => <p>{`/storage/${row.getValue('path')}`}</p>
     },
     {
         accessorKey: 'name',

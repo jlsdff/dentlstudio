@@ -1,7 +1,7 @@
 import AppLayout from "@/layouts/app-layout";
 import { BreadcrumbItem, Media, Paginate } from '@/types';
 import { Head } from "@inertiajs/react";
-import MediaDialog from "@/components/media/media-dialog";
+import MediaDialog from "@/components/media/media-upload-dialog";
 import MediaTable from "@/components/media/media-table";
 import PaginationComponent from "@/components/custom-pagination"
 const breadcrumbs: BreadcrumbItem[] = [
@@ -19,7 +19,7 @@ export default function MediaPage({ medias }: { medias: Paginate<Media> }) {
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Media" />
-            <section className="p-4">
+            <section className="p-4 flex justify-end">
                 <MediaDialog />
             </section>
             <main className="px-4">

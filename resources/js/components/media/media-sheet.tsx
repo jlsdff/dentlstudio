@@ -1,32 +1,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "../ui/button"
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "../ui/sheet"
-import { Images } from "lucide-react"
+import { Images, LoaderCircle } from "lucide-react"
 import { Media, Paginate } from "@/types";
+import useMedia from "@/hooks/use-media";
 export default function MediaSheet() {
 
-    const [images, setImages] = useState<Media[]>([]);
-    const [nextUrl, setNextUrl] = useState<string | null>(null);
     const [open, setOpen] = useState(false);
 
-    useEffect(() => {
-
-        if (open) {
-            fetch('/medias', {
-                headers: {
-                    Accept: 'application/json'
-                }
-            })
-                .then(res => res.json())
-                .then(res => {
-                    setNextUrl(res.next_page_url || null);
-                    setImages(res.data)
-                })
-        }
-
-    }, [open])
-
-    console.log("images", images)
+    const { images, nextUrl, isProcessing, getNextPage } = useMedia();
 
     return (
         <Sheet open={open} onOpenChange={setOpen}>
@@ -40,14 +22,28 @@ export default function MediaSheet() {
                     <SheetTitle>Images</SheetTitle>
                     <SheetDescription>Select images to import.</SheetDescription>
                 </SheetHeader>
-                <div className="">
+                <div className="overflow-auto">
                     {
                         images.map(image => (
                             <div className="px-2 my-2 flex justify-center">
-                                <img className="w-full aspect-video " src={`/storage/${image.path}`} alt={image.name} />
+                                <img className="w-full aspect-video object-contain rounded-md overflow-hidden hover:bg-gray-300/50"
+                                    src={`/storage/${image.path}`}
+                                    alt={image.name}
+                                />
                             </div>
                         ))
                     }
+                    <div className="flex justify-center mb-2">
+                        <Button
+                            variant={nextUrl ? 'default' : 'ghost'}
+                            size="sm"
+                            disabled={isProcessing || !nextUrl}
+                            onClick={() => getNextPage()}
+                        >
+                            {isProcessing && <LoaderCircle className="animate-spin" />}
+                            {nextUrl ? "Load more" : "No more images"}
+                        </Button>
+                    </div>
                 </div>
             </SheetContent>
         </Sheet>

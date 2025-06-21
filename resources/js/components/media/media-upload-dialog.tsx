@@ -13,6 +13,7 @@ import { FormEvent, useState } from "react";
 import { useForm } from "@inertiajs/react";
 import { toast } from "sonner";
 import { Input } from "../ui/input";
+import InputError from "../input-error";
 
 const filetypes = ['JPG', 'PNG', 'JPEG'];
 
@@ -77,15 +78,22 @@ export default function MediaDialog() {
                         <div className="mb-2">
                             <label className="text-xs ">Name</label>
                             <Input type="text" name="name" id="name" value={data.name} onChange={e => setData('name', e.target.value)} required />
+                            <InputError message={errors.name} className="mt-2" />
                         </div>
                         <label htmlFor="image" className="w-full flex justify-between items-center border-2 border-dashed border-gray-900 rounded-md p-4 cursor-pointer" >
-                            <input required className="hidden" type="file" name="image" id="image" onChange={(e) => {
-                                const file = e.target.files?.[0]
-                                if (file) {
-                                    setData('image', file);
-                                    setPreview(URL.createObjectURL(file));
-                                }
-                            }} />
+                            <input
+                                required
+                                className="hidden"
+                                type="file"
+                                name="image"
+                                accept=".png, .jpg, .jpeg"
+                                id="image" onChange={(e) => {
+                                    const file = e.target.files?.[0]
+                                    if (file) {
+                                        setData('image', file);
+                                        setPreview(URL.createObjectURL(file));
+                                    }
+                                }} />
                             {
                                 data.image ? (
                                     <div className="flex justify-between items-center w-full">
@@ -104,7 +112,8 @@ export default function MediaDialog() {
                                 )
                             }
                         </label>
-                        <p className="text-red-500 text-xs">Maximum of 8mb.</p>
+                        <InputError message={errors.image} className="mt-2" />
+                        <p className="text-orange-500 text-xs">Maximum of 8mb.</p>
                     </div>
                     <DialogFooter>
                         <DialogClose asChild>
