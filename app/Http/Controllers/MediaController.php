@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Media;
-use Illuminate\Support\Facades\Request as FacadesRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\File;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
 
 class MediaController extends Controller
 {
@@ -25,15 +26,31 @@ class MediaController extends Controller
     public function store()
     {
         request()->validate([
-            'name' => ['required', 'string', 'min:3'],
-            'image' => ['required', 'image']
+            'name' => [
+                'required',
+                'string',
+                'min:3',
+                Rule::unique('media', 'name')
+            ],
+            'image' => [
+                'required',
+                'image',
+                File::types(['png', 'jpg', 'jpeg'])
+                    ->max('8mb')
+            ]
         ]);
 
         if (request()->hasFile('image')) {
-            $path = Storage::disk('public')->putFile(request()->image);
+
+            $file = request()->file('image');
+            $name = request()->name;
+            $extension = $file->getClientOriginalExtension();
+            $filename = Str::slug($name) . '.' . $extension;
+
+            $path = $file->storeAs('photos', $filename, 'public');
             Media::create([
                 'path' => $path,
-                'name' => request()->name
+                'name' => $filename
             ]);
         }
 
