@@ -183,6 +183,10 @@
     h2 {
 
     }
+
+    img {
+        @apply max-w-[800px] aspect-video object-contain;
+    }
 }
 
 /* Tiptap Editor Styles - Add to your app.css */

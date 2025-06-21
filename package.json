@@ -41,6 +41,7 @@
         "@tailwindcss/vite": "^4.0.6",
         "@tanstack/react-table": "^8.21.3",
         "@tiptap/extension-heading": "^2.14.0",
+        "@tiptap/extension-image": "^2.22.2",
         "@tiptap/pm": "^2.14.0",
         "@tiptap/react": "^2.14.0",
         "@tiptap/starter-kit": "^2.14.0",

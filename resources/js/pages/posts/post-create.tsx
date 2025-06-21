@@ -23,17 +23,10 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 export default function NewPost() {
 
-    // const { data, setData, post: submit, processing, errors } = useForm<Required<PostForm>>({
-    //     title: 'tang ina',
-    //     content: 'tang ina'
-    // })
-
     return (
         <main className='bg-gray-950 min-h-svh'>
             <Head title='New Post' />
-
             <Tiptap />
         </main>
-
     )
 }

@@ -4,7 +4,9 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import { Images, LoaderCircle } from "lucide-react"
 import { Media, Paginate } from "@/types";
 import useMedia from "@/hooks/use-media";
-export default function MediaSheet() {
+import { Editor } from "@tiptap/react";
+
+export default function MediaSheet({ editor }: { editor: Editor | null }) {
 
     const [open, setOpen] = useState(false);
 
@@ -25,7 +27,17 @@ export default function MediaSheet() {
                 <div className="overflow-auto">
                     {
                         images.map(image => (
-                            <div className="px-2 my-2 flex justify-center">
+                            <div className="px-2 my-2 flex justify-center"
+                                key={image.id}
+                                role="button"
+                                onClick={() => {
+                                    setOpen(false)
+                                    editor?.chain().focus().setImage({
+                                        src: `/storage/${image.path}`,
+                                        alt: image.name,
+                                        title: image.name
+                                    }).run()
+                                }}>
                                 <img className="w-full aspect-video object-contain rounded-md overflow-hidden hover:bg-gray-300/50"
                                     src={`/storage/${image.path}`}
                                     alt={image.name}

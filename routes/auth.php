@@ -56,10 +56,10 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 
     Route::get('/post/create', function () {
-        return Inertia::render('posts/create');
+        return Inertia::render('posts/post-create');
     });
 
     Route::get('/post', function () {
-        return Inertia::render('posts/index');
+        return Inertia::render('posts/post-index');
     });
 });

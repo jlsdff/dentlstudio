@@ -22,16 +22,17 @@ import {
 import MediaSheet from '../media/media-sheet'
 
 interface TiptapToolbarProps {
-    editor: Editor
+    editor: Editor | null
 }
 
 const TiptapToolbar = ({ editor }: TiptapToolbarProps) => {
+
     if (!editor) {
         return null
     }
 
     return (
-        <div className="flex items-center gap-1 p-2 flex-wrap">
+        <div className="flex items-center gap-1 p-2 flex-wrap ">
             {/* Undo/Redo */}
             <Button
                 variant="ghost"
@@ -161,7 +162,8 @@ const TiptapToolbar = ({ editor }: TiptapToolbarProps) => {
             </Button>
 
             <Separator orientation="vertical" className="h-6" />
-            <MediaSheet />
+
+            <MediaSheet editor={editor} />
 
             <Separator orientation="vertical" className="h-6" />
 
