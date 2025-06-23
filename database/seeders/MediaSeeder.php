@@ -16,14 +16,14 @@ class MediaSeeder extends Seeder
 
         for ($i = 0; $i < 20; $i++) {
             Media::factory()->create([
-                'name' =>  "ai-art-$i",
-                'path' => 'photos/ai-art-2.jpg'
+                'name' =>  "logo-$i",
+                'path' => 'photos/logo-1.png'
             ]);
 
-            Media::factory()->create([
-                'name' => "songmin-$i",
-                'path' => 'photos/songmin.jpg'
-            ]);
+            // Media::factory()->create([
+            //     'name' => "songmin-$i",
+            //     'path' => 'photos/songmin.jpg'
+            // ]);
         }
     }
 }

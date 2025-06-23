@@ -1,6 +1,15 @@
 import { LucideIcon } from 'lucide-react';
 import type { Config } from 'ziggy-js';
+import '@inertiajs/react'
 
+declare module '@inertiajs/react' {
+    export interface PageProps {
+        flash: {
+            success?: string | null,
+            post?: Post | null
+        }
+    }
+}
 export interface Auth {
     user: User;
 }
@@ -40,7 +49,7 @@ export interface User {
     email_verified_at: string | null;
     created_at: string;
     updated_at: string;
-    [key: string]: unknown; // This allows for additional properties...
+    [key: string]: unknown;
 }
 
 export interface Media {
@@ -81,3 +90,16 @@ export interface Paginate<T> {
     to: number;
     total: number;
 }
+
+export interface Post {
+    id: number;
+    user: User;
+    title: string;
+    status: 'published' | 'draft';
+    slug: string;
+    content: string;
+    created_at: string;
+    updated_at: string;
+    [key: string]: unknown;
+}
+

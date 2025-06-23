@@ -4,7 +4,6 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import {
     Bold,
-    Image,
     Italic,
     Strikethrough,
     Code,
@@ -17,159 +16,192 @@ import {
     Undo,
     Redo,
     Type,
-    ImagePlus
+    LoaderCircle,
 } from 'lucide-react'
 import MediaSheet from '../media/media-sheet'
 
 interface TiptapToolbarProps {
     editor: Editor | null
+    save: ({ title, content, status }: { title: string, content: string, status: string }) => void,
+    processing: boolean
 }
 
-const TiptapToolbar = ({ editor }: TiptapToolbarProps) => {
+const TiptapToolbar = ({ editor, save, processing }: TiptapToolbarProps) => {
 
     if (!editor) {
         return null
     }
 
+    const handleSavePost = (status: string) => {
+        save({
+            title: "Sample Blog",
+            content: editor.getHTML(),
+            status: status
+        })
+    }
+
     return (
-        <div className="flex items-center gap-1 p-2 flex-wrap ">
-            {/* Undo/Redo */}
-            <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => editor.chain().focus().undo().run()}
-                disabled={!editor.can().undo()}
-                className="h-8 px-2"
-            >
-                <Undo className="h-4 w-4" />
-            </Button>
-            <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => editor.chain().focus().redo().run()}
-                disabled={!editor.can().redo()}
-                className="h-8 px-2"
-            >
-                <Redo className="h-4 w-4" />
-            </Button>
+        <section className='flex justify-between items-center w-full px-4'>
 
-            <Separator orientation="vertical" className="h-6" />
+            <div className="flex items-center gap-1 p-2 flex-wrap ">
+                {/* Undo/Redo */}
+                <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => editor.chain().focus().undo().run()}
+                    disabled={!editor.can().undo()}
+                    className="h-8 px-2"
+                >
+                    <Undo className="h-4 w-4" />
+                </Button>
+                <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => editor.chain().focus().redo().run()}
+                    disabled={!editor.can().redo()}
+                    className="h-8 px-2"
+                >
+                    <Redo className="h-4 w-4" />
+                </Button>
 
-            {/* Headings */}
-            <Button
-                variant={editor.isActive('heading', { level: 1 }) ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-                className="h-8 px-2"
-            >
-                <Heading1 className="h-4 w-4" />
-            </Button>
-            <Button
-                variant={editor.isActive('heading', { level: 2 }) ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-                className="h-8 px-2"
-            >
-                <Heading2 className="h-4 w-4" />
-            </Button>
-            <Button
-                variant={editor.isActive('heading', { level: 3 }) ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-                className="h-8 px-2"
-            >
-                <Heading3 className="h-4 w-4" />
-            </Button>
-            <Button
-                variant={editor.isActive('paragraph') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().setParagraph().run()}
-                className="h-8 px-2"
-            >
-                <Type className="h-4 w-4" />
-            </Button>
+                <div className='w-1 h-6 bg-[var(--foreground)]/30 rounded-md mx-1' />
 
-            <Separator orientation="vertical" className="h-6" />
+                {/* Headings */}
+                <Button
+                    variant={editor.isActive('heading', { level: 1 }) ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
+                    className="h-8 px-2"
+                >
+                    <Heading1 className="h-4 w-4" />
+                </Button>
+                <Button
+                    variant={editor.isActive('heading', { level: 2 }) ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+                    className="h-8 px-2"
+                >
+                    <Heading2 className="h-4 w-4" />
+                </Button>
+                <Button
+                    variant={editor.isActive('heading', { level: 3 }) ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
+                    className="h-8 px-2"
+                >
+                    <Heading3 className="h-4 w-4" />
+                </Button>
+                <Button
+                    variant={editor.isActive('paragraph') ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().setParagraph().run()}
+                    className="h-8 px-2"
+                >
+                    <Type className="h-4 w-4" />
+                </Button>
 
-            {/* Text formatting */}
-            <Button
-                variant={editor.isActive('bold') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleBold().run()}
-                disabled={!editor.can().toggleBold()}
-                className="h-8 px-2"
-            >
-                <Bold className="h-4 w-4" />
-            </Button>
-            <Button
-                variant={editor.isActive('italic') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleItalic().run()}
-                disabled={!editor.can().toggleItalic()}
-                className="h-8 px-2"
-            >
-                <Italic className="h-4 w-4" />
-            </Button>
-            <Button
-                variant={editor.isActive('strike') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleStrike().run()}
-                disabled={!editor.can().toggleStrike()}
-                className="h-8 px-2"
-            >
-                <Strikethrough className="h-4 w-4" />
-            </Button>
-            <Button
-                variant={editor.isActive('code') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleCode().run()}
-                disabled={!editor.can().toggleCode()}
-                className="h-8 px-2"
-            >
-                <Code className="h-4 w-4" />
-            </Button>
+                <div className='w-1 h-6 bg-[var(--foreground)]/30 rounded-md mx-1' />
 
-            <Separator orientation="vertical" className="h-6" />
+                <Button
+                    variant={editor.isActive('bold') ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleBold().run()}
+                    disabled={!editor.can().toggleBold()}
+                    className="h-8 px-2"
+                >
+                    <Bold className="h-4 w-4" />
+                </Button>
 
-            {/* Lists */}
-            <Button
-                variant={editor.isActive('bulletList') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleBulletList().run()}
-                className="h-8 px-2"
-            >
-                <List className="h-4 w-4" />
-            </Button>
-            <Button
-                variant={editor.isActive('orderedList') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleOrderedList().run()}
-                className="h-8 px-2"
-            >
-                <ListOrdered className="h-4 w-4" />
-            </Button>
+                <Button
+                    variant={editor.isActive('italic') ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleItalic().run()}
+                    disabled={!editor.can().toggleItalic()}
+                    className="h-8 px-2"
+                >
+                    <Italic className="h-4 w-4" />
+                </Button>
 
-            <Separator orientation="vertical" className="h-6" />
+                <Button
+                    variant={editor.isActive('strike') ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleStrike().run()}
+                    disabled={!editor.can().toggleStrike()}
+                    className="h-8 px-2"
+                >
+                    <Strikethrough className="h-4 w-4" />
+                </Button>
 
-            {/* Blockquote */}
-            <Button
-                variant={editor.isActive('blockquote') ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => editor.chain().focus().toggleBlockquote().run()}
-                className="h-8 px-2"
-            >
-                <Quote className="h-4 w-4" />
-            </Button>
+                {/* <Button */}
+                {/*     variant={editor.isActive('code') ? 'default' : 'ghost'} */}
+                {/*     size="sm" */}
+                {/*     onClick={() => editor.chain().focus().toggleCode().run()} */}
+                {/*     disabled={!editor.can().toggleCode()} */}
+                {/*     className="h-8 px-2" */}
+                {/* > */}
+                {/*     <Code className="h-4 w-4" /> */}
+                {/* </Button> */}
 
-            <Separator orientation="vertical" className="h-6" />
+                <div className='w-1 h-6 bg-[var(--foreground)]/30 rounded-md mx-1' />
 
-            <MediaSheet editor={editor} />
+                {/* Lists */}
+                <Button
+                    variant={editor.isActive('bulletList') ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleBulletList().run()}
+                    className="h-8 px-2"
+                >
+                    <List className="h-4 w-4" />
+                </Button>
+                <Button
+                    variant={editor.isActive('orderedList') ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleOrderedList().run()}
+                    className="h-8 px-2"
+                >
+                    <ListOrdered className="h-4 w-4" />
+                </Button>
 
-            <Separator orientation="vertical" className="h-6" />
+                <Separator orientation="vertical" className="h-6" />
+
+                {/* Blockquote */}
+                <Button
+                    variant={editor.isActive('blockquote') ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleBlockquote().run()}
+                    className="h-8 px-2"
+                >
+                    <Quote className="h-4 w-4" />
+                </Button>
+
+                <Separator orientation="vertical" className="h-6" />
+
+                <MediaSheet editor={editor} />
+
+                <Separator orientation="vertical" className="h-6" />
 
 
+            </div>
 
-        </div>
+            <div className='flex gap-2'>
+                <Button
+                    variant="outline"
+                    onClick={() => {
+                        handleSavePost('draft')
+                    }}
+                    disabled={processing}
+                >
+                    {processing && <LoaderCircle className='animate-spin' />}
+                    Save as Draft
+                </Button>
+                <Button disabled={processing} onClick={() => {
+                    handleSavePost('publish')
+                }}>
+                    {processing && <LoaderCircle className='animate-spin' />}
+                    Publish Post
+                </Button>
+            </div>
+        </section>
     )
 }
 

@@ -12,6 +12,12 @@ class Media extends Model
 
     protected $fillable = [
         'name',
+        'status',
         'path'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

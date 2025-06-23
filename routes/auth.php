@@ -54,12 +54,4 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-
-    Route::get('/post/create', function () {
-        return Inertia::render('posts/post-create');
-    });
-
-    Route::get('/post', function () {
-        return Inertia::render('posts/post-index');
-    });
 });

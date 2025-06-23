@@ -6,7 +6,7 @@ import MediaTable from "@/components/media/media-table";
 import PaginationComponent from "@/components/custom-pagination"
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: "Medias",
+        title: "Media",
         href: '/medias',
     }
 ]

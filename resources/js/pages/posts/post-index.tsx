@@ -1,7 +1,9 @@
 import AppLayout from "@/layouts/app-layout";
-import { BreadcrumbItem } from "@/types";
-import { Head, Link } from "@inertiajs/react";
+import { BreadcrumbItem, Post } from "@/types";
+import { Head, Link, usePage } from "@inertiajs/react";
 import { Pen } from "lucide-react";
+import { useEffect } from "react";
+import { toast } from "sonner";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -11,6 +13,20 @@ const breadcrumbs: BreadcrumbItem[] = [
 ]
 
 export default function Posts() {
+
+    const { success, post } = usePage().props.flash as {
+        success?: string | null,
+        post?: Post | null
+    }
+
+    useEffect(() => {
+        if (success && post) {
+            toast.success("Post created successfully")
+        }
+    }, [success, post])
+
+
+
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Posts" />
