@@ -13,6 +13,10 @@ const Tiptap = () => {
         setDescription,
         coverImage,
         setCoverImage,
+        tags,
+        setTags,
+        selectedTags,
+        setSelectedTags
     } = useEditor({ content: null });
 
     return (
@@ -35,6 +39,10 @@ const Tiptap = () => {
                                         setDescription={setDescription}
                                         coverImage={coverImage}
                                         setCoverImage={setCoverImage}
+                                        tags={tags}
+                                        setTags={setTags}
+                                        selectedTags={selectedTags}
+                                        setSelectedTags={setSelectedTags}
                                     />
                                 </div>
                             </div>

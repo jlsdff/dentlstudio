@@ -1,6 +1,7 @@
 
 import Tiptap from '@/components/tiptap/tiptap'
 import { Head } from '@inertiajs/react'
+import { EditorProvider } from '@tiptap/react'
 
 type PostForm = {
     title: 'string',

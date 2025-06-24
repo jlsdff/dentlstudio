@@ -1,13 +1,11 @@
-import { useState } from "react";
-import { FormEventHandler, useMemo } from "react";
-import { Editor, useEditor as useTipTap } from '@tiptap/react'
+import { useState, useEffect } from "react";
+import { useEditor as useTipTap } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
-import { Heading1, Star } from 'lucide-react'
 import Heading from '@tiptap/extension-heading'
 import Image from '@tiptap/extension-image'
-import { router, useForm } from "@inertiajs/react";
+import { router } from "@inertiajs/react";
 import { toast } from "sonner";
-import { SheetContent } from "@/components/ui/sheet";
+import { Tag } from "@/types";
 
 const extensions = [
     StarterKit.configure({
@@ -26,7 +24,22 @@ export default function useEditor({ content }: { content: string | null }) {
     const [processing, setProcessing] = useState(false)
     const [description, setDescription] = useState('');
     const [coverImage, setCoverImage] = useState('');
-    const [tags, setTags] = useState<string[]>([]);
+    const [tags, setTags] = useState<Tag[]>([]);
+    const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
+
+
+    useEffect(() => {
+        fetch('/tags', {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json'
+            }
+        })
+            .then(res => res.json())
+            .then(res => {
+                setTags(res.map((tag: { id: number, name: string }) => ({ id: tag.id, value: tag.name })))
+            })
+    }, []);
 
     const onSubmit = ({ title, content, status }: { title: string, content: string, status: string }) => {
 
@@ -67,6 +80,8 @@ export default function useEditor({ content }: { content: string | null }) {
         coverImage,
         setCoverImage,
         tags,
-        setTags
+        setTags,
+        selectedTags,
+        setSelectedTags
     }
 }

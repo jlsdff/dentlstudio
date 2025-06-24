@@ -103,3 +103,7 @@ export interface Post {
     [key: string]: unknown;
 }
 
+export interface Tag {
+    id: number;
+    name: string;
+}
