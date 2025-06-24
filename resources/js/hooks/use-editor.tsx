@@ -37,7 +37,7 @@ export default function useEditor({ content }: { content: string | null }) {
         })
             .then(res => res.json())
             .then(res => {
-                setTags(res.map((tag: { id: number, name: string }) => ({ id: tag.id, value: tag.name })))
+                setTags(res)
             })
     }, []);
 
