@@ -1,11 +1,13 @@
 import PostCard from "@/components/posts/post-card";
 import AppLayout from "@/layouts/app-layout";
 import { BreadcrumbItem, Paginate, Post } from "@/types";
-import { Head, Link, usePage } from "@inertiajs/react";
+import { Head, Link, router, usePage } from "@inertiajs/react";
 import { Pen } from "lucide-react";
 import { useEffect } from "react";
 import { toast, Toaster } from "sonner";
 import { SharedData } from "@/types";
+import PostFilters from "@/components/posts/post-filters";
+import { Button } from "@/components/ui/button";
 
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -26,9 +28,11 @@ interface PostsProps {
     filters: PostFilters;
 }
 
-export default function Posts({ posts, filters }: PostsProps) {
+export default function Posts({ posts }: PostsProps) {
 
     const { flash } = usePage<SharedData>().props
+
+    console.log("posts", posts)
 
     useEffect(() => {
         if (flash?.success) {
@@ -41,14 +45,17 @@ export default function Posts({ posts, filters }: PostsProps) {
             <Toaster />
             <Head title="Posts" />
             <section className="flex px-4 py-4 justify-between items-center">
-                <div>
+                <Link href={route('post.index')} prefetch className="hover:underline">
                     <h2>Blog Posts</h2>
-                </div>
+                </Link>
                 <div>
                     <Link href="/post/create" className="flex gap-2 items-center" >
                         <Pen size={16} /> <span className="text-xs">Write New</span>
                     </Link>
                 </div>
+            </section>
+            <section className="px-4 py-2">
+                <PostFilters />
             </section>
             <div className="px-4 py-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                 {
@@ -60,6 +67,20 @@ export default function Posts({ posts, filters }: PostsProps) {
                     ))
                 }
             </div>
+
+            <div className="flex justify-center gap-4 py-6">
+                {posts.prev_page_url && (
+                    <Button variant="outline" asChild>
+                        <Link href={posts.prev_page_url}>Previous</Link>
+                    </Button>
+                )}
+                {posts.next_page_url && (
+                    <Button asChild>
+                        <Link href={posts.next_page_url}>Next</Link>
+                    </Button>
+                )}
+            </div>
+
         </AppLayout>
     )
 }

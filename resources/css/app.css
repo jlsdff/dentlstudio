@@ -194,7 +194,7 @@
     }
 
     img {
-        @apply max-h-[400px] aspect-video object-contain mb-2 max-w-[800px];
+        @apply max-h-[400px] aspect-video object-contain mb-2 ;
     }
 
     code {

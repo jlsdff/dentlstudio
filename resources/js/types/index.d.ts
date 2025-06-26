@@ -91,6 +91,7 @@ export interface Paginate<T> {
     last_page_url: string | null;
     links: PaginateLink[];
     next_page_url: string | null;
+    prev_page_url: string | null;
     path: string;
     per_page: number;
     to: number;

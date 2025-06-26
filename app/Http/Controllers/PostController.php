@@ -29,7 +29,7 @@ class PostController extends Controller
             ->when($status, fn($q) => $q->where('status', $status))
             ->when($orderBy, fn($q) => $q->where('orderBy', $orderBy))
             ->orderBy($sortColumn, 'desc')
-            ->paginate(10)
+            ->paginate(3)
             ->appends($request->only('search', 'status', 'orderBy'));
 
         return Inertia::render('posts/post-index', [
