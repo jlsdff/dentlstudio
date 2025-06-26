@@ -1,9 +1,11 @@
+import PostCard from "@/components/posts/post-card";
+import { PopoverTrigger } from "@/components/ui/popover";
 import AppLayout from "@/layouts/app-layout";
-import { BreadcrumbItem, Post } from "@/types";
+import { BreadcrumbItem, Paginate, Post } from "@/types";
 import { Head, Link, usePage } from "@inertiajs/react";
 import { Pen } from "lucide-react";
 import { useEffect } from "react";
-import { toast } from "sonner";
+import { toast, Toaster } from "sonner";
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -12,7 +14,18 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ]
 
-export default function Posts() {
+interface PostFilters {
+    status?: string | null;
+    search?: string | null;
+    orderBy?: string | null;
+}
+
+interface PostsProps {
+    posts: Paginate<Post>;
+    filters: PostFilters;
+}
+
+export default function Posts({ posts, filters }: PostsProps) {
 
     const { success, post } = usePage().props.flash as {
         success?: string | null,
@@ -25,14 +38,17 @@ export default function Posts() {
         }
     }, [success, post])
 
+    console.log('posts', posts.data)
+
 
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
+            <Toaster />
             <Head title="Posts" />
             <section className="flex px-4 py-4 justify-between items-center">
                 <div>
-                    <h2>All Blogs</h2>
+                    <h2>Blog Posts</h2>
                 </div>
                 <div>
                     <Link href="/post/create" className="flex gap-2 items-center" >
@@ -40,7 +56,16 @@ export default function Posts() {
                     </Link>
                 </div>
             </section>
-            <div>This is the all the blogs</div>
+            <div className="px-4 py-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
+                {
+                    posts.data.length === 0 && <p className="text-center col-span-3 font-semibold">No blog post written yet.</p>
+                }
+                {
+                    posts.data.map(post => (
+                        <PostCard key={post.id} post={post} />
+                    ))
+                }
+            </div>
         </AppLayout>
     )
 }

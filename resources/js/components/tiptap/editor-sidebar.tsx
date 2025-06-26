@@ -1,14 +1,17 @@
-import { Plus, Search, Check, X } from "lucide-react";
+import { Plus, Check, X, LoaderCircle } from "lucide-react";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import React, { useEffect, useRef, useState } from "react";
+import React, { FormEventHandler, useState } from "react";
 import { Popover } from "../ui/popover";
 import { PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { Command, CommandInput } from "../ui/command";
-import { CommandEmpty, CommandGroup, CommandItem, CommandList } from "cmdk";
+import { CommandEmpty, CommandItem, CommandList } from "cmdk";
 import { Tag } from "@/types";
 import { Badge } from "../ui/badge";
+import { useForm } from "@inertiajs/react";
+import InputError from "../input-error";
+import { toast } from "sonner";
 
 interface EditorSidebarProps {
     description: string;
@@ -21,18 +24,21 @@ interface EditorSidebarProps {
     setSelectedTags: React.Dispatch<React.SetStateAction<Tag[]>>;
 }
 
-interface ComboBoxProps {
-    tags: Tag[];
+interface TagPopover {
     setTags: React.Dispatch<React.SetStateAction<Tag[]>>;
-    selectedTags: Tag[];
     setSelectedTags: React.Dispatch<React.SetStateAction<Tag[]>>;
 }
+
+type TagBoxProps = {
+    tags: Tag[];
+    selectedTags: Tag[];
+    setSelectedTags: React.Dispatch<React.SetStateAction<Tag[]>>;
+};
 
 export default function EditorSidebar({
     description,
     setDescription,
     coverImage,
-    setCoverImage,
     tags,
     setTags,
     selectedTags,
@@ -53,7 +59,13 @@ export default function EditorSidebar({
                 )
             }
             <div className="w-full mb-3">
-                <h2 className="text-sm font-semibold mb-2">Tags</h2>
+                <div className="flex justify-between items-center">
+                    <h2 className="text-sm font-semibold mb-2">Tags</h2>
+                    <AddTagPopover
+                        setTags={setTags}
+                        setSelectedTags={setSelectedTags}
+                    />
+                </div>
                 <TagBox
                     tags={tags}
                     selectedTags={selectedTags}
@@ -65,11 +77,66 @@ export default function EditorSidebar({
     )
 }
 
-type TagBoxProps = {
-    tags: Tag[];
-    selectedTags: Tag[];
-    setSelectedTags: React.Dispatch<React.SetStateAction<Tag[]>>;
-};
+export function AddTagPopover({ setTags, setSelectedTags }: TagPopover) {
+
+    const { data, setData, post, processing, reset, errors } = useForm({
+        'name': ''
+    })
+
+    const onSubmit: FormEventHandler = (e) => {
+        e.preventDefault();
+        post(route('tag.store'), {
+            preserveScroll: true,
+            onSuccess: ({ props }) => {
+
+                const flash = (props as { flash?: { success?: { id: number; name: string } } }).flash;
+
+                if (!flash?.success) return;
+
+                const tag = {
+                    id: flash.success.id,
+                    name: flash.success.name,
+                };
+
+                setTags(prev => [...prev, tag]);
+                setSelectedTags(prev => [...prev, tag]);
+                toast.success('New Tag Created');
+                reset();
+            },
+            onError: () => {
+                toast.error('Error creating new tag.')
+            }
+        })
+    }
+
+    return (
+        <Popover>
+            <PopoverTrigger>
+                <Plus size={18} />
+            </PopoverTrigger>
+            <PopoverContent className="p-4 border bg-[var(--background)] rounded-md shadow-md"
+                side="right"
+                align="start"
+                sideOffset={4}
+            >
+                <form className="" onSubmit={onSubmit}>
+                    <h2 className="text-sm font-semibold mb-1">Add new tag</h2>
+                    <Input
+                        placeholder="Enter tag here"
+                        required
+                        value={data.name}
+                        onChange={(e) => setData('name', e.target.value)}
+                    />
+                    <InputError message={errors.name} className="text-red-500 text-xs mt-2" />
+                    <Button className="mt-2 w-full">
+                        {processing && <LoaderCircle className="animate-spin" />}
+                        Create New Tag
+                    </Button>
+                </form>
+            </PopoverContent>
+        </Popover>
+    )
+}
 
 export function TagBox({ tags, selectedTags, setSelectedTags }: TagBoxProps) {
     const [open, setOpen] = useState(false);
@@ -143,61 +210,3 @@ export function TagBox({ tags, selectedTags, setSelectedTags }: TagBoxProps) {
         </div>
     );
 }
-// function TagComboBox({ tags, setTags, selectedTags, setSelectedTags }: ComboBoxProps) {
-//
-//     const [open, setOpen] = useState(false)
-//     const timeout = useRef<NodeJS.Timeout>(null)
-//
-//     const select = (tag: { id: number, name: string }) => {
-//         const exist = selectedTags.some(t => t.id === tag.id)
-//         if (exist) {
-//             setSelectedTags((prev) => prev.filter(t => t.id !== tag.id))
-//         } else {
-//             setSelectedTags((prev) => [...prev, { id: tag.id, name: tag.name }])
-//         }
-//     }
-//
-//     return (
-//         <div>
-//             <Command>
-//                 <CommandInput placeholder="Add tags"
-//                     onBlur={() => {
-//                         setTimeout(() => {
-//                             setOpen(false)
-//                         }, 2000)
-//                     }}
-//                     onFocus={() => setOpen(true)}
-//                 />
-//                 <CommandList>
-//                     <CommandGroup className={`${open ? "block" : "hidden"}`} >
-//                         {
-//                             tags.map(tag => {
-//
-//                                 const rename = { id: tag.id, value: tag.name }
-//                                 console.log("Tag", tag)
-//
-//                                 return (
-//                                     <CommandItem
-//                                         className="px-2 py-1 border my-2 rounded-md hover:bg-gray-300/50 cursor-pointer"
-//                                         key={rename.id}
-//                                         onSelect={() => select(tag)}
-//                                     >
-//                                         {rename.value}
-//                                     </CommandItem>
-//                                 )
-//
-//                             })
-//                         }
-//                     </CommandGroup>
-//                 </CommandList>
-//             </Command>
-//             <div>
-//                 {
-//                     selectedTags.map(tag => (
-//                         <Badge key={tag.id}>{tag.name}</Badge>
-//                     ))
-//                 }
-//             </div>
-//         </div>
-//     )
-// }

@@ -6,7 +6,6 @@ import {
     Bold,
     Italic,
     Strikethrough,
-    Code,
     Heading1,
     Heading2,
     Heading3,
@@ -19,6 +18,7 @@ import {
     LoaderCircle,
 } from 'lucide-react'
 import MediaSheet from '../media/media-sheet'
+import LinkButton from './link-mark'
 
 interface TiptapToolbarProps {
     editor: Editor | null
@@ -132,15 +132,7 @@ const TiptapToolbar = ({ editor, save, processing }: TiptapToolbarProps) => {
                     <Strikethrough className="h-4 w-4" />
                 </Button>
 
-                {/* <Button */}
-                {/*     variant={editor.isActive('code') ? 'default' : 'ghost'} */}
-                {/*     size="sm" */}
-                {/*     onClick={() => editor.chain().focus().toggleCode().run()} */}
-                {/*     disabled={!editor.can().toggleCode()} */}
-                {/*     className="h-8 px-2" */}
-                {/* > */}
-                {/*     <Code className="h-4 w-4" /> */}
-                {/* </Button> */}
+                <LinkButton editor={editor} />
 
                 <div className='w-1 h-6 bg-[var(--foreground)]/30 rounded-md mx-1' />
 
@@ -161,6 +153,7 @@ const TiptapToolbar = ({ editor, save, processing }: TiptapToolbarProps) => {
                 >
                     <ListOrdered className="h-4 w-4" />
                 </Button>
+
 
                 <Separator orientation="vertical" className="h-6" />
 
@@ -195,7 +188,7 @@ const TiptapToolbar = ({ editor, save, processing }: TiptapToolbarProps) => {
                     Save as Draft
                 </Button>
                 <Button disabled={processing} onClick={() => {
-                    handleSavePost('publish')
+                    handleSavePost('published')
                 }}>
                     {processing && <LoaderCircle className='animate-spin' />}
                     Publish Post

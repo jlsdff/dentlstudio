@@ -44,5 +44,5 @@ export default function useMedia() {
             .finally(() => setProcessing(false))
     }
 
-    return { images, nextUrl, isProcessing, getNextPage }
+    return { images, nextUrl, isProcessing, getNextPage, setImages }
 }

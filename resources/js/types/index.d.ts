@@ -5,7 +5,7 @@ import '@inertiajs/react'
 declare module '@inertiajs/react' {
     export interface PageProps {
         flash: {
-            success?: string | null,
+            success?: string | Media | null,
             post?: Post | null
         }
     }
@@ -95,11 +95,15 @@ export interface Post {
     id: number;
     user: User;
     title: string;
+    description: string;
     status: 'published' | 'draft';
     slug: string;
     content: string;
+    cover_image: string;
+    published_at: string | null;
     created_at: string;
     updated_at: string;
+    tags?: Tag[];
     [key: string]: unknown;
 }
 

@@ -32,6 +32,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/tags', [TagController::class, 'index'])
         ->name('tag.index');
+    Route::post('/tags', [TagController::class, 'store'])
+        ->name('tag.store');
 });
 
 require __DIR__ . '/settings.php';

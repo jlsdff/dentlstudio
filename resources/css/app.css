@@ -170,7 +170,11 @@
 .editor-content {
 
     .tiptap {
-        @apply outline-none px-8 py-4 border rounded-md shadow-md min-h-[180svh];
+        @apply outline-none px-8 py-4 border rounded-md shadow-md min-h-[90svh] ;
+    }
+
+    a {
+        @apply text-blue-500 hover:underline cursor-pointer;
     }
 
     h1 {
@@ -190,7 +194,7 @@
     }
 
     img {
-        @apply max-h-[400px] aspect-video object-contain mb-2;
+        @apply max-h-[400px] aspect-video object-contain mb-2 max-w-[800px];
     }
 
     code {

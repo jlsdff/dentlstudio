@@ -6,6 +6,7 @@ import Image from '@tiptap/extension-image'
 import { router } from "@inertiajs/react";
 import { toast } from "sonner";
 import { Tag } from "@/types";
+import Link from '@tiptap/extension-link';
 
 const extensions = [
     StarterKit.configure({
@@ -14,10 +15,29 @@ const extensions = [
     Heading.configure({
         levels: [1, 2, 3]
     }),
-    Image
+    Image,
+    Link
 ]
 
 const initialContent = '<h1>Title</h1>'
+
+const getTitle = (content: any) => {
+    for (const node of content) {
+        if (node.type === 'heading' && node.attrs?.level === 1) {
+            return node.content?.map((c: any) => c.text).join('') || null;
+        }
+    }
+    return null;
+}
+
+const getCoverImage = (content: any) => {
+    for (const node of content) {
+        if (node.type === 'image') {
+            return node.attrs?.src || null;
+        }
+    }
+    return null;
+}
 
 export default function useEditor({ content }: { content: string | null }) {
 
@@ -43,10 +63,47 @@ export default function useEditor({ content }: { content: string | null }) {
 
     const onSubmit = ({ title, content, status }: { title: string, content: string, status: string }) => {
 
+        const jsonContent = editor?.getJSON();
+
+        const cover = getCoverImage(jsonContent?.content);
+        const blogTitle = getTitle(jsonContent?.content);
+
+        if (!blogTitle) {
+            toast.error("Post must have a title.")
+            return;
+        }
+
+        if (!description) {
+            toast.error("Post description is required.")
+            return
+        }
+
+        if (!cover) {
+            toast.error("Cover image is required.")
+            return;
+        }
+
+        if (selectedTags.length === 0) {
+            toast.error("You must enter atleast one tag.")
+            return;
+        }
+
+        console.log("before:", {
+            title: blogTitle,
+            content: jsonContent,
+            status,
+            cover: cover,
+            description,
+            tags: selectedTags.map(tag => tag.id)
+        })
+
         router.post(route('post.store'), {
-            title,
-            content,
-            status
+            title: blogTitle,
+            content: jsonContent,
+            status,
+            cover: cover,
+            description,
+            tags: selectedTags.map(tag => tag.id)
         }, {
             onStart: () => {
                 setProcessing(true)
@@ -57,8 +114,8 @@ export default function useEditor({ content }: { content: string | null }) {
             onSuccess: () => {
                 toast.success("Post created")
             },
-            onError: () => {
-                toast.error("Somethis went wrong")
+            onError: (errors) => {
+                toast.error(errors.message)
             }
         })
 
