@@ -35,7 +35,22 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'min:2',
+                'unique:App\Models\Tag,name'
+            ]
+        ]);
+
+        $tag = Tag::create($attributes);
+
+        if ($request->wantsJson()) {
+            return response()->json($tag);
+        }
+
+        return back()->with(['success' => $tag]);
     }
 
     /**

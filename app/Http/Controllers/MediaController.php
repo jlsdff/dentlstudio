@@ -37,7 +37,7 @@ class MediaController extends Controller
                 'image',
                 File::types(['png', 'jpg', 'jpeg'])
                     ->max('8mb')
-            ]
+            ],
         ]);
 
         if (request()->hasFile('image')) {
@@ -49,13 +49,13 @@ class MediaController extends Controller
 
             $path = $file->storeAs('photos', $filename, 'public');
 
-            Media::create([
+            $media = Media::create([
                 'path' => $path,
                 'name' => request()->name
             ]);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with(['success' => $media]);
     }
 
     public function create()

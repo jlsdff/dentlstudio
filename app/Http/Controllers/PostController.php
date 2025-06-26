@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -13,11 +14,28 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::paginate(10);
+        $search = $request->query('search');
+        $status = $request->query('status');
+        $orderBy = $request->query('orderBy');
 
-        return Inertia::render('posts/post-index', ['posts' => $posts]);
+        $allowedSortFields = ['title', 'created_at', 'published_at'];
+        $sortColumn = in_array($orderBy, $allowedSortFields) ? $orderBy : 'created_at';
+
+        $posts = Post::query()
+            ->with('tags')
+            ->when($search, fn($q) => $q->where('title', 'like', "%{$search}%"))
+            ->when($status, fn($q) => $q->where('status', $status))
+            ->when($orderBy, fn($q) => $q->where('orderBy', $orderBy))
+            ->orderBy($sortColumn, 'desc')
+            ->paginate(10)
+            ->appends($request->only('search', 'status', 'orderBy'));
+
+        return Inertia::render('posts/post-index', [
+            'posts' => $posts,
+            'filters' => compact('search', 'status', 'orderBy')
+        ]);
     }
 
     public function create()
@@ -29,17 +47,26 @@ class PostController extends Controller
     {
         $attributes = $request->validate([
             'title' => ['required', 'string'],
-            'content' => ['required', 'string'],
-            'status' => ['required', 'string']
+            'content' => ['required', 'array'],
+            'status' => ['string'],
+            'cover' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'tags' => ['required', 'array', 'min:1'],
+            'tags.*' => ['integer', 'distinct']
         ]);
 
         $post = Post::create([
             'title' => $attributes['title'],
-            'content' => $attributes['content'],
-            'status' => $attributes['status'],
-            'user_id' => Auth::user()->id,
+            'content' => json_encode($attributes['content']),
+            'description' => $attributes['description'],
+            'status' => $attributes['status'] ?? 'draft',
+            'cover_image' => $attributes['cover'],
+            'user_id' => Auth::id(),
+            'published_at' => $attributes['status'] === 'published' ? Carbon::now() : null,
             'slug' => Str::slug($attributes['title'])
         ]);
+
+        $post->tags()->sync($attributes['tags']);
 
         return to_route('post.index')->with(['succeess' => true, 'post' => $post]);
     }
