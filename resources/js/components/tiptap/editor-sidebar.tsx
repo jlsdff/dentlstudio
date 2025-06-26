@@ -52,6 +52,7 @@ export default function EditorSidebar({
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="mb-3"
+                rows={8}
             />
             {
                 coverImage && (

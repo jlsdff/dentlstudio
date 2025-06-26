@@ -1,11 +1,12 @@
 import PostCard from "@/components/posts/post-card";
-import { PopoverTrigger } from "@/components/ui/popover";
 import AppLayout from "@/layouts/app-layout";
 import { BreadcrumbItem, Paginate, Post } from "@/types";
 import { Head, Link, usePage } from "@inertiajs/react";
 import { Pen } from "lucide-react";
 import { useEffect } from "react";
 import { toast, Toaster } from "sonner";
+import { SharedData } from "@/types";
+
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -27,20 +28,13 @@ interface PostsProps {
 
 export default function Posts({ posts, filters }: PostsProps) {
 
-    const { success, post } = usePage().props.flash as {
-        success?: string | null,
-        post?: Post | null
-    }
+    const { flash } = usePage<SharedData>().props
 
     useEffect(() => {
-        if (success && post) {
-            toast.success("Post created successfully")
+        if (flash?.success) {
+            toast.success(flash.message)
         }
-    }, [success, post])
-
-    console.log('posts', posts.data)
-
-
+    }, [flash])
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>

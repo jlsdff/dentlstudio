@@ -8,7 +8,7 @@ import { toast } from "sonner";
 import { Tag } from "@/types";
 import Link from '@tiptap/extension-link';
 
-const extensions = [
+export const extensions = [
     StarterKit.configure({
         heading: false
     }),
@@ -61,7 +61,58 @@ export default function useEditor({ content }: { content: string | null }) {
             })
     }, []);
 
-    const onSubmit = ({ title, content, status }: { title: string, content: string, status: string }) => {
+    const onUpdate = ({ status, id }: { title: string, content: string, status: string, id?: number | null }) => {
+
+        const jsonContent = editor?.getJSON();
+
+        const cover = getCoverImage(jsonContent?.content);
+        const blogTitle = getTitle(jsonContent?.content);
+
+        if (!blogTitle) {
+            toast.error("Post must have a title.")
+            return;
+        }
+
+        if (!description) {
+            toast.error("Post description is required.")
+            return
+        }
+
+        if (!cover) {
+            toast.error("Cover image is required.")
+            return;
+        }
+
+        if (selectedTags.length === 0) {
+            toast.error("You must enter atleast one tag.")
+            return;
+        }
+
+        router.patch(route('post.update', { id: id }), {
+            title: blogTitle,
+            content: jsonContent,
+            status,
+            cover: cover,
+            description,
+            tags: selectedTags.map(tag => tag.id)
+        }, {
+            onStart: () => {
+                setProcessing(true)
+            },
+            onFinish: () => {
+                setProcessing(false)
+            },
+            onSuccess: () => {
+                toast.success("Post created")
+            },
+            onError: (errors) => {
+                toast.error(errors.message)
+            }
+        })
+
+    }
+
+    const onSubmit = ({ status }: { title: string, content: string, status: string, id?: number }) => {
 
         const jsonContent = editor?.getJSON();
 
@@ -131,6 +182,7 @@ export default function useEditor({ content }: { content: string | null }) {
     return {
         editor,
         save: onSubmit,
+        update: onUpdate,
         processing,
         description,
         setDescription,
@@ -139,6 +191,6 @@ export default function useEditor({ content }: { content: string | null }) {
         tags,
         setTags,
         selectedTags,
-        setSelectedTags
+        setSelectedTags,
     }
 }

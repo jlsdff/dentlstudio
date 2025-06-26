@@ -29,6 +29,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('post.index');
     Route::post('/post', [PostController::class, 'store'])
         ->name('post.store');
+    Route::get('/post/{slug}/edit', [PostController::class, 'edit'])
+        ->name('post.edit');
+    Route::patch('/post/{post}', [PostController::class, 'update'])
+        ->name('post.update');
+    Route::get('/post/{slug}', [PostController::class, 'show'])
+        ->name('post.show');
+    Route::delete('/post/{post}', [PostController::class, 'destroy'])
+        ->name('post.destroy');
 
     Route::get('/tags', [TagController::class, 'index'])
         ->name('tag.index');

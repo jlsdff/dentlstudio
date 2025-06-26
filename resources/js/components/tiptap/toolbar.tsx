@@ -19,14 +19,16 @@ import {
 } from 'lucide-react'
 import MediaSheet from '../media/media-sheet'
 import LinkButton from './link-mark'
+import { Post } from '@/types'
 
 interface TiptapToolbarProps {
-    editor: Editor | null
-    save: ({ title, content, status }: { title: string, content: string, status: string }) => void,
-    processing: boolean
+    editor: Editor | null;
+    save: ({ title, content, status, id }: { title: string, content: string, status: string, id?: number }) => void;
+    processing: boolean;
+    post?: Post
 }
 
-const TiptapToolbar = ({ editor, save, processing }: TiptapToolbarProps) => {
+const TiptapToolbar = ({ editor, save, processing, post }: TiptapToolbarProps) => {
 
     if (!editor) {
         return null
@@ -36,7 +38,8 @@ const TiptapToolbar = ({ editor, save, processing }: TiptapToolbarProps) => {
         save({
             title: "Sample Blog",
             content: editor.getHTML(),
-            status: status
+            status: status,
+            id: post?.id
         })
     }
 
