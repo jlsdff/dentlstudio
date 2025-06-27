@@ -5,6 +5,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\AppointmentController;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
@@ -42,6 +43,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('tag.index');
     Route::post('/tags', [TagController::class, 'store'])
         ->name('tag.store');
+
+    Route::get('/appointments/index', [AppointmentController::class, 'index'])
+        ->name('appointment.index');
 });
 
 require __DIR__ . '/settings.php';

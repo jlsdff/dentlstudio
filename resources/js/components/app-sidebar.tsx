@@ -20,7 +20,7 @@ const mainNavItems: NavItem[] = [
     },
     {
         title: 'Appointments',
-        href: '/appointments',
+        href: '/appointments/index',
         icon: CalendarCheck,
     },
     {
