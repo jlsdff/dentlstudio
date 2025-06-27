@@ -32,8 +32,6 @@ export default function Posts({ posts }: PostsProps) {
 
     const { flash } = usePage<SharedData>().props
 
-    console.log("posts", posts)
-
     useEffect(() => {
         if (flash?.success) {
             toast.success(flash.message)
@@ -71,12 +69,12 @@ export default function Posts({ posts }: PostsProps) {
             <div className="flex justify-center gap-4 py-6">
                 {posts.prev_page_url && (
                     <Button variant="outline" asChild>
-                        <Link href={posts.prev_page_url}>Previous</Link>
+                        <Link href={posts.prev_page_url} prefetch preserveState preserveScroll>Previous</Link>
                     </Button>
                 )}
                 {posts.next_page_url && (
                     <Button asChild>
-                        <Link href={posts.next_page_url}>Next</Link>
+                        <Link href={posts.next_page_url} prefetch preserveState preserveScroll>Next</Link>
                     </Button>
                 )}
             </div>
