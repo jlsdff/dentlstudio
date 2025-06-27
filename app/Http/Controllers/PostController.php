@@ -102,7 +102,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
 
-        if ($request->change_status) {
+        if ($request->has('change_status')) {
 
             $attr = $request->validate([
                 'change_status' => ['required', 'string']
