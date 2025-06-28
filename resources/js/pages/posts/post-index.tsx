@@ -57,7 +57,7 @@ export default function Posts({ posts }: PostsProps) {
             </section>
             <div className="px-4 py-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
                 {
-                    posts.data.length === 0 && <p className="text-center col-span-3 font-semibold">No blog post written yet.</p>
+                    posts.data.length === 0 && <p className="text-center col-span-3 font-semibold">No blog posts found or nothing matches your search.</p>
                 }
                 {
                     posts.data.map(post => (
