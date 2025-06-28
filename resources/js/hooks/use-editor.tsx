@@ -7,6 +7,7 @@ import { router } from "@inertiajs/react";
 import { toast } from "sonner";
 import { Tag } from "@/types";
 import Link from '@tiptap/extension-link';
+import Youtube from '@tiptap/extension-youtube'
 
 export const extensions = [
     StarterKit.configure({
@@ -16,7 +17,8 @@ export const extensions = [
         levels: [1, 2, 3]
     }),
     Image,
-    Link
+    Link,
+    Youtube
 ]
 
 const initialContent = '<h1>Title</h1>'

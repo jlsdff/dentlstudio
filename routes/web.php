@@ -14,7 +14,8 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
+        // return Inertia::render('dashboard');
+        return to_route('post.index');
     })->name('dashboard');
 
     Route::get('/medias', [MediaController::class, 'index'])

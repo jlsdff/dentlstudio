@@ -20,6 +20,8 @@ import {
 import MediaSheet from '../media/media-sheet'
 import LinkButton from './link-mark'
 import { Post } from '@/types'
+import Youtube from '@tiptap/extension-youtube'
+import YouTubeButton from './youtube-node'
 
 interface TiptapToolbarProps {
     editor: Editor | null;
@@ -169,6 +171,8 @@ const TiptapToolbar = ({ editor, save, processing, post }: TiptapToolbarProps) =
                 >
                     <Quote className="h-4 w-4" />
                 </Button>
+
+                <YouTubeButton editor={editor} />
 
                 <Separator orientation="vertical" className="h-6" />
 

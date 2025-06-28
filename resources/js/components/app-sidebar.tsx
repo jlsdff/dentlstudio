@@ -8,36 +8,36 @@ import { BookOpen, Folder, LayoutGrid, NotebookPen, CalendarCheck, Users, Files 
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
-    {
-        title: 'Dashboard',
-        href: '/dashboard',
-        icon: LayoutGrid,
-    },
+    // {
+    //     title: 'Dashboard',
+    //     href: '/dashboard',
+    //     icon: LayoutGrid,
+    // },
     {
         title: 'Post',
         href: '/post',
         icon: NotebookPen,
     },
-    {
-        title: 'Appointments',
-        href: '/appointments/index',
-        icon: CalendarCheck,
-    },
+    // {
+    //     title: 'Appointments',
+    //     href: '/appointments/index',
+    //     icon: CalendarCheck,
+    // },
     {
         title: 'Media',
         href: '/medias',
         icon: Files
     },
-    {
-        title: 'Services',
-        href: '/services',
-        icon: CalendarCheck,
-    },
-    {
-        title: 'Employees',
-        href: '/employees',
-        icon: Users,
-    }
+    // {
+    //     title: 'Services',
+    //     href: '/services',
+    //     icon: CalendarCheck,
+    // },
+    // {
+    //     title: 'Employees',
+    //     href: '/employees',
+    //     icon: Users,
+    // }
 ];
 
 const footerNavItems: NavItem[] = [
@@ -73,7 +73,7 @@ export function AppSidebar() {
             </SidebarContent>
 
             <SidebarFooter>
-                <NavFooter items={footerNavItems} className="mt-auto" />
+                {/* <NavFooter items={footerNavItems} className="mt-auto" /> */}
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

@@ -194,11 +194,15 @@
     }
 
     img {
-        @apply max-w-full aspect-video object-contain mb-2 ;
+        @apply max-w-full aspect-video object-contain mb-2 max-h-[480px] ;
     }
 
     code {
         @apply p-4 bg-slate-900 text-white rounded-md w-full ;
+    }
+
+    blockquote {
+        @apply border-l-4 border-l-foreground/80 bg-foreground/5 py-3 px-4 my-3 rounded-md ;
     }
 
     ul {
