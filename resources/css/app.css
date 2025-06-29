@@ -13,7 +13,7 @@
         'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
     --font-serif:
-        'Bitter', ui-serif, Georgia, Cambria, serif;
+        "Playfair Display", 'Bitter', ui-serif, Georgia, Cambria, serif;
 
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
@@ -187,6 +187,10 @@
 
     h3 {
         @apply text-xl tracking-wider font-semibold mb-1 mt-4;
+    }
+
+    h4, h5, h6 {
+        @apply font-semibold text-lg;
     }
 
     p {

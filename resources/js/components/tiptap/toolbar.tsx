@@ -16,6 +16,9 @@ import {
     Redo,
     Type,
     LoaderCircle,
+    Heading4,
+    Heading5,
+    Heading6,
 } from 'lucide-react'
 import MediaSheet from '../media/media-sheet'
 import LinkButton from './link-mark'
@@ -95,6 +98,32 @@ const TiptapToolbar = ({ editor, save, processing, post }: TiptapToolbarProps) =
                     className="h-8 px-2"
                 >
                     <Heading3 className="h-4 w-4" />
+                </Button>
+
+                <Button
+                    variant={editor.isActive('heading', { level: 4 }) ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
+                    className="h-8 px-2"
+                >
+                    <Heading4 className='h-4 w-4' />
+                </Button>
+
+                <Button
+                    variant={editor.isActive('heading', { level: 5 }) ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
+                    className="h-8 px-2"
+                >
+                    <Heading5 className='h-4 w-4' />
+                </Button>
+                <Button
+                    variant={editor.isActive('heading', { level: 6 }) ? 'default' : 'ghost'}
+                    size="sm"
+                    onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
+                    className="h-8 px-2"
+                >
+                    <Heading6 className='h-4 w-4' />
                 </Button>
                 <Button
                     variant={editor.isActive('paragraph') ? 'default' : 'ghost'}
