@@ -6,10 +6,25 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ClientPostController;
+
+use App\Models\Post;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
+
+Route::get('/blog/{slug}', [ClientPostController::class, 'show'])
+    ->name('blogs.show');
+Route::get('/blogs', [ClientPostController::class, 'index'])
+    ->name('blogs.index');
+
+Route::get('/sample', function () {
+
+    $post = Post::find(8);
+
+    return response()->json($post);
+});
 
 Route::middleware(['auth', 'verified'])->group(function () {
 
@@ -35,8 +50,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('post.edit');
     Route::patch('/post/{post}', [PostController::class, 'update'])
         ->name('post.update');
-    Route::get('/post/{slug}', [PostController::class, 'show'])
-        ->name('post.show');
     Route::delete('/post/{post}', [PostController::class, 'destroy'])
         ->name('post.destroy');
 
