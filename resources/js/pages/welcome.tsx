@@ -4,13 +4,18 @@ import { Head, Link, usePage } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitText from 'gsap/dist/SplitText';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExpoScaleEase } from "gsap/EasePack";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useRef, useEffect, useState } from 'react';
 import { NavigationBar } from '@/components/ui/nav-bar';
 import { ChevronRight } from 'lucide-react';
+import { ArrowUp, ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
+import ContactUs from '@/components/home-pages/contact-us';
+import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
+// import Footer from '@/components/home-pages/footer';
 
-gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase);
+gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 
 export default function Welcome() {
 
@@ -23,7 +28,7 @@ export default function Welcome() {
     useEffect(() => {
         const handleScroll = () => {
             if (header.current) {
-                const headerHeight = header.current.offsetHeight / 4;
+                const headerHeight = header.current.offsetHeight / 6;
                 setScrolledPastHeader(window.scrollY >= headerHeight);
             }
         };
@@ -122,7 +127,7 @@ export default function Welcome() {
     return (
         <>
 
-            <Head title="Welcome">
+            <Head title="Home">
                 <link rel="preconnect" href="https://fonts.bunny.net" />
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -132,8 +137,8 @@ export default function Welcome() {
 
 
             <div ref={wrapper} >
+
                 {/* <div ref={loading} aria-hidden> */}
-                {/**/}
                 {/*     <div className='fixed top-0 left-0 z-50 h-screen w-screen flex'> */}
                 {/*         <div className='bg-black flex-1 sec-1' /> */}
                 {/*         <div className='mid-div w-[2px] bg-gray-600/50 absolute top-0 left-1/2 h-screen' /> */}
@@ -152,80 +157,467 @@ export default function Welcome() {
 
                 <header ref={header} className='h-[100svh] overflow-hidden relative'>
                     <video
-                        className="absolute top-0 left-0 w-full h-full object-cover z-0 bg-black-900"
+                        className="absolute top-0 left-0 w-full h-full object-cover z-0"
                         autoPlay
                         loop
                         muted
                         playsInline
-                        poster="/matte.jpg"
+                        poster="/thedentlstudio.jpg"
                         preload='auto'
                     >
-                        <source src="/thedentlstudio.mp4" type="video/mp4" />
+                        <source src="/thedentlstudio.webm" type="video/webm" />
                     </video>
-                    <div className="absolute inset-0 bg-black/30 z-0" />
-                    <div className="relative z-10 flex flex-col items-start justify-end h-full p-16 gap-4 max-w-4xl">
+                    <div className="absolute inset-0 bg-stone-950/30 z-0" />
+                    <div className="relative z-10 flex flex-col items-center justify-end h-full p-16 gap-4">
                         <div className='overflow-hidden'>
-                            <h1 className="hero text-white text-center sm:text-left text-2xl sm:text-5xl font-light font-serif tracking-widest">Smile with Confidence</h1>
+                            <h1 className="hero text-soft-100 text-center text-2xl sm:text-5xl font-light font-serif tracking-widest">Where Comfort Meets Excellence</h1>
                         </div>
-                        <div className='overflow-hidden'>
-                            <p className='hero text-white text-sm text-center sm:text-left sm:text-lg '>Where innovation meets the senses — personalised, honest, and exceptional care.</p>
-                        </div>
+                        {/* <div className='overflow-hidden'> */}
+                        {/*     <p className='hero text-white text-sm text-center sm:text-left sm:text-lg '>Where innovation meets the senses — personalised, honest, and exceptional care.</p> */}
+                        {/* </div> */}
                     </div>
                 </header>
 
                 <main>
-                    <section className='min-h-[90svh] bg-white' id="main">
 
-                        <div className='inset-4 h-full w-full bg-stone-950 p-4 sm:p-16 text-soft-200 '>
-                            <h2 className='mb-2 sm:mb-4 text-center sm:text-left'>Our services</h2>
-                            <div className='flex flex-col sm:flex-row items-center'>
-                                <div className='flex-1'>
-                                    <h3 className='mb-8 sm:mb-0 text-6xl sm:text-8xl font-serif text-center sm:text-left' >
-                                        Certified
-                                        <br />
-                                        Excellence
-                                    </h3>
-                                </div>
-                                <div className='w-full sm:max-w-sm'>
-                                    <p className='text-sm text-justify '>
-                                        Experience modern dentistry redefined — from LED whitening in our comfort lounge to advanced veneers and clear aligners. We blend cutting-edge tech with a serene, spa-like atmosphere to make every visit feel indulgent.
-                                    </p>
-                                    <div className='flex justify-around mt-4 font-bold text-base'>
-                                        <button className="group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
-                                            <ChevronRight
-                                                className="absolute -left-7 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
-                                                size={20}
-                                            />
-                                            <span className="transition-all duration-300 group-hover:translate-x-2">
-                                                View All Services
-                                            </span>
-                                        </button>
+                    <Services />
 
-                                        <button className="group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
-                                            <ChevronRight
-                                                className="absolute -left-7 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
-                                                size={20}
-                                            />
-                                            <span className="transition-all duration-300 group-hover:translate-x-2">
-                                                Book now
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                    <AboutUs />
 
-                            <div className='mt-4'>
-                                <div className='w-64 h-65 bg-soft-200
-                                    clip-service-card
-                                    ' >
-                                </div>
-                            </div>
+                    <ContactUs />
 
+                </main>
+
+                <Footer />
+            </div>
+        </ >
+    );
+}
+
+export function Footer() {
+
+    const scrollButton = useRef<HTMLButtonElement>(null)
+
+    const { contextSafe } = useGSAP({ scope: scrollButton })
+
+    const handleScroll = contextSafe(() => {
+        gsap.to(
+            window,
+            {
+                scrollTo: {
+                    y: 0
+                },
+                duration: 2,
+                ease: 'power3.inOut'
+            }
+        )
+    })
+
+    return (
+        <footer className="min-h-[50svh] relative bg-soft-200 ">
+
+            <div className="flex flex-col md:flex-row px-4 py-16 sm:p-16">
+                <div className="flex-1">
+                    <div>
+                        <img src="/logo.png" alt="The Dentl Studio Logo" />
+                    </div>
+                    <div>
+                        <p className="text-sm mt-2 font-semibold tracking-wide max-w-sm">
+                            Elevating dental care through honesty, quality, and a refined patient experience.
+                        </p>
+                    </div>
+                    <div className="flex gap-2 mt-5">
+                        <a
+                            href="https://www.facebook.com/profile.php?id=61561100413918"
+                            target="_blank"
+                            className=" size-8 rounded-full bg-stone-900 flex justify-center items-center ">
+                            <Facebook size={18} className="text-soft-200" />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/thedentlstudio"
+                            target="_blank"
+                            className=" size-8 rounded-full bg-stone-900 flex justify-center items-center ">
+                            <Instagram size={18} className="text-soft-200" />
+                        </a>
+                        <a
+                            href="mailto:info@thedentlstudio.com"
+                            target="_blank"
+                            className=" size-8 rounded-full bg-stone-900 flex justify-center items-center ">
+                            <Mail size={18} className="text-soft-200" />
+                        </a>
+                    </div>
+
+                    <div className="mt-4 ">
+                        <button
+                            ref={scrollButton}
+                            className="flex gap-2 items-center px-4 py-2 border rounded-md border-stone-500 cursor-pointer  "
+                            onClick={handleScroll}
+                        >
+                            <ChevronsUp />
+                            Back to top
+                        </button>
+                    </div>
+                </div>
+                <div className="min-w-[200px]">
+                    <h3 className="text-xl font-semibold">Useful Links</h3>
+                    <ul className='text-lg  '>
+                        <li>
+                            <a href="" className="hover:underline duration-900 ease-in " >
+                                Homepage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" className="hover:underline">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" className="hover:underline">
+                                About us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" className="hover:underline">
+                                Blogs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" className="hover:underline">
+                                Gallery
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                {/* Services */}
+                <div className="w-xs">
+                    <h3 className="text-lg font-semibold">Services</h3>
+                    <ul>
+                        <li>
+                            <a href="" className="hover:underline" >
+                                Homepage
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" className="hover:underline">
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" className="hover:underline">
+                                Blogs
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div className="bg-stone-900 w-full min-h-8 py-2 flex flex-col items-center justify-center text-soft-200 ">
+                <p className="text-xs">Copyright (c) {new Date().getFullYear()} The Dentl Studio. All Rights Reserved.</p>
+                <p className="text-xs">Developed by Julius Terrence Duff</p>
+            </div>
+        </footer>
+    )
+}
+
+
+
+function AboutUs() {
+
+    const aboutus = useRef<HTMLElement>(null);
+
+    const init = 'text-soft-300 bg-stone-950'
+    const exec = 'text-stone-950 bg-soft-200'
+
+    useGSAP(() => {
+
+        const el = aboutus.current;
+        if (!el) return;
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: aboutus.current,
+                start: 'top 60%',
+                toggleActions: 'play none none none',
+                onEnter: () => {
+                    el?.classList.remove(...init.split(' '));
+                    el?.classList.add(...exec.split(' '))
+                }
+            },
+
+        });
+
+        gsap.to('.img', {
+            scrollTrigger: {
+                trigger: '.img',
+                endTrigger: '.list',
+                start: 'top top',
+                end: 'bottom bottom',
+                toggleActions: 'play paused none none',
+                pin: true,
+            },
+        })
+
+
+    }, { scope: aboutus })
+
+    return (
+        <>
+            <section ref={aboutus} className={`min-h-[90svh] px-4 py-16 sm:p-16 ${init} duration-1000 ease-out `}>
+
+                <div className='text-center block sm:hidden'>
+                    <h2 className='mb-2 sm:mb-4 text-center sm:text-left'>About us</h2>
+                    <h3 className='text-4xl sm:text-8xl font-semibold font-serif text-center sm:text-left tracking-wider'>
+                        Why Choose us?
+                    </h3>
+                </div>
+
+                <div className='mt-8 flex gap-0 sm:gap-4'>
+
+                    <div className='hidden sm:block w-1/2 '>
+
+                        <div className='img sm:pt-[125px]'>
+                            <h2 className='mb-2 sm:mb-4 text-center sm:text-left'>About us</h2>
+                            <h3 className='  text-4xl sm:text-8xl font-semibold font-serif text-center sm:text-left tracking-wider'>
+                                Why <br /> Choose <br /> us?
+                            </h3>
                         </div>
 
-                    </section>
-                </main>
-            </div>
+                    </div>
+
+                    <div className=' w-full sm:w-1/2 list '>
+
+                        <div className=' py-4 sm:pt-[125px] '>
+                            <h4 className='text-xl font-semibold'>Patient-Centred Philosophy</h4>
+                            <p className='text-lg tracking-wider leading-8'>Your comfort, needs, and goals guide every decision we make. At The Dentl Studio, you're not just a patient – you're a partner in your dental health journey.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Exceptional Quality & Expertise</h4>
+                            <p className='text-lg tracking-wider leading-8'>Our highly trained clinicians combine years of experience with the latest techniques to deliver premium dental care with no compromises.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Sincere, Transparent Care</h4>
+                            <p className='text-lg tracking-wider leading-8'>We believe in honesty and clarity. From treatment plans to pricing, you’ll always know where you stand—no surprises, just genuine care.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Sensory Dental Experience</h4>
+                            <p className='text-lg tracking-wider leading-8'>We’ve reimagined the dental visit by curating a sensory environment that engages all five senses. Step into a space that’s calming, immersive, and designed to change the way you feel about dentistry.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Complimentary Cosmetic Consultations</h4>
+                            <p className='text-lg tracking-wider leading-8'>Curious about enhancing your smile? Book a free cosmetic consultation and discover what's possible—obligation-free.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>New Patient Welcome Offer</h4>
+                            <p className='text-lg tracking-wider leading-8'>We make it easy to get started with a full check-up and professional clean for just $199. A perfect introduction to our comprehensive care.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Convenience Without Compromise</h4>
+                            <p className='text-lg tracking-wider leading-8'>From online bookings to extended hours and central Melbourne location, we make great dental care easy and accessible for busy lives.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Respect for Every Individual</h4>
+                            <p className='text-lg tracking-wider leading-8'>We proudly serve Melbourne’s diverse community with cultural sensitivity, inclusivity, and a deep respect for every patient’s background and story.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Sustainable Dental Practice</h4>
+                            <p className='text-lg tracking-wider leading-8'>Our clinic takes environmental responsibility seriously. We’re committed to eco-conscious practices that protect your health—and the planet.</p>
+                        </div>
+
+                        <div className=' py-4 sm:py-[25px] '>
+                            <h4 className='text-xl font-semibold'>Long-Term Relationships, Not One-Off Visits</h4>
+                            <p className='text-lg tracking-wider leading-8'>We’re here for you beyond a single appointment. Our goal is to build lifelong trust and support your dental health for the long haul.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
         </>
-    );
+    )
+}
+
+function Services() {
+
+    const services = useRef(null);
+
+    useGSAP(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: services.current,
+                toggleActions: 'play none none none',
+                start: 'top 75%'
+            }
+        });
+        tl.from('.service-text', {
+            autoAlpha: 0,
+            duration: 1,
+            y: 100,
+            ease: 'power3.out',
+        }).from('.cards', {
+            autoAlpha: 0,
+            x: 50,
+            ease: 'power3.out',
+            duration: 1,
+            stagger: 0.1,
+        })
+    }, { scope: services })
+
+    return (
+        <>
+            <section ref={services} className='min-h-[90svh]' id="main">
+
+                <div className='inset-4 h-full w-full bg-stone-950 px-4 py-16 sm:p-16 text-soft-200 '>
+                    <h2 className='service-text mb-2 sm:mb-4 text-center sm:text-left'>Our services</h2>
+                    <div className='flex flex-col sm:flex-row sm:items-end'>
+                        <div className='flex-1'>
+                            <h3 className='service-text mb-8 sm:mb-0 text-6xl sm:text-8xl font-serif text-center sm:text-left text-soft-300' >
+                                Certified
+                                <br />
+                                Excellence
+                            </h3>
+                        </div>
+                        <div className='w-full sm:max-w-sm'>
+                            <p className='service-text text-sm text-justify '>
+                                Experience modern dentistry redefined — from LED whitening in our comfort lounge to advanced veneers and clear aligners. We blend cutting-edge tech with a serene, spa-like atmosphere to make every visit feel indulgent.
+                            </p>
+                            <div className='flex justify-around mt-4 font-bold text-base'>
+                                <button className="service-text group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
+                                    <ChevronRight
+                                        className="absolute -left-7 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
+                                        size={20}
+                                    />
+                                    <span className="transition-all duration-300 group-hover:translate-x-2">
+                                        View All Services
+                                    </span>
+                                </button>
+
+                                <button className="service-text group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
+                                    <ChevronRight
+                                        className="absolute -left-7 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
+                                        size={20}
+                                    />
+                                    <span className="transition-all duration-300 group-hover:translate-x-2">
+                                        Book now
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Cards */}
+                    <div className='flex gap-4 mt-4 sm:mt-8 overflow-x-auto pb-4 scrollbar-minimal'>
+
+                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden transition-all duration-500
+                                        ease-out bg-[url(services/1.jpg)] bg-center bg-cover
+                                        '>
+                                <div className='absolute inset-0 bg-[url(services/1.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Teeth Whitening</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden
+                                        '>
+                                <div className='absolute inset-0 bg-[url(services/2.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Dental Hygiene</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden
+                                        '>
+                                <div className='absolute inset-0 bg-[url(services/3.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Invisalign</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden
+                                        '>
+                                <div className='absolute inset-0 bg-[url(services/4.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Mouthguards</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden
+                                        '>
+                                <div className='absolute inset-0 bg-[url(services/3.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Invisalign</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden
+                                        '>
+                                <div className='absolute inset-0 bg-[url(services/4.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Mouthguards</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='cards w-64 h-92 rounded-xl flex items-center p-4
+                                        group
+                                        '>
+                            <p>See More</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+        </>
+    )
 }

@@ -148,13 +148,15 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
             </div>
 
             <div className="overflow-y-hidden z-42 p-1">
-                <a
-                    className={`px-4 py-2 inline-block nav-item text-sm rounded-md bg-soft-500 text-soft-200 hover:bg-soft-600 transition-all duration-300 shadow-lg`}
-                    href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
-                    target="_blank"
-                >
-                    Book Now
-                </a>
+                <div className="nav-item">
+                    <a
+                        className={`px-4 py-2 inline-block text-sm rounded-md bg-soft-500 text-soft-200 hover:bg-soft-600 transition-all duration-300 shadow-lg`}
+                        href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
+                        target="_blank"
+                    >
+                        Book Now
+                    </a>
+                </div>
             </div>
 
             <div ref={navMenu} id="nav-menu" className="fixed w-screen h-screen top-0 left-0 bg-soft-500/10 backdrop-blur z-100 bg-black/30 opacity-0 invisible">
