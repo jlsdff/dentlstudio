@@ -219,7 +219,7 @@ export function Footer() {
             <div className="flex flex-col md:flex-row px-4 py-16 sm:p-16">
                 <div className="flex-1">
                     <div>
-                        <img src="/logo.png" alt="The Dentl Studio Logo" />
+                        <img src="/logo.png" alt="The Dentl Studio Logo" className='-mx-5' />
                     </div>
                     <div>
                         <p className="text-sm mt-2 font-semibold tracking-wide max-w-sm">
