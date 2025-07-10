@@ -7,12 +7,20 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ClientPostController;
-
 use App\Models\Post;
 
 Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
+
+Route::get('/service', function () {
+    return Inertia::render('service');
+})->name('service');
+
+Route::get('/about-us', function () {
+    return Inertia::render('about-us');
+})->name('about-us');
+
 
 Route::get('/blog/{slug}', [ClientPostController::class, 'show'])
     ->name('blogs.show');

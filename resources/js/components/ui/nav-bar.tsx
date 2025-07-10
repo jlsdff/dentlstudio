@@ -159,7 +159,8 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
                 </div>
             </div>
 
-            <div ref={navMenu} id="nav-menu" className="fixed w-screen h-screen top-0 left-0 bg-soft-500/10 backdrop-blur z-100 bg-black/30 opacity-0 invisible">
+            <div ref={navMenu} id="nav-menu"
+                className="fixed w-screen h-screen top-0 left-0 bg-soft-500/10 backdrop-blur z-100 bg-black/30 opacity-0 invisible">
                 <div className="nav-items w-full md:w-1/3 h-screen p-6 bg-stone-950 ">
 
                     <button className="flex gap-2 items-center w-full text-lg mb-12 cursor-pointer" onClick={() => setOpen(prev => !prev)}>

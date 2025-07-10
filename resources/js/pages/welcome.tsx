@@ -7,22 +7,20 @@ import SplitText from 'gsap/dist/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExpoScaleEase } from "gsap/EasePack";
 import { TextPlugin } from "gsap/TextPlugin";
+import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
 import { useRef, useEffect, useState } from 'react';
 import { NavigationBar } from '@/components/ui/nav-bar';
 import { ChevronRight } from 'lucide-react';
 import { ArrowUp, ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
 import ContactUs from '@/components/home-pages/contact-us';
-import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
 // import Footer from '@/components/home-pages/footer';
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 
 export default function Welcome() {
 
-    const { auth } = usePage<SharedData>().props;
     const wrapper = useRef<HTMLDivElement>(null)
     const header = useRef<HTMLDivElement>(null)
-    const loading = useRef(null)
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
 
     useEffect(() => {
@@ -258,31 +256,32 @@ export function Footer() {
                         </button>
                     </div>
                 </div>
+
                 <div className="min-w-[200px]">
                     <h3 className="text-xl font-semibold">Useful Links</h3>
                     <ul className='text-lg  '>
                         <li>
-                            <a href="" className="hover:underline duration-900 ease-in " >
+                            <a href="/" className="hover:underline duration-900 ease-in " >
                                 Homepage
                             </a>
                         </li>
                         <li>
-                            <a href="" className="hover:underline">
+                            <a href="/contact-us" className="hover:underline">
                                 Contact Us
                             </a>
                         </li>
                         <li>
-                            <a href="" className="hover:underline">
+                            <a href="/about-us" className="hover:underline">
                                 About us
                             </a>
                         </li>
                         <li>
-                            <a href="" className="hover:underline">
+                            <a href="/blogs" className="hover:underline">
                                 Blogs
                             </a>
                         </li>
                         <li>
-                            <a href="" className="hover:underline">
+                            <a href="/gallery" className="hover:underline">
                                 Gallery
                             </a>
                         </li>
@@ -290,30 +289,36 @@ export function Footer() {
 
                 </div>
                 {/* Services */}
-                <div className="w-xs">
-                    <h3 className="text-lg font-semibold">Services</h3>
-                    <ul>
+                <div className="min-w-[200px]">
+                    <h3 className="text-xl font-semibold">Services</h3>
+                    <ul className='text-lg  '>
                         <li>
-                            <a href="" className="hover:underline" >
-                                Homepage
+                            <a href="" className="hover:underline duration-900 ease-in ">
+                                General Dentistry
                             </a>
                         </li>
                         <li>
                             <a href="" className="hover:underline">
-                                Services
+                                Cosmetic Dentistry
                             </a>
                         </li>
                         <li>
                             <a href="" className="hover:underline">
-                                Blogs
+                                Restorative Dentistry
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" className="hover:underline">
+                                Oral Dentistry
                             </a>
                         </li>
                     </ul>
+
                 </div>
+
             </div>
             <div className="bg-stone-900 w-full min-h-8 py-2 flex flex-col items-center justify-center text-soft-200 ">
                 <p className="text-xs">Copyright (c) {new Date().getFullYear()} The Dentl Studio. All Rights Reserved.</p>
-                <p className="text-xs">Developed by Julius Terrence Duff</p>
             </div>
         </footer>
     )
@@ -490,7 +495,10 @@ function Services() {
                                 Experience modern dentistry redefined — from LED whitening in our comfort lounge to advanced veneers and clear aligners. We blend cutting-edge tech with a serene, spa-like atmosphere to make every visit feel indulgent.
                             </p>
                             <div className='flex justify-around mt-4 font-bold text-base'>
-                                <button className="service-text group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
+                                <Link
+                                    href={route('service')}
+                                    prefetch="hover"
+                                    className="service-text group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
                                     <ChevronRight
                                         className="absolute -left-7 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
                                         size={20}
@@ -498,7 +506,7 @@ function Services() {
                                     <span className="transition-all duration-300 group-hover:translate-x-2">
                                         View All Services
                                     </span>
-                                </button>
+                                </Link>
 
                                 <button className="service-text group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
                                     <ChevronRight
