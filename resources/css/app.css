@@ -200,18 +200,6 @@
 
 }
 
-.clip-service-card {
-  clip-path: polygon(
-    0% 0%,         /* top-left */
-    100% 0%,       /* top-right */
-    100% 68%,      /* bottom-right "start" */
-    72% 68%,       /* inward step before bottom-right */
-    72% 100%,      /* bottom-right "inner corner" */
-    0% 100%        /* bottom-left */
-  );
-}
-
-
 .editor-content {
     @apply outline-none ;
 }
@@ -270,6 +258,37 @@
         @apply list-decimal ml-4;
     }
 
+}
+
+.scrollbar-hidden {
+
+}
+
+.scrollbar-minimal {
+  scrollbar-width: thin;
+  scrollbar-color: #bbb transparent;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.scrollbar-minimal::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  border-radius: "0px",
+}
+
+.scrollbar-minimal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-thumb {
+  background-color: #bbb;
+  border-radius: 0;
+  border: none;
 }
 
 
