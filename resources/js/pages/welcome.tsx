@@ -319,12 +319,11 @@ export function Footer() {
             </div>
             <div className="bg-stone-900 w-full min-h-8 py-2 flex flex-col items-center justify-center text-soft-200 ">
                 <p className="text-xs">Copyright (c) {new Date().getFullYear()} The Dentl Studio. All Rights Reserved.</p>
+                <p className="text-xs">Developed by john doe</p>
             </div>
         </footer>
     )
 }
-
-
 
 function AboutUs() {
 

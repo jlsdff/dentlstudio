@@ -38,9 +38,8 @@ export default function Services() {
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
             </Head>
-            <div>
-                <NavigationBar scrolled={scrolledPastHeader} />
-            </div>
+
+            <NavigationBar scrolled={scrolledPastHeader} />
 
             <header
                 ref={header}
@@ -87,7 +86,7 @@ export default function Services() {
                         <div className="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'emergency-dentistry' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -101,7 +100,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'checkup-and-cleans' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -115,7 +114,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'teeth-grinding' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -129,7 +128,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'root-canals' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -143,7 +142,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'tmj-treatment' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -157,7 +156,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'sports-mouthguards' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -171,7 +170,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'childrens-dentistry' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -185,7 +184,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'oral-cancer-screenings' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -210,7 +209,7 @@ export default function Services() {
 
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'veneers' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -224,7 +223,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'teeth-whitening' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -238,7 +237,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'smile-makeover' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -252,7 +251,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'dental-bonding' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -266,7 +265,7 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href=""
+                                href={route('service.show', { slug: 'crown-lengthening' })}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
@@ -278,42 +277,192 @@ export default function Services() {
                                     Reshape your gumline to create a more balanced, even smile—ideal for a “gummy” smile.
                                 </p>
                             </Link>
+
+
+                            <Link
+                                href={route('service.show', { slug: 'dental-contouring' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/contouring.jpg" alt="Dental Contouring"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Dental Contouring</h3>
+                                <p className="text-sm">
+                                    Refine the shape of uneven or slightly misshapen teeth for a more harmonious appearance.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'cosmetic-injectables-fillers' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/cosmetic-injectables.jpg" alt="Cosmetic Injectables and Fillers"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Cosmetic Injectables and Fillers</h3>
+                                <p className="text-sm">
+                                    Enhance facial symmetry and soften lines with carefully placed injectables, complementing your smile.
+                                </p>
+                            </Link>
+
                         </div>
                     </div>
 
-                    <div className="">
-                        <h2 className="text-center text-2xl font-bold ">Restorative Dentistry</h2>
-                        <p className="text-center mt-2">
+                    <div id="restorative-dentistry" >
+
+                        <h2 className="text-left text-2xl font-bold ">Restorative Dentistry</h2>
+                        <p className="text-left mt-2">
                             <span className="font-bold">Restore function. Renew confidence.</span>
                             <br />
                             We combine modern techniques with tailored care to repair, replace, or rebuild damaged teeth—helping you regain a seamless, natural-looking smile through crowns, implants, and more.
                         </p>
-                        <div className="cards">
 
-                            <div className="card">
-                                <h3>njandks</h3>
-                            </div>
+                        <div className="cards cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
 
+                            <Link
+                                href={route('service.show', { slug: 'dental-fillings' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/fillings.jpg" alt="Dental Fillings"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Dental Fillings</h3>
+                                <p className="text-sm">
+                                    Restore strength and appearance to decayed teeth with seamless, tooth-colored fillings.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'inlays-and-onlays' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/inlays-and-onlays.jpg" alt="Inlays and Onlays"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Inlays and Onlays</h3>
+                                <p className="text-sm">
+                                    Custom restorations that repair larger cavities while preserving your natural tooth structure.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'dental-crowns' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/crowns.jpg" alt="Dental Crowns"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Dental Crowns</h3>
+                                <p className="text-sm">
+                                    Protect and rebuild damaged teeth with beautifully crafted, long-lasting dental crowns.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'dental-bridges' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/bridges.jpg" alt="Dental Bridges"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Dental Bridges</h3>
+                                <p className="text-sm">
+                                    Replace one or more missing teeth with fixed dental bridges that restore function and aesthetics.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'dental-implants' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/implants.jpg" alt="Dental Implants"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Dental Implants</h3>
+                                <p className="text-sm">
+                                    Permanent, natural-looking tooth replacements that restore both bite strength and confidence.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'dentures' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/dentures.jpg" alt="Dentures"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Dentures</h3>
+                                <p className="text-sm">
+                                    Modern, comfortable full or partial dentures designed to bring back your smile and ease.
+                                </p>
+                            </Link>
                         </div>
                     </div>
 
-                    <div className="">
-                        <h2 className="text-center text-2xl font-bold ">Oral Surgery</h2>
-                        <p className="text-center mt-2">
+                    <div id="oral-surgery" >
+                        <h2 className="text-left text-2xl font-bold ">Oral Surgery</h2>
+                        <p className="text-left mt-2">
                             <span className="font-bold">Expert care for complex needs.</span>
                             <br />
                             Whether it's a simple extraction or full implant replacement, our oral surgery solutions are performed with precision and care—ensuring comfort, safety, and optimal results.
                         </p>
-                        <div className="cards">
+                        <div className="cards cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
 
-                            <div className="card">
-                                <h3>njandks</h3>
-                            </div>
+                            <Link
+                                href={route('service.show', { slug: 'tooth-extractions' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/extraction.jpg" alt="Tooth Extractions"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Tooth Extractions</h3>
+                                <p className="text-sm">
+                                    Safe and gentle removal of problematic teeth to protect your overall oral health.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'wisdom-teeth-removal' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/wisdom-teeth-removal.jpg" alt="Wisdom Teeth Removal"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Wisdom Teeth Removal</h3>
+                                <p className="text-sm">
+                                    Expert extraction of impacted or misaligned wisdom teeth to prevent pain and future complications.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('service.show', { slug: 'implant-replacement' })}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/services/dental-replacement.png" alt="Implant Replacement"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Implant Replacement</h3>
+                                <p className="text-sm">
+                                    Restore missing teeth with precision-placed implants that look, feel, and function like natural teeth.
+                                </p>
+                            </Link>
 
                         </div>
                     </div>
+
                 </section>
-            </main>
+            </main >
             <Footer />
         </>
     )
