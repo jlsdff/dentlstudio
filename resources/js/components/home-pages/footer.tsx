@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { useGSAP } from "@gsap/react";
 import { Link } from "@inertiajs/react";
 
-export function Footer() {
+export default function Footer() {
 
     const scrollButton = useRef<HTMLButtonElement>(null)
 

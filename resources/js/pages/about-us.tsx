@@ -1,7 +1,7 @@
 import { NavigationBar } from "@/components/ui/nav-bar";
 import { Head } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
-import { Footer } from '@/pages/welcome';
+import Footer from '@/components/home-pages/footer';
 
 interface StaffInterface {
     name: string;
@@ -30,7 +30,7 @@ const staffs: StaffInterface[] = [
         avatarUrl: '/staffs/Alima.png'
     },
     {
-      name: 'Devna Dayal',
+        name: 'Devna Dayal',
         position: 'Dentist',
         bio: 'Devna is all about delivering high-quality dental care with heart. Whether it’s general, cosmetic, or emergency treatment, her mission is simple: make sure every patient feels informed, empowered, and totally at ease. She takes the time to educate and explain, helping patients feel confident in their care every step of the way.',
         avatarUrl: '/staffs/Devna.png'
@@ -124,7 +124,7 @@ export default function AboutUs() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-4">
                     {
-                        staffs.map( (staff, index) => (
+                        staffs.map((staff, index) => (
                             <StaffCard staff={staff} key={index} />
                         ))
                     }
@@ -137,7 +137,7 @@ export default function AboutUs() {
     )
 }
 
-function StaffCard({staff}: {staff:StaffInterface}){
+function StaffCard({ staff }: { staff: StaffInterface }) {
 
     return (
         <div className="flex flex-col md:flex-row p-4 rounded-lg gap-4">

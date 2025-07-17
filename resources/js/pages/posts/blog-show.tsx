@@ -6,7 +6,7 @@ import { generateHTML } from "@tiptap/html";
 import { format } from "date-fns";
 import { useEffect, useRef } from "react";
 import { NavigationBar } from '@/components/ui/nav-bar';
-import { Footer } from '@/pages/welcome';
+import Footer from '@/components/home-pages/footer';
 import { Dot } from 'lucide-react';
 
 interface BlogProps {
@@ -46,43 +46,43 @@ export default function Blog(props: BlogProps) {
                 <meta property="og:title" content={`${blog.title} - The Dentl Studio`} />
                 <meta property="og:description" content={blog.description} />
                 <meta property="og:image" content={`https://thedentlstudio.com/${blog.cover_image}`} />
-                <meta property="og:url" content={`https://thedentlstudio.com/${blog.slug}`}/>
+                <meta property="og:url" content={`https://thedentlstudio.com/${blog.slug}`} />
                 <meta property="og:type" content="website" />
 
             </Head>
 
             <NavigationBar scrolled={true} />
 
-        <main className="p-8 pt-[100px] md:p-16 md:pt-[150px]   bg-soft-200
+            <main className="p-8 pt-[100px] md:p-16 md:pt-[150px]   bg-soft-200
             grid grid-cols-1 md:grid-cols-6 gap-4 border-b border-stone-900
         ">
 
-            <Head title={blog.title} />
+                <Head title={blog.title} />
 
-            <article className="blogpost editor-content max-w-4xl md:col-span-4">
-                <div>
-                    <p className="flex items-center text-stone-600">
-                        <span>{readingTime} min read</span>
-                        <Dot size={18} />
-                        <span>Published on {format(new Date(blog.published_at || ""), "PPP")}</span>
-                    </p>
-                </div>
-                <div dangerouslySetInnerHTML={{ __html: articleContent }} />
-            </article>
+                <article className="blogpost editor-content max-w-4xl md:col-span-4">
+                    <div>
+                        <p className="flex items-center text-stone-600">
+                            <span>{readingTime} min read</span>
+                            <Dot size={18} />
+                            <span>Published on {format(new Date(blog.published_at || ""), "PPP")}</span>
+                        </p>
+                    </div>
+                    <div dangerouslySetInnerHTML={{ __html: articleContent }} />
+                </article>
 
 
-            <section className="md:col-span-2">
-                <RelatedPost relatedPosts={relatedPosts} />
-            </section>
+                <section className="md:col-span-2">
+                    <RelatedPost relatedPosts={relatedPosts} />
+                </section>
 
-        </main>
+            </main>
             <Footer />
         </>
 
     )
 }
 
-function RelatedPost({relatedPosts}: {relatedPosts: Post[]}) {
+function RelatedPost({ relatedPosts }: { relatedPosts: Post[] }) {
     console.log("related post: ", relatedPosts)
     return (
         <>
@@ -92,25 +92,25 @@ function RelatedPost({relatedPosts}: {relatedPosts: Post[]}) {
                         <h3 className="text-lg font-semibold mb-4">Related Blogs</h3>
 
                         <div className="space-y-2">
-                        {
-                            relatedPosts.map( post => (
-                                <Link
-                                    href={route('blogs.show', {slug: post.slug})}
-                                    className="flex gap-2 items-start group"
-                                    key={post.id}>
-                                    <div className="flex items-center">
-                                        <img
-                                            className="max-w-[100px] aspect-video object-contain"
-                                            src={post.cover_image}
-                                            alt={post.description} />
-                                    </div>
-                                    <div className="">
-                                        <h4 className="text-base group-hover:underline ">{post.title}</h4>
-                                        <p className="line-clamp-2 text-xs">{post.description}</p>
-                                    </div>
-                                </Link>
-                            ))
-                        }
+                            {
+                                relatedPosts.map(post => (
+                                    <Link
+                                        href={route('blogs.show', { slug: post.slug })}
+                                        className="flex gap-2 items-start group"
+                                        key={post.id}>
+                                        <div className="flex items-center">
+                                            <img
+                                                className="max-w-[100px] aspect-video object-contain"
+                                                src={post.cover_image}
+                                                alt={post.description} />
+                                        </div>
+                                        <div className="">
+                                            <h4 className="text-base group-hover:underline ">{post.title}</h4>
+                                            <p className="line-clamp-2 text-xs">{post.description}</p>
+                                        </div>
+                                    </Link>
+                                ))
+                            }
                         </div>
                     </div>
                 )

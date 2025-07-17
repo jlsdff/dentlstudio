@@ -7,7 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExpoScaleEase } from "gsap/EasePack";
 import { TextPlugin } from "gsap/TextPlugin";
 import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
-import { Footer } from "./welcome";
+import Footer from '@/components/home-pages/footer';
+
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 
