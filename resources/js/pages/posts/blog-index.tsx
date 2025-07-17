@@ -2,19 +2,19 @@ import { CursorPaginate, Post } from "@/types"
 import { Link } from "@inertiajs/react";
 import { NavigationBar } from "@/components/ui/nav-bar";
 import { useRef, useEffect, useState } from 'react';
-import { Head  } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExpoScaleEase } from "gsap/EasePack";
 import { TextPlugin } from "gsap/TextPlugin";
 import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
-import { Footer } from "../welcome";
+import Footer from '@/components/home-pages/footer';
 import { ChevronLeft, ChevronRight, Dot } from 'lucide-react';
 import { format } from 'date-fns';
 import { generateHTML } from '@tiptap/html';
 import { extensions } from "@/hooks/use-editor";
-import {Badge} from '@/components/ui/badge';
+import { Badge } from '@/components/ui/badge';
 
 
 interface BlogPostsProps {
@@ -23,7 +23,7 @@ interface BlogPostsProps {
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 
-export default function BlogIndex({blogs}:BlogPostsProps) {
+export default function BlogIndex({ blogs }: BlogPostsProps) {
 
     console.log('blogs: ', blogs)
 
@@ -94,7 +94,7 @@ export default function BlogIndex({blogs}:BlogPostsProps) {
 
                     <div className="grid grid-cols-1 gap-4 md:grid-cols-3 items-stretch">
                         {
-                            blogs.data.map( post => (
+                            blogs.data.map(post => (
                                 <BlogCard post={post} key={post.id} />
                             ))
                         }
@@ -140,7 +140,7 @@ function estimateReadingTime(text: string, wordsPerMinute = 183): string {
     return `${minutes} min read`;
 }
 
-export function BlogCard({post}:{post: Post}) {
+export function BlogCard({ post }: { post: Post }) {
 
     const readingTime = estimateReadingTime(
         generateHTML(JSON.parse(post.content), extensions)
@@ -148,7 +148,7 @@ export function BlogCard({post}:{post: Post}) {
 
     return (
         <Link
-            href={route('blogs.show', {slug: post.slug})}
+            href={route('blogs.show', { slug: post.slug })}
             className="flex flex-col text-stone-800  md:justify-start md:items-start  group "
         >
 
