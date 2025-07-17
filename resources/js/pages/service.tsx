@@ -37,6 +37,16 @@ export default function Services() {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+
+                <meta name="description" content="Discover our full range of dental services tailored to meet every smile’s needs. From general check-ups to advanced cosmetic and restorative treatments, The Dentl Studio in Clyde North is committed to providing expert care in a calm, modern environment. Explore how we help you achieve and maintain optimal oral health." />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https ://thedentlstudio.com/service" />
+
+                <meta property="og:title" content="Services - The Dentl Studio" />
+                <meta property="og:description" content="Discover our full range of dental services tailored to meet every smile’s needs. From general check-ups to advanced cosmetic and restorative treatments, The Dentl Studio in Clyde North is committed to providing expert care in a calm, modern environment. Explore how we help you achieve and maintain optimal oral health." />
+                <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
+                <meta property="og:url" content="https://thedentlstudio.com/service" />
+                <meta property="og:type" content="website" />
             </Head>
 
             <NavigationBar scrolled={scrolledPastHeader} />
@@ -70,6 +80,7 @@ export default function Services() {
                     <br />
                     Each treatment is designed to enhance your smile with precision, comfort, and elegance.
                 </p>
+
             </header>
             <main >
 
@@ -86,11 +97,11 @@ export default function Services() {
                         <div className="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
 
                             <Link
-                                href={route('service.show', { slug: 'emergency-dentistry' })}
+                                href={route('emergency-dentistry')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/emergency.webp" alt="Emergency Dentistry"
+                                <img src="/photos/services/emergency.webp" alt="Emergency Dentistry"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Emergency Dentistry</h3>
@@ -100,11 +111,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'checkup-and-cleans' })}
+                                href={route('checkup-and-cleans')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/check_up_and_cleans.jpg" alt="Check up and Cleans"
+                                <img src="/photos/services/check_up_and_cleans.jpg" alt="Check up and Cleans"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Check up and Cleans</h3>
@@ -114,11 +125,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'teeth-grinding' })}
+                                href={route('teeth-grinding')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/teeth-grinding.jpeg" alt="Teeth Grinding"
+                                <img src="/photos/services/teeth-grinding.jpeg" alt="Teeth Grinding"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Teeth Grinding</h3>
@@ -128,11 +139,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'root-canals' })}
+                                href={route('root-canal')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/root-canals.jpeg" alt="Root Canals"
+                                <img src="/photos/services/root-canals.jpeg" alt="Root Canals"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Root Canals</h3>
@@ -142,11 +153,13 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'tmj-treatment' })}
+                                href={route('tmj-treatment')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/tmj.webp" alt="TMJ Treatment"
+                                <img
+                                    src="/photos/services/tmj.webp"
+                                    alt="TMJ Treatment"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">TMJ Treatment</h3>
@@ -156,11 +169,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'sports-mouthguards' })}
+                                href={route('sports-mouthguard')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/mouthguards.jpg" alt="Sports Mouthguards"
+                                <img src="/photos/services/mouthguards.jpg" alt="Sports Mouthguards"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Sports Mouthguards</h3>
@@ -170,11 +183,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'childrens-dentistry' })}
+                                href={route('childrens-dentistry')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/children_check_up.jpg" alt="Children Dentistry"
+                                <img src="/photos/services/children_check_up.jpg" alt="Children Dentistry"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Children's Dentistry</h3>
@@ -184,11 +197,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'oral-cancer-screenings' })}
+                                href={route('screening-for-oral-cancer')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/screening.jpg" alt="Oral Cancer Screening"
+                                <img src="/photos/services/screening.jpg" alt="Oral Cancer Screening"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Oral Cancer Screening</h3>
@@ -209,11 +222,11 @@ export default function Services() {
 
 
                             <Link
-                                href={route('service.show', { slug: 'veneers' })}
+                                href={route('veneers')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/veneers.jpg" alt="Veneers"
+                                <img src="/photos/services/veneers.jpg" alt="Veneers"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Veneers</h3>
@@ -223,11 +236,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'teeth-whitening' })}
+                                href={route('teeth-whitening')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/1.jpg" alt="Teeth Whitening"
+                                <img src="/photos/services/1.jpg" alt="Teeth Whitening"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Teeth Whitening</h3>
@@ -237,11 +250,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'smile-makeover' })}
+                                href={route('smile-makeover')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/smile-makeover.jpg" alt="Smile makeover"
+                                <img src="/photos/services/smile-makeover.jpg" alt="Smile makeover"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Smile Makeover</h3>
@@ -251,11 +264,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'dental-bonding' })}
+                                href={route('dental-bonding')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/dental-bonding.jpg" alt="Dental Bonding"
+                                <img src="/photos/services/dental-bonding.jpg" alt="Dental Bonding"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Dental Bonding</h3>
@@ -265,11 +278,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'crown-lengthening' })}
+                                href={route('crown-lengthening')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/crown.jpg" alt="Crown Lengthening"
+                                <img src="/photos/services/crown.jpg" alt="Crown Lengthening"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Crown Lengthening</h3>
@@ -280,11 +293,11 @@ export default function Services() {
 
 
                             <Link
-                                href={route('service.show', { slug: 'dental-contouring' })}
+                                href={route('dental-contouring')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/contouring.jpg" alt="Dental Contouring"
+                                <img src="/photos/services/contouring.jpg" alt="Dental Contouring"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Dental Contouring</h3>
@@ -294,19 +307,32 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'cosmetic-injectables-fillers' })}
+                                href={route('cosmetic-injectables')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/cosmetic-injectables.jpg" alt="Cosmetic Injectables and Fillers"
+                                <img src="/photos/services/cosmetic-injectables.jpg" alt="Cosmetic Injectables and Fillers"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
-                                <h3 className="text-lg font-semibold mt-3">Cosmetic Injectables and Fillers</h3>
+                                <h3 className="text-lg font-semibold mt-3">Cosmetic Injectables in Clyde North</h3>
                                 <p className="text-sm">
                                     Enhance facial symmetry and soften lines with carefully placed injectables, complementing your smile.
                                 </p>
                             </Link>
 
+                            <Link
+                                href={route('clear-aligners')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/closeup-aligner-with-woman-behind.jpg" alt="Clear Aligners"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Clear Aligners</h3>
+                                <p className="text-sm">
+                                    Straighten your teeth discreetly with nearly invisible aligners.
+                                </p>
+                            </Link>
                         </div>
                     </div>
 
@@ -322,11 +348,11 @@ export default function Services() {
                         <div className="cards cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
 
                             <Link
-                                href={route('service.show', { slug: 'dental-fillings' })}
+                                href={route('dental-fillings')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/fillings.jpg" alt="Dental Fillings"
+                                <img src="/photos/services/fillings.jpg" alt="Dental Fillings"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Dental Fillings</h3>
@@ -336,11 +362,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'inlays-and-onlays' })}
+                                href={route('inlays-and-onlays')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/inlays-and-onlays.jpg" alt="Inlays and Onlays"
+                                <img src="/photos/services/inlays-and-onlays.jpg" alt="Inlays and Onlays"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Inlays and Onlays</h3>
@@ -350,11 +376,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'dental-crowns' })}
+                                href={route('dental-crowns')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/crowns.jpg" alt="Dental Crowns"
+                                <img src="/photos/services/crowns.jpg" alt="Dental Crowns"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Dental Crowns</h3>
@@ -364,11 +390,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'dental-bridges' })}
+                                href={route('dental-bridges')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/bridges.jpg" alt="Dental Bridges"
+                                <img src="/photos/services/bridges.jpg" alt="Dental Bridges"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Dental Bridges</h3>
@@ -378,11 +404,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'dental-implants' })}
+                                href={route('dental-implants')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/implants.jpg" alt="Dental Implants"
+                                <img src="/photos/services/implants.jpg" alt="Dental Implants"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Dental Implants</h3>
@@ -392,11 +418,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'dentures' })}
+                                href={route('dentures')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/dentures.jpg" alt="Dentures"
+                                <img src="/photos/services/dentures.jpg" alt="Dentures"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Dentures</h3>
@@ -417,11 +443,11 @@ export default function Services() {
                         <div className="cards cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
 
                             <Link
-                                href={route('service.show', { slug: 'tooth-extractions' })}
+                                href={route('extractions')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/extraction.jpg" alt="Tooth Extractions"
+                                <img src="/photos/services/extraction.jpg" alt="Tooth Extractions"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Tooth Extractions</h3>
@@ -431,11 +457,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'wisdom-teeth-removal' })}
+                                href={route('wisdom-teeth-removal')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/wisdom-teeth-removal.jpg" alt="Wisdom Teeth Removal"
+                                <img src="/photos/services/wisdom-teeth-removal.jpg" alt="Wisdom Teeth Removal"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Wisdom Teeth Removal</h3>
@@ -445,11 +471,11 @@ export default function Services() {
                             </Link>
 
                             <Link
-                                href={route('service.show', { slug: 'implant-replacement' })}
+                                href={route('dental-implant-replacement-services')}
                                 prefetch="hover"
                                 className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
                             >
-                                <img src="/services/dental-replacement.png" alt="Implant Replacement"
+                                <img src="/photos/services/dental-replacement.png" alt="Implant Replacement"
                                     className="rounded-t-lg w-full aspect-video object-cover"
                                 />
                                 <h3 className="text-lg font-semibold mt-3">Implant Replacement</h3>

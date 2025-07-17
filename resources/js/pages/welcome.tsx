@@ -11,9 +11,10 @@ import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
 import { useRef, useEffect, useState } from 'react';
 import { NavigationBar } from '@/components/ui/nav-bar';
 import { ChevronRight } from 'lucide-react';
-import { ArrowUp, ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
+import { ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
 import ContactUs from '@/components/home-pages/contact-us';
-// import Footer from '@/components/home-pages/footer';
+import Testimonials from '@/components/home-pages/testimonials';
+
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 
@@ -21,6 +22,7 @@ export default function Welcome() {
 
     const wrapper = useRef<HTMLDivElement>(null)
     const header = useRef<HTMLDivElement>(null)
+    const loading = useRef(null)
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
 
     useEffect(() => {
@@ -35,92 +37,92 @@ export default function Welcome() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // useGSAP(() => {
-    //
-    //     document.body.style.overflow = 'hidden'
-    //
-    //     const tl = gsap.timeline({
-    //         onComplete: () => {
-    //             document.body.style.overflow = ''
-    //         }
-    //     })
-    //
-    //     const split = SplitText.create('.loading-2', { type: "chars" })
-    //
-    //     tl.from(split.chars, {
-    //         opacity: 0,
-    //         xPercent: 100,
-    //         ease: "expo.out",
-    //         stagger: 0.1,
-    //         delay: 1,
-    //         duration: 0.5
-    //     })
-    //         .from('.loading-1', {
-    //             opacity: 0,
-    //             yPercent: -100,
-    //             ease: 'expo.out',
-    //             duration: 0.3
-    //         })
-    //         .from('.loading-3', {
-    //             opacity: 0,
-    //             yPercent: 100,
-    //             ease: 'expo.out',
-    //             duration: 0.3
-    //         }, "<")
-    //         .from('.mid-div', {
-    //             yPercent: 100,
-    //             ease: 'expo.out',
-    //             duration: 1
-    //         })
-    //         .to('.loading-1', {
-    //             opacity: 0,
-    //             y: -100,
-    //             ease: 'expo.in',
-    //             duration: 0.3,
-    //         })
-    //         .to('.loading-3', {
-    //             opacity: 0,
-    //             yPercent: 100,
-    //             ease: 'expo.in',
-    //             duration: 0.3,
-    //         }, "<")
-    //         .to(split.chars, {
-    //             opacity: 0,
-    //             xPercent: 100,
-    //             ease: "expo.in",
-    //             stagger: 0.1,
-    //             duration: 0.5
-    //         })
-    //         .to('.mid-div', {
-    //             opacity: 0,
-    //             y: -100,
-    //             ease: 'expo.in',
-    //             duration: 0.5
-    //         }, "<")
-    //         .to('.sec-1', {
-    //             yPercent: 100,
-    //             ease: "expo.in",
-    //             duration: 1
-    //         })
-    //         .to('.sec-2', {
-    //             yPercent: -100,
-    //             ease: 'expo.in',
-    //             duration: 1
-    //         }, "<")
-    //         .from('.hero', {
-    //             yPercent: 100,
-    //             ease: 'expo.out',
-    //             duration: 0.5,
-    //             delay: 0.3,
-    //         })
-    //         .from('.nav-item', {
-    //             yPercent: -100,
-    //             ease: 'expo.out',
-    //             duration: 0.3,
-    //         }, "<")
-    //         .set(loading.current, { display: 'none' })
-    //
-    // }, { scope: wrapper })
+    useGSAP(() => {
+
+        document.body.style.overflow = 'hidden'
+
+        const tl = gsap.timeline({
+            onComplete: () => {
+                document.body.style.overflow = ''
+            }
+        })
+
+        const split = SplitText.create('.loading-2', { type: "chars" })
+
+        tl.from(split.chars, {
+            opacity: 0,
+            xPercent: 100,
+            ease: "expo.out",
+            stagger: 0.1,
+            delay: 1,
+            duration: 0.5
+        })
+            .from('.loading-1', {
+                opacity: 0,
+                yPercent: -100,
+                ease: 'expo.out',
+                duration: 0.3
+            })
+            .from('.loading-3', {
+                opacity: 0,
+                yPercent: 100,
+                ease: 'expo.out',
+                duration: 0.3
+            }, "<")
+            .from('.mid-div', {
+                yPercent: 100,
+                ease: 'expo.out',
+                duration: 1
+            })
+            .to('.loading-1', {
+                opacity: 0,
+                y: -100,
+                ease: 'expo.in',
+                duration: 0.3,
+            })
+            .to('.loading-3', {
+                opacity: 0,
+                yPercent: 100,
+                ease: 'expo.in',
+                duration: 0.3,
+            }, "<")
+            .to(split.chars, {
+                opacity: 0,
+                xPercent: 100,
+                ease: "expo.in",
+                stagger: 0.1,
+                duration: 0.5
+            })
+            .to('.mid-div', {
+                opacity: 0,
+                y: -100,
+                ease: 'expo.in',
+                duration: 0.5
+            }, "<")
+            .to('.sec-1', {
+                yPercent: 100,
+                ease: "expo.in",
+                duration: 1
+            })
+            .to('.sec-2', {
+                yPercent: -100,
+                ease: 'expo.in',
+                duration: 1
+            }, "<")
+            .from('.hero', {
+                yPercent: 100,
+                ease: 'expo.out',
+                duration: 0.5,
+                delay: 0.3,
+            })
+            .from('.nav-item', {
+                yPercent: -100,
+                ease: 'expo.out',
+                duration: 0.3,
+            }, "<")
+            .set(loading.current, { display: 'none' })
+
+    }, { scope: wrapper })
 
     return (
         <>
@@ -131,25 +133,35 @@ export default function Welcome() {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+
+                <meta name="description" content="Clyde North dentists & team provide exceptional care and offer an array of smile-enhancing services and luxurious touches. Book an appointment today!" />
+                <meta name="robots" content="index, follow" />
+                <link rel="canonical" href="https://thedentlstudio.com" />
+
+                <meta property="og:title" content="The Dentl Studio | Trusted Dentists in Clyde North" />
+                <meta property="og:description" content="Clyde North dentists & team provide exceptional care and offer an array of smile-enhancing services and luxurious touches. Book an appointment today!" />
+                <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
+                <meta property="og:url" content="https://thedentlstudio.com" />
+                <meta property="og:type" content="website" />
             </Head>
 
 
             <div ref={wrapper} >
 
-                {/* <div ref={loading} aria-hidden> */}
-                {/*     <div className='fixed top-0 left-0 z-50 h-screen w-screen flex'> */}
-                {/*         <div className='bg-black flex-1 sec-1' /> */}
-                {/*         <div className='mid-div w-[2px] bg-gray-600/50 absolute top-0 left-1/2 h-screen' /> */}
-                {/*         <div className='bg-black flex-1 sec-2' /> */}
-                {/*     </div> */}
-                {/*     <div className='z-100 text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif '> */}
-                {/*         <div className='overflow-hidden'> */}
-                {/*             <span className='loading-1 font-sans text-sm sm:text-base block '>THE</span> */}
-                {/*             <span className='loading-2 block text-4xl sm:text-6xl' >DENTL</span> */}
-                {/*             <span className='loading-3 font-sans text-sm sm:text-base block text-right'>STUDIO</span> */}
-                {/*         </div> */}
-                {/*     </div> */}
-                {/* </div> */}
+                <div ref={loading} aria-hidden>
+                    <div className='fixed top-0 left-0 z-50 h-screen w-screen flex'>
+                        <div className='bg-black flex-1 sec-1' />
+                        <div className='mid-div w-[2px] bg-gray-600/50 absolute top-0 left-1/2 h-screen' />
+                        <div className='bg-black flex-1 sec-2' />
+                    </div>
+                    <div className='z-100 text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif '>
+                        <div className='overflow-hidden'>
+                            <span className='loading-1 font-sans text-sm sm:text-base block '>THE</span>
+                            <span className='loading-2 block text-4xl sm:text-6xl' >DENTL</span>
+                            <span className='loading-3 font-sans text-sm sm:text-base block text-right'>STUDIO</span>
+                        </div>
+                    </div>
+                </div>
 
                 <NavigationBar scrolled={scrolledPastHeader} />
 
@@ -183,6 +195,8 @@ export default function Welcome() {
                     <AboutUs />
 
                     <ContactUs />
+
+                    <Testimonials />
 
                 </main>
 
@@ -261,29 +275,36 @@ export function Footer() {
                     <h3 className="text-xl font-semibold">Useful Links</h3>
                     <ul className='text-lg  '>
                         <li>
-                            <a href="/" className="hover:underline duration-900 ease-in " >
+                            <a href={route('home')} className="hover:underline duration-900 ease-in " >
                                 Homepage
                             </a>
                         </li>
                         <li>
-                            <a href="/contact-us" className="hover:underline">
+                            <Link
+                                href={route('contact-us')}
+                                prefetch="hover"
+                                className="hover:underline"
+                            >
                                 Contact Us
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/about-us" className="hover:underline">
+                            <Link
+                                href={route('about-us')}
+                                className="hover:underline"
+                                prefetch="hover"
+                            >
                                 About us
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="/blogs" className="hover:underline">
+                            <Link
+                                href={route('blogs.index')}
+                                prefetch="hover"
+                                className="hover:underline"
+                            >
                                 Blogs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/gallery" className="hover:underline">
-                                Gallery
-                            </a>
+                            </Link>
                         </li>
                     </ul>
 
@@ -293,23 +314,23 @@ export function Footer() {
                     <h3 className="text-xl font-semibold">Services</h3>
                     <ul className='text-lg  '>
                         <li>
-                            <a href="" className="hover:underline duration-900 ease-in ">
+                            <a href={`${route("service")}#general-dentistry`} className="hover:underline duration-900 ease-in ">
                                 General Dentistry
                             </a>
                         </li>
                         <li>
-                            <a href="" className="hover:underline">
+                            <a href={`${route("service")}#cosmetic-dentistry`} className="hover:underline">
                                 Cosmetic Dentistry
                             </a>
                         </li>
                         <li>
-                            <a href="" className="hover:underline">
+                            <a href={`${route("service")}#restorative-dentistry`} className="hover:underline">
                                 Restorative Dentistry
                             </a>
                         </li>
                         <li>
-                            <a href="" className="hover:underline">
-                                Oral Dentistry
+                            <a href={`${route("service")}#oral-surgery`} className="hover:underline">
+                                Oral Surgery
                             </a>
                         </li>
                     </ul>
@@ -319,7 +340,6 @@ export function Footer() {
             </div>
             <div className="bg-stone-900 w-full min-h-8 py-2 flex flex-col items-center justify-center text-soft-200 ">
                 <p className="text-xs">Copyright (c) {new Date().getFullYear()} The Dentl Studio. All Rights Reserved.</p>
-                <p className="text-xs">Developed by john doe</p>
             </div>
         </footer>
     )
@@ -523,12 +543,15 @@ function Services() {
                     {/* Cards */}
                     <div className='flex gap-4 mt-4 sm:mt-8 overflow-x-auto pb-4 scrollbar-minimal'>
 
-                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                        <Link
+                            href={route('teeth-whitening')}
+                            prefetch="hover"
+                            className='cards outline outline-soft-200/50 rounded-xl'>
                             <div className='w-64 h-92 rounded-xl flex items-end p-4
                                         group relative overflow-hidden transition-all duration-500
-                                        ease-out bg-[url(services/1.jpg)] bg-center bg-cover
+                                        ease-out
                                         '>
-                                <div className='absolute inset-0 bg-[url(services/1.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='absolute inset-0 bg-[url(/photos/services/1.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
                                 <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
                                 <div className='z-10 transition-all duration-500 ease-out'>
                                     <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Teeth Whitening</h3>
@@ -537,88 +560,89 @@ function Services() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                        <Link
+                            href={route('veneers')}
+                            prefetch="hover"
+                            className='cards outline outline-soft-200/50 rounded-xl'>
                             <div className='w-64 h-92 rounded-xl flex items-end p-4
                                         group relative overflow-hidden
                                         '>
-                                <div className='absolute inset-0 bg-[url(services/2.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='absolute inset-0 bg-[url(/photos/services/2.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
                                 <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
                                 <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Dental Hygiene</h3>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Veneers</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Transform your smile with custom-made veneers — perfect for covering chips, gaps, or discoloration and achieving a naturally beautiful, flawless look.
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link
+                            href={route('clear-aligners')}
+                            prefetch="hover"
+                            className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden
+                                        '>
+                                <div className='absolute inset-0 bg-[url(/photos/services/3.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Clear Aligners</h3>
                                     <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
                                         Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                        <Link
+                            href={route('smile-makeover')}
+                            prefetch="hover"
+                            className='cards outline outline-soft-200/50 rounded-xl'>
                             <div className='w-64 h-92 rounded-xl flex items-end p-4
                                         group relative overflow-hidden
                                         '>
-                                <div className='absolute inset-0 bg-[url(services/3.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='absolute inset-0 bg-[url(/photos/services/smile.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
                                 <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
                                 <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Invisalign</h3>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Smile Makeover</h3>
                                     <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                        Transform your smile with a personalised smile makeover—combining cosmetic treatments to enhance your confidence and appearance.
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cards outline outline-soft-200/50 rounded-xl'>
+                        <Link
+                            href={route('emergency-dentistry')}
+                            prefetch="hover"
+                            className='cards outline outline-soft-200/50 rounded-xl'>
                             <div className='w-64 h-92 rounded-xl flex items-end p-4
                                         group relative overflow-hidden
                                         '>
-                                <div className='absolute inset-0 bg-[url(services/4.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='absolute inset-0 bg-[url(/photos/services/emergency.webp)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
                                 <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
                                 <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Mouthguards</h3>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Emergency Dentistry</h3>
                                     <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
+                                        Get fast, expert care for dental emergencies—relieving pain and protecting your smile when urgent issues arise.
                                     </p>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
 
-                        <div className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden
-                                        '>
-                                <div className='absolute inset-0 bg-[url(services/3.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Invisalign</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden
-                                        '>
-                                <div className='absolute inset-0 bg-[url(services/4.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Mouthguards</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className='cards w-64 h-92 rounded-xl flex items-center p-4
+                        <Link
+                            href={route('service')}
+                            prefetch="hover"
+                            className='cards w-64 h-92 rounded-xl flex items-center p-4
                                         group
                                         '>
-                            <p>See More</p>
-                        </div>
+                            <p className="group-hover:underline">See More</p>
+                            <ChevronRight />
+                        </Link>
 
                     </div>
 

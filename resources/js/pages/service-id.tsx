@@ -58,7 +58,7 @@ export default function ServiceID({ service }: {
                             {service.service}
                         </Link>
                     </div>
-                    <h1 className=" text-soft-100 text-center text-4xl sm:text-5xl font-light font-serif tracking-widest">
+                    <h1 className=" text-soft-100 text-center sm:text-left text-4xl sm:text-5xl font-light font-serif tracking-widest">
                         {service.name}
                     </h1>
                 </div>

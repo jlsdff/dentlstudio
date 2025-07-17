@@ -190,9 +190,21 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
                                 </div>
                                 <li className="main-items text-xs mt-8 mb-3 text-soft-200/80">More about us</li>
                                 <div className="space-y-4">
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">Contact Us</li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">Blogs</li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">About us</li>
+                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                        <Link href={route('contact-us')} prefetch="hover">
+                                            Contact Us
+                                        </Link>
+                                    </li>
+                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                        <Link href={route('about-us')} prefetch={"hover"} >
+                                            About us
+                                        </Link>
+                                    </li>
+                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                        <Link href={route('blogs.index')} prefetch="hover">
+                                            Blogs
+                                        </Link>
+                                    </li>
                                 </div>
                             </ul>
                         </div>
@@ -208,14 +220,44 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
                                         </span>
                                     </button>
                                 </div>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >Emergency Dentistry</li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >Checkup and Cleans</li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >Teeth Grinding</li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >TMJ Treatment</li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >Root Canals</li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >Sports Mouthguards</li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >Children's Dentistry</li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >Oral Cancer Screenings</li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('emergency-dentistry')} prefetch="hover" >Emergency Dentistry</Link>
+                                </li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('checkup-and-cleans')} prefetch="hover" >
+                                        Checkup and Cleans
+                                    </Link>
+                                </li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('teeth-grinding')} prefetch="hover" >
+                                        Teeth Grinding
+                                    </Link>
+                                </li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('tmj-treatment')} prefetch="hover">
+                                        TMJ Treatment
+                                    </Link>
+                                </li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('root-canal')} prefetch="hover">
+                                        Root Canals
+                                    </Link>
+                                </li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('sports-mouthguard')} prefetch="hover">
+                                        Sports Mouthguards
+                                    </Link>
+                                </li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('childrens-dentistry')} prefetch="hover">
+                                        Children&apos;s Dentistry
+                                    </Link>
+                                </li>
+                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('screening-for-oral-cancer')} prefetch="hover">
+                                        Oral Cancer Screenings
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
@@ -230,14 +272,46 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
                                         </span>
                                     </button>
                                 </div>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Veneers</li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Teeth Whitening</li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Smile Makeover</li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Clear Aligners</li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Dental Bonding</li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Crown Lengthening</li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Dental Contouring</li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >Cosmetic Injectables and Fillers</li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('veneers')} prefetch="hover">
+                                        Veneers
+                                    </Link>
+                                </li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('veneers')} prefetch="hover">
+                                        Teeth Whitening
+                                    </Link>
+                                </li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('smile-makeover')} prefetch="hover">
+                                        Smile Makeover
+                                    </Link>
+                                </li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('clear-aligners')} prefetch="hover">
+                                        Clear Aligners
+                                    </Link>
+                                </li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dental-bonding')} prefetch="hover">
+                                        Dental Bonding
+                                    </Link>
+                                </li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('crown-lengthening')} prefetch="hover">
+                                        Crown Lengthening
+                                    </Link>
+                                </li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dental-contouring')} prefetch="hover">
+                                        Dental Contouring
+                                    </Link>
+                                </li>
+                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('cosmetic-injectables')} prefetch="hover">
+                                        Cosmetic Injectables and Fillers
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
@@ -252,12 +326,36 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
                                         </span>
                                     </button>
                                 </div>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >Dental Fillings</li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >Inlays and Onlays</li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >Dental Crowns</li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >Dental Bridges</li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >Dental Implants</li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >Dentures</li>
+                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dental-fillings')} prefetch="hover">
+                                        Dental Fillings
+                                    </Link>
+                                </li>
+                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('inlays-and-onlays')} prefetch="hover">
+                                        Inlays and Onlays
+                                    </Link>
+                                </li>
+                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dental-crowns')} prefetch="hover">
+                                        Dental Crowns
+                                    </Link>
+                                </li>
+                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dental-bridges')} prefetch="hover">
+                                        Dental Bridges
+                                    </Link>
+                                </li>
+                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dental-implants')} prefetch="hover">
+                                        Dental Implants
+                                    </Link>
+                                </li>
+                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dentures')} prefetch="hover">
+                                        Dentures
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 
@@ -272,9 +370,21 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
                                         </span>
                                     </button>
                                 </div>
-                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >Extractions</li>
-                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >Wisdom Teeth Removal</li>
-                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >Implant Replacement</li>
+                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('extractions')} prefetch="hover">
+                                        Extractions
+                                    </Link>
+                                </li>
+                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('wisdom-teeth-removal')} prefetch="hover">
+                                        Wisdom Teeth Removal
+                                    </Link>
+                                </li>
+                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
+                                    <Link href={route('dental-implant-replacement-services')} prefetch="hover">
+                                        Implant Replacement
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
 

@@ -21,6 +21,16 @@ export default function ContactUs() {
                         </p>
                     </div>
 
+                    <a
+                        aria-label="Book an appointment at The Dentl Studio"
+                        className={`mb-4 mt-4 px-4 py-2 inline-block text-sm rounded-md bg-soft-500 text-soft-200 hover:bg-soft-600 transition-all duration-300 shadow-lg`}
+                        href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
+                        target="_blank"
+                    >
+                        Book an Appointment
+                    </a>
+
+
                 </div>
 
                 <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
