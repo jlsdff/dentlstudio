@@ -3,7 +3,7 @@ import { Head } from "@inertiajs/react";
 import { useEffect, useRef, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Link } from "@inertiajs/react";
-import { Footer } from "../welcome";
+import Footer from '@/components/home-pages/footer';
 import ContactUs from "@/components/home-pages/contact-us";
 
 export default function EmergencyDentistry() {
