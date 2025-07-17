@@ -1,6 +1,6 @@
 import { NavigationBar } from "@/components/ui/nav-bar";
 import { useRef, useEffect, useState, FormEventHandler } from 'react';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -12,7 +12,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Home, LoaderCircle, LucideMail, LucidePhoneCall, Mail, PhoneCall } from 'lucide-react';
+import { Home, LoaderCircle, LucideMail, LucidePhoneCall } from 'lucide-react';
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 
@@ -77,7 +77,7 @@ export default function Services() {
                     <div className="md:col-span-2" >
                         <h2 className="text-2xl mb-2 font-semibold ">Let's Talk!</h2>
                         <p className="mb-4" >Get in touch with us using the enquiry form or contact details below</p>
-                        <ContactUsForm/>
+                        <ContactUsForm />
                     </div>
 
                     <div className="md:col-span-4" >
@@ -146,13 +146,13 @@ export default function Services() {
 
                         <div className="mt-4">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15500.423401945398!2d145.33738347383286!3d-38.0954960569307!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad61bf8c629a41f%3A0xedc2e72cfb1403d6!2sThe%20Dentl%20Studio!5e0!3m2!1sen!2sph!4v1752074148274!5m2!1sen!2sph"
-                                    width="600"
-                                    height="300"
-                                    className='w-full rounded-xl'
-                                    style={{ border: "0px" }}
-                                    allowFullScreen={true}
-                                    loading="lazy"
-                                    referrerPolicy="no-referrer-when-downgrade"
+                                width="600"
+                                height="300"
+                                className='w-full rounded-xl'
+                                style={{ border: "0px" }}
+                                allowFullScreen={true}
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
                             >
                             </iframe>
                         </div>
@@ -173,14 +173,14 @@ type ContactUsForm = {
 }
 function ContactUsForm() {
 
-    const {data, setData, post, processing, errors, reset} = useForm<Required<ContactUsForm>>({
+    const { data, setData, post, processing, errors, reset } = useForm<Required<ContactUsForm>>({
         firstname: "",
         lastname: "",
         email: "",
         message: ""
     })
 
-    const onSubmit:FormEventHandler = (e) => {
+    const onSubmit: FormEventHandler = (e) => {
         e.preventDefault();
 
         console.log("contact us form: ", data)
@@ -202,23 +202,23 @@ function ContactUsForm() {
                 <div>
                     <Label className="text-xs" htmlFor="firstname" >First Name</Label>
                     <Input id="firstname"
-                           name="firstname"
-                           placeholder="John"
-                           className="border border-stone-900  focus-visible:border-stone-950"
-                           value={data.firstname}
-                           onChange={e => setData('firstname', e.target.value)}
-                           required
+                        name="firstname"
+                        placeholder="John"
+                        className="border border-stone-900  focus-visible:border-stone-950"
+                        value={data.firstname}
+                        onChange={e => setData('firstname', e.target.value)}
+                        required
                     />
                 </div>
                 <div>
                     <Label className="text-xs" htmlFor="lastname" >Last Name</Label>
                     <Input id="lastname"
-                           name="lastname"
-                           placeholder="Doe"
-                           className="border border-stone-900  focus-visible:border-stone-950"
-                           value={data.lastname}
-                           onChange={e => setData('lastname', e.target.value)}
-                           required
+                        name="lastname"
+                        placeholder="Doe"
+                        className="border border-stone-900  focus-visible:border-stone-950"
+                        value={data.lastname}
+                        onChange={e => setData('lastname', e.target.value)}
+                        required
                     />
                 </div>
             </div>
