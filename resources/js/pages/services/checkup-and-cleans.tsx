@@ -27,12 +27,6 @@ export default function EmergencyDentistry() {
         <>
             <Head title="Checkup and Cleans in Clyde North">
 
-                <link rel="preconnect" href="https://fonts.bunny.net" />
-                <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
-
                 <meta name="description" content="Maintain oral health with regular dental exams and professional teeth cleaning." />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://thedentlstudio.com/checkup-and-cleans" />
@@ -42,7 +36,12 @@ export default function EmergencyDentistry() {
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
                 <meta property="og:url" content="https://thedentlstudio.com/checkup-and-cleans" />
                 <meta property="og:type" content="website" />
-
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/photos/services/service-cover.jpg"
+                    fetchPriority="high"
+                />
             </Head>
 
             <NavigationBar scrolled={scrolledPastHeader} />

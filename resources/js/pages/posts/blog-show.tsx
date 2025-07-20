@@ -4,10 +4,11 @@ import { Post } from "@/types"
 import { Head, Link } from "@inertiajs/react";
 import { generateHTML } from "@tiptap/html";
 import { format } from "date-fns";
-import { useEffect, useRef } from "react";
-import { NavigationBar } from '@/components/ui/nav-bar';
+import { lazy, useEffect, useRef } from 'react';
 import Footer from '@/components/home-pages/footer';
 import { Dot } from 'lucide-react';
+
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 interface BlogProps {
     blog: Post;

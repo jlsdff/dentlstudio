@@ -1,7 +1,6 @@
 import { CursorPaginate, Post } from "@/types"
 import { Link } from "@inertiajs/react";
-import { NavigationBar } from "@/components/ui/nav-bar";
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState, lazy } from 'react';
 import { Head } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -16,6 +15,7 @@ import { generateHTML } from '@tiptap/html';
 import { extensions } from "@/hooks/use-editor";
 import { Badge } from '@/components/ui/badge';
 
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 interface BlogPostsProps {
     blogs: CursorPaginate<Post>;

@@ -1,10 +1,11 @@
-import { NavigationBar } from "@/components/ui/nav-bar";
 import { Head } from "@inertiajs/react";
-import { useEffect, useRef, useState } from "react";
+import { lazy, useEffect, useRef, useState } from 'react';
 import { ChevronRight } from "lucide-react";
 import { Link } from "@inertiajs/react";
 import Footer from '@/components/home-pages/footer';
 import ContactUs from "@/components/home-pages/contact-us";
+
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 export default function EmergencyDentistry() {
 
