@@ -23,7 +23,7 @@ export default function ContactUs() {
 
                     <a
                         aria-label="Book an appointment at The Dentl Studio"
-                        className={`mb-4 mt-4 px-4 py-2 inline-block text-sm rounded-md bg-soft-500 text-soft-200 hover:bg-soft-600 transition-all duration-300 shadow-lg`}
+                        className={`mb-4 mt-4 px-4 py-2 inline-block text-sm rounded-md bg-soft-800 text-soft-100 hover:bg-soft-900 transition-all duration-300 shadow-lg`}
                         href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
                         target="_blank"
                     >

@@ -135,7 +135,7 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
             <div
                 className={`absolute inset-0 z-[-1] transition-opacity duration-700 ease-in-out
                   bg-[url('/black-linen.png'),linear-gradient(to_bottom_right,#1d1a18,#44413c)]
-                  bg-blend-overlay 
+                  bg-blend-overlay
                   ${scrolled ? 'opacity-100' : 'opacity-0'}
                 `}
             />
@@ -168,7 +168,7 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
             <div className="overflow-y-hidden z-42 p-1">
                 <div className="nav-item">
                     <a
-                        className={`px-4 py-2 inline-block text-sm rounded-md bg-soft-800 text-soft-200 hover:bg-soft-900 transition-all duration-300 shadow-lg`}
+                        className={`px-4 py-2 inline-block text-sm rounded-md bg-soft-800 text-soft-100 hover:bg-soft-900 transition-all duration-300 shadow-lg`}
                         href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
                         target="_blank"
                     >
