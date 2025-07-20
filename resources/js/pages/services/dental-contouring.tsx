@@ -43,6 +43,12 @@ export default function EmergencyDentistry() {
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
                 <meta property="og:url" content="https://thedentlstudio.com/dental-contouring" />
                 <meta property="og:type" content="website" />
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/photos/services/service-cover.jpg"
+                    fetchPriority="high"
+                />
 
             </Head>
 

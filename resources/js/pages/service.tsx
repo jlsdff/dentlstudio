@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, lazy } from "react"
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -15,7 +15,6 @@ gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToP
 export default function Services() {
 
     const header = useRef<HTMLHeadElement>(null)
-    const {site_url} = usePage().props;
 
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
 
@@ -45,7 +44,7 @@ export default function Services() {
                 <meta property="og:url" content="https://thedentlstudio.com/service" />
                 <meta property="og:type" content="website" />
 
-                <link rel="preload" as="image" href={`${site_url}/reception.jpg`} fetchPriority="high" />
+                <link rel="preload" as="image" href={`/reception.jpg`} fetchPriority="high" />
 
             </Head>
 
