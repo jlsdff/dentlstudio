@@ -1,27 +1,11 @@
 import { ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
-import { gsap } from "gsap"
-import { useRef } from 'react'
-import { useGSAP } from "@gsap/react";
 import { Link } from "@inertiajs/react";
 
 export default function Footer() {
 
-    const scrollButton = useRef<HTMLButtonElement>(null)
-
-    const { contextSafe } = useGSAP({ scope: scrollButton })
-
-    const handleScroll = contextSafe(() => {
-        gsap.to(
-            window,
-            {
-                scrollTo: {
-                    y: 0
-                },
-                duration: 2,
-                ease: 'power3.inOut'
-            }
-        )
-    })
+    const handleScroll = () => {
+        scrollToTop();
+    }
 
     return (
         <footer className="min-h-[50svh] relative bg-soft-200 ">
@@ -62,7 +46,6 @@ export default function Footer() {
 
                     <div className="mt-4 ">
                         <button
-                            ref={scrollButton}
                             className="flex gap-2 items-center px-4 py-2 border rounded-md border-stone-500 cursor-pointer  "
                             onClick={handleScroll}
                         >
@@ -144,5 +127,31 @@ export default function Footer() {
             </div>
         </footer>
     )
+}
+
+function scrollToTop(duration: number = 2000): void {
+    const start: number = window.scrollY || window.pageYOffset;
+    const startTime: number = performance.now();
+
+    function easeInOutPower3(t: number): number {
+        return t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function animateScroll(currentTime: number): void {
+        const elapsed: number = currentTime - startTime;
+        const progress: number = Math.min(elapsed / duration, 1);
+        const ease: number = easeInOutPower3(progress);
+        const scrollToY: number = start * (1 - ease);
+
+        window.scrollTo(0, scrollToY);
+
+        if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+        }
+    }
+
+    requestAnimationFrame(animateScroll);
 }
 
