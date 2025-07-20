@@ -4,16 +4,16 @@ import { useGSAP } from "@gsap/react";
 import SplitText from 'gsap/dist/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExpoScaleEase } from "gsap/EasePack";
-import { TextPlugin } from "gsap/TextPlugin";
 import { useRef, useEffect, useState, lazy } from 'react';
 import { ChevronRight } from 'lucide-react';
-import ContactUs from '@/components/home-pages/contact-us';
 import Testimonials from '@/components/home-pages/testimonials';
 import Footer from '@/components/home-pages/footer';
 
+const ContactUs = lazy( () => import('@/components/home-pages/contact-us'))
+
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'));
 
-gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ExpoScaleEase, ScrollTrigger);
 
 export default function Welcome() {
 
