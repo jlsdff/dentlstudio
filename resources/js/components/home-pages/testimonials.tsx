@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight, Home, LucideMail, LucidePhoneCall, Star } from 'lucide-react';
-import {Link} from '@inertiajs/react'
+import { Link } from '@inertiajs/react'
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -15,7 +15,7 @@ interface TestimonyType {
     avatarUrl: string;
 }
 
-const clients:TestimonyType[] = [
+const clients: TestimonyType[] = [
     {
         name: 'Rosalina Barrairo',
         review: 'Professional and very caring staff! Child friendly environment.\n' +
@@ -70,16 +70,14 @@ export default function Testimonials() {
     const [api, setApi] = useState<CarouselApi>()
 
     const onNext = () => {
-        if(!api) {
-            alert('tang ina')
+        if (!api) {
             return
         }
         api.scrollNext()
     }
 
     const onPrev = () => {
-        if(!api) {
-            alert('tang ina')
+        if (!api) {
             return
         }
         api.scrollPrev()
@@ -88,7 +86,7 @@ export default function Testimonials() {
     return (
         <>
             <Carousel
-                opts={{loop: true, align: 'start'}}
+                opts={{ loop: true, align: 'start' }}
                 setApi={setApi}
                 className='min-h-[90svh] px-4 py-16 sm:p-16
                 bg-gradient-to-b from-stone-950 to-soft-200 text-soft-200' >
@@ -104,12 +102,14 @@ export default function Testimonials() {
                     </div>
                     <div className="space-x-4 hidden md:inline-block">
                         <Button
+                            aria-label="Previous testomonial"
                             variant='ghost'
                             onClick={() => onPrev()}
                         >
                             <ChevronLeft />
                         </Button>
                         <Button
+                            aria-label="Next testimonial"
                             variant='ghost'
                             onClick={() => onNext()}
                         >
@@ -121,7 +121,7 @@ export default function Testimonials() {
                 <div>
                     <CarouselContent>
                         {
-                            clients.map( (testimony, index) => (
+                            clients.map((testimony, index) => (
                                 <CarouselItem key={index} className="md:basis-1/3">
                                     <TestimonyCard testimony={testimony} />
                                 </CarouselItem>
@@ -132,12 +132,14 @@ export default function Testimonials() {
 
                 <div className="md:hidden w-full flex justify-center gap-2 mt-4">
                     <Button
+                        aria-label="Previous testomonial"
                         variant='ghost'
                         onClick={() => onPrev()}
                     >
                         <ChevronLeft />
                     </Button>
                     <Button
+                        aria-label="Next testomonial"
                         variant='ghost'
                         onClick={() => onNext()}
                     >
@@ -152,31 +154,32 @@ export default function Testimonials() {
     )
 }
 
-function TestimonyCard({testimony}:{testimony:TestimonyType}) {
+function TestimonyCard({ testimony }: { testimony: TestimonyType }) {
 
     return (
         <Card className="bg-soft-100 h-full">
             <CardHeader>
                 <CardTitle>
                     <div className="flex justify-between items-center">
-                    <div className="flex items-center gap-2">
-                        <Avatar>
-                            <AvatarImage src={testimony.avatarUrl} alt={testimony.name} />
-                            <AvatarFallback>{testimony.name.charAt(0)}</AvatarFallback>
-                        </Avatar>
-                        <div className="flex flex-col gap-1">
-                            <h4 className="text-stone-700">{testimony.name}</h4>
-                            <div className="flex gap-1">
-                                <Star className="fill-amber-300 text-amber-300" size={12} />
-                                <Star className="fill-amber-300 text-amber-300" size={12} />
-                                <Star className="fill-amber-300 text-amber-300" size={12} />
-                                <Star className="fill-amber-300 text-amber-300" size={12} />
-                                <Star className="fill-amber-300 text-amber-300" size={12} />
+                        <div className="flex items-center gap-2">
+                            <Avatar>
+                                <AvatarImage src={testimony.avatarUrl} alt={testimony.name} />
+                                <AvatarFallback>{testimony.name.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                            <div className="flex flex-col gap-1">
+                                <h3 className="text-stone-700">{testimony.name}</h3>
+                                <div className="flex gap-1">
+                                    <Star className="fill-amber-300 text-amber-300" size={12} />
+                                    <Star className="fill-amber-300 text-amber-300" size={12} />
+                                    <Star className="fill-amber-300 text-amber-300" size={12} />
+                                    <Star className="fill-amber-300 text-amber-300" size={12} />
+                                    <Star className="fill-amber-300 text-amber-300" size={12} />
+                                </div>
                             </div>
                         </div>
-                    </div>
                         <div>
                             <a
+                                aria-label="Go to google reviews"
                                 href="https://www.google.com/maps/place/The+Dentl+Studio/@-38.0932259,145.3273963,13.61z/data=!4m14!1m5!8m4!1e1!2s116552269580000845494!3m1!1e1!3m7!1s0x6ad61bf8c629a41f:0xedc2e72cfb1403d6!8m2!3d-38.0951963!4d145.3425676!9m1!1b1!16s%2Fg%2F11ltws4n6v?hl=en-US&entry=ttu&g_ep=EgoyMDI1MDcxMy4wIKXMDSoASAFQAw%3D%3D"
                                 target="_blank"
                             >

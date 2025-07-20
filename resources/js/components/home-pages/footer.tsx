@@ -1,4 +1,4 @@
-import { ArrowUp, ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
+import { ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
 import { gsap } from "gsap"
 import { useRef } from 'react'
 import { useGSAP } from "@gsap/react";
@@ -38,18 +38,21 @@ export default function Footer() {
                     </div>
                     <div className="flex gap-2 mt-5">
                         <a
+                            aria-label="Go to our Facebook page"
                             href="https://www.facebook.com/profile.php?id=61561100413918"
                             target="_blank"
                             className=" size-8 rounded-full bg-stone-900 flex justify-center items-center ">
                             <Facebook size={18} className="text-soft-200" />
                         </a>
                         <a
+                            aria-label="Go to our Instagram page"
                             href="https://www.instagram.com/thedentlstudio"
                             target="_blank"
                             className=" size-8 rounded-full bg-stone-900 flex justify-center items-center ">
                             <Instagram size={18} className="text-soft-200" />
                         </a>
                         <a
+                            aria-label="Email us"
                             href="mailto:info@thedentlstudio.com"
                             target="_blank"
                             className=" size-8 rounded-full bg-stone-900 flex justify-center items-center ">

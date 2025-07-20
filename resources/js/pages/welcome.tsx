@@ -1,23 +1,19 @@
-import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
-
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitText from 'gsap/dist/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExpoScaleEase } from "gsap/EasePack";
 import { TextPlugin } from "gsap/TextPlugin";
-import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
-import { useRef, useEffect, useState } from 'react';
-import { NavigationBar } from '@/components/ui/nav-bar';
+import { useRef, useEffect, useState, lazy } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { ChevronsUp, Facebook, Instagram, Mail } from "lucide-react";
 import ContactUs from '@/components/home-pages/contact-us';
 import Testimonials from '@/components/home-pages/testimonials';
 import Footer from '@/components/home-pages/footer';
 
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'));
 
-gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
+gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger);
 
 export default function Welcome() {
 
@@ -25,6 +21,7 @@ export default function Welcome() {
     const header = useRef<HTMLDivElement>(null)
     const loading = useRef(null)
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
+    const { site_url } = usePage().props;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -129,11 +126,6 @@ export default function Welcome() {
         <>
 
             <Head title="Home">
-                <link rel="preconnect" href="https://fonts.bunny.net" />
-                <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
 
                 <meta name="description" content="Clyde North dentists & team provide exceptional care and offer an array of smile-enhancing services and luxurious touches. Book an appointment today!" />
                 <meta name="robots" content="index, follow" />
@@ -144,12 +136,13 @@ export default function Welcome() {
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
                 <meta property="og:url" content="https://thedentlstudio.com" />
                 <meta property="og:type" content="website" />
+
             </Head>
 
 
             <div ref={wrapper} >
 
-                <div ref={loading} aria-hidden>
+                <div ref={loading} aria-hidden="true">
                     <div className='fixed top-0 left-0 z-50 h-screen w-screen flex'>
                         <div className='bg-black flex-1 sec-1' />
                         <div className='mid-div w-[2px] bg-gray-600/50 absolute top-0 left-1/2 h-screen' />
@@ -174,7 +167,8 @@ export default function Welcome() {
                         muted
                         playsInline
                         poster="/thedentlstudio.jpg"
-                        preload='auto'
+                        preload="auto"
+                        aria-hidden="true"
                     >
                         <source src="/thedentlstudio.webm" type="video/webm" />
                     </video>
@@ -361,7 +355,7 @@ function Services() {
         <>
             <section ref={services} className='min-h-[90svh]' id="main">
 
-                <div className='inset-4 h-full w-full bg-stone-950 px-4 py-16 sm:p-16 text-soft-200 '>
+                <div className='inset-4 h-full w-full bg-stone-950 bg-blend-multiply px-4 py-16 sm:p-16 text-soft-200 '>
                     <h2 className='service-text mb-2 sm:mb-4 text-center sm:text-left'>Our services</h2>
                     <div className='flex flex-col sm:flex-row sm:items-end'>
                         <div className='flex-1'>

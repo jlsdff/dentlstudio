@@ -8,7 +8,7 @@ type NavigationBarProps = {
     scrolled: boolean;
 };
 
-export function NavigationBar({ scrolled }: NavigationBarProps) {
+export default function NavigationBar({ scrolled }: NavigationBarProps) {
 
     const [open, setOpen] = useState(false);
     const [current, setCurrent] = useState<'main' | 'general' | 'restorative' | 'oral' | 'cosmetic'>('main');
@@ -56,17 +56,24 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
             // Animate the main menu items when opening
             // This ensures main items animate in if it's the default view on open
             if (current === 'main' && main.current) {
-                gsap.fromTo(main.current.children, {
-                    x: -300,
-                    opacity: 0,
-                }, {
-                    x: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: 'power3.out',
-                    stagger: 0.1,
-                    delay: 0.1 // Slight delay after the nav-items container starts animating
-                });
+                requestAnimationFrame(
+                    () => {
+                        if(!main.current){
+                            return
+                        }
+                        gsap.fromTo(main.current.children, {
+                            x: -300,
+                            opacity: 0,
+                        }, {
+                            x: 0,
+                            opacity: 1,
+                            duration: 1,
+                            ease: 'power3.out',
+                            stagger: 0.1,
+                            delay: 0.1 // Slight delay after the nav-items container starts animating
+                        });
+                    }
+                )
             }
 
         } else {
@@ -123,15 +130,21 @@ export function NavigationBar({ scrolled }: NavigationBarProps) {
 
     return (
         <nav className={`fixed top-0 left-0 z-40 transition-all duration-300 px-6 py-4 flex justify-between items-center w-screen
-            ${scrolled ? 'text-white' : 'bg-transparent text-white'} overflow-y-hidden shadow-sm`}>
+            text-white overflow-y-hidden shadow-sm
+            ${scrolled && 'bg-[url("/light-paper-fibers.png"),linear-gradient(to_bottom_right,#0b0a08,#292524)] bg-blend-overlay  '}
 
-            <img src="/matte.jpg" alt="" className={`absolute bottom-0 left-0 w-full duration-500 ease-in-out object-cover z-41 ${scrolled ? 'opacity-100' : 'opacity-0'}`} />
+            `}>
+            {/*<div className={`absolute bottom-0 left-0 w-full h-full bg-gradient-to-tl from-amber-900 to-stone-950 z-39*/}
+            {/*${scrolled ? 'opacity-100' : 'opacity-0'}*/}
+            {/*`} />*/}
+            {/*<img src="/light-paper-fibers.png" alt="" className={`absolute bottom-0*/}
+            {/* left-0 w-full duration-500 ease-in-out object-cover z-41 ${scrolled ? 'opacity-20' : 'opacity-0'}`} />*/}
 
             <div className="group overflow-y-hidden z-42">
                 <button onClick={() => setOpen(!open)} className="cursor-pointer nav-item flex gap-2 items-center">
                     <Menu />
                     <span className={`relative text-sm after:content-[''] after:block after:h-[2px] after:w-0 group-hover:after:w-full after:transition-all after:duration-500 after:ease-out
-                        ${scrolled ? 'after:bg-black' : 'after:bg-white'}`}>
+                        after:bg-white`}>
                         Menu
                     </span>
                 </button>

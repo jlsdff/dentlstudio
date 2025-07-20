@@ -97,6 +97,7 @@ export default function ContactUs() {
                             style={{ border: "0px" }}
                             allowFullScreen={true}
                             loading="lazy"
+                                title="The Dentl Studio location in google maps"
                             referrerPolicy="no-referrer-when-downgrade"
                         >
                         </iframe>

@@ -1,7 +1,8 @@
-import { NavigationBar } from "@/components/ui/nav-bar";
 import { Head } from "@inertiajs/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, lazy } from "react";
 import Footer from '@/components/home-pages/footer';
+
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 interface StaffInterface {
     name: string;

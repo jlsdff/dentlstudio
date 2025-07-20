@@ -1,4 +1,3 @@
-import { NavigationBar } from "@/components/ui/nav-bar";
 import { useRef, useEffect, useState, FormEventHandler } from 'react';
 import { Head, useForm } from '@inertiajs/react';
 import { gsap } from "gsap";
@@ -13,6 +12,9 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Home, LoaderCircle, LucideMail, LucidePhoneCall } from 'lucide-react';
+import {lazy} from 'react'
+
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 

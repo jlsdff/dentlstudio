@@ -1,6 +1,5 @@
-import { NavigationBar } from "@/components/ui/nav-bar";
-import { useRef, useEffect, useState } from "react"
-import { Head, Link } from "@inertiajs/react";
+import { useRef, useEffect, useState, lazy } from "react"
+import { Head, Link, usePage } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -9,12 +8,14 @@ import { TextPlugin } from "gsap/TextPlugin";
 import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
 import Footer from '@/components/home-pages/footer';
 
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
 
 export default function Services() {
 
     const header = useRef<HTMLHeadElement>(null)
+    const {site_url} = usePage().props;
 
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
 
@@ -33,11 +34,6 @@ export default function Services() {
     return (
         <>
             <Head title="Services">
-                <link rel="preconnect" href="https://fonts.bunny.net" />
-                <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
 
                 <meta name="description" content="Discover our full range of dental services tailored to meet every smile’s needs. From general check-ups to advanced cosmetic and restorative treatments, The Dentl Studio in Clyde North is committed to providing expert care in a calm, modern environment. Explore how we help you achieve and maintain optimal oral health." />
                 <meta name="robots" content="index, follow" />
@@ -48,6 +44,9 @@ export default function Services() {
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
                 <meta property="og:url" content="https://thedentlstudio.com/service" />
                 <meta property="og:type" content="website" />
+
+                <link rel="preload" as="image" href={`${site_url}/reception.jpg`} fetchPriority="high" />
+
             </Head>
 
             <NavigationBar scrolled={scrolledPastHeader} />
@@ -57,7 +56,7 @@ export default function Services() {
                 className="
                 bg-stone-950 text-soft-200 min-h-[70svh] flex flex-col md:flex-row items-start md:items-end justify-end md:justify-between
                 p-8 md:p-16 gap-4 relative overflow-hidden
-                bg-[url(reception.jpg)]
+                bg-[url(/reception.jpg)]
                 bg-center bg-cover
                 "
             >
