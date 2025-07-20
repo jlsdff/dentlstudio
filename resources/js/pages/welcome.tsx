@@ -1,4 +1,4 @@
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitText from 'gsap/dist/SplitText';
@@ -21,7 +21,6 @@ export default function Welcome() {
     const header = useRef<HTMLDivElement>(null)
     const loading = useRef(null)
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
-    const { site_url } = usePage().props;
 
     useEffect(() => {
         const handleScroll = () => {
@@ -407,7 +406,7 @@ function Services() {
                                         group relative overflow-hidden transition-all duration-500
                                         ease-out
                                         '>
-                                <div className='absolute inset-0 bg-[url(/photos/services/1.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='absolute inset-0 bg-[url(/photos/teeth-whitening.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
                                 <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
                                 <div className='z-10 transition-all duration-500 ease-out'>
                                     <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Teeth Whitening</h3>
@@ -425,7 +424,7 @@ function Services() {
                             <div className='w-64 h-92 rounded-xl flex items-end p-4
                                         group relative overflow-hidden
                                         '>
-                                <div className='absolute inset-0 bg-[url(/photos/services/2.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='absolute inset-0 bg-[url(/photos/veneers.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
                                 <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
                                 <div className='z-10 transition-all duration-500 ease-out'>
                                     <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Veneers</h3>
@@ -461,12 +460,30 @@ function Services() {
                             <div className='w-64 h-92 rounded-xl flex items-end p-4
                                         group relative overflow-hidden
                                         '>
-                                <div className='absolute inset-0 bg-[url(/photos/services/smile.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='absolute inset-0 bg-[url(/photos/smile-makeover.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
                                 <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
                                 <div className='z-10 transition-all duration-500 ease-out'>
                                     <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Smile Makeover</h3>
                                     <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
                                         Transform your smile with a personalised smile makeover—combining cosmetic treatments to enhance your confidence and appearance.
+                                    </p>
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link
+                            href={route('checkup-and-cleans')}
+                            prefetch="hover"
+                            className='cards outline outline-soft-200/50 rounded-xl'>
+                            <div className='w-64 h-92 rounded-xl flex items-end p-4
+                                        group relative overflow-hidden
+                                        '>
+                                <div className='absolute inset-0 bg-[url(/photos/general-hygiene.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
+                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
+                                <div className='z-10 transition-all duration-500 ease-out'>
+                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>General Hygiene</h3>
+                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
+                                        Keep your smile fresh and healthy with professional dental hygiene care, including plaque removal, gum maintenance, and personalized oral health tips.
                                     </p>
                                 </div>
                             </div>
