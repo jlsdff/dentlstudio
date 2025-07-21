@@ -134,7 +134,7 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
         >
             <div
                 className={`absolute inset-0 z-[-1] transition-opacity duration-700 ease-in-out
-                  bg-[url('/black-linen.png'),linear-gradient(to_bottom_right,#1d1a18,#44413c)]
+                  bg-[url('/black-linen.webp'),linear-gradient(to_bottom_right,#1d1a18,#44413c)]
                   bg-blend-overlay
                   ${scrolled ? 'opacity-100' : 'opacity-0'}
                 `}

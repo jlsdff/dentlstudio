@@ -10,10 +10,11 @@ import Testimonials from '@/components/home-pages/testimonials';
 import Footer from '@/components/home-pages/footer';
 
 const ContactUs = lazy( () => import('@/components/home-pages/contact-us'))
+const Services = lazy(() => import('@/components/home-pages/services'))
 
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'));
 
-gsap.registerPlugin(useGSAP, ExpoScaleEase, ScrollTrigger);
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Welcome() {
 
@@ -36,8 +37,6 @@ export default function Welcome() {
 
     useGSAP(() => {
 
-        document.body.style.overflow = 'hidden'
-
         const tl = gsap.timeline({
             onComplete: () => {
                 document.body.style.overflow = ''
@@ -46,78 +45,84 @@ export default function Welcome() {
 
         const split = SplitText.create('.loading-2', { type: "chars" })
 
-        tl.from(split.chars, {
-            opacity: 0,
-            xPercent: 100,
-            ease: "expo.out",
-            stagger: 0.1,
-            delay: 1,
-            duration: 0.5
-        })
-            .from('.loading-1', {
-                opacity: 0,
-                yPercent: -100,
-                ease: 'expo.out',
-                duration: 0.3
-            })
-            .from('.loading-3', {
-                opacity: 0,
-                yPercent: 100,
-                ease: 'expo.out',
-                duration: 0.3
-            }, "<")
-            .from('.mid-div', {
-                yPercent: 100,
-                ease: 'expo.out',
-                duration: 1
-            })
-            .to('.loading-1', {
-                opacity: 0,
-                y: -100,
-                ease: 'expo.in',
-                duration: 0.3,
-            })
-            .to('.loading-3', {
-                opacity: 0,
-                yPercent: 100,
-                ease: 'expo.in',
-                duration: 0.3,
-            }, "<")
-            .to(split.chars, {
+        requestAnimationFrame(() => {
+
+            document.body.style.overflow = 'hidden'
+
+            tl.from(split.chars, {
                 opacity: 0,
                 xPercent: 100,
-                ease: "expo.in",
+                ease: "expo.out",
                 stagger: 0.1,
+                delay: 1,
                 duration: 0.5
             })
-            .to('.mid-div', {
-                opacity: 0,
-                y: -100,
-                ease: 'expo.in',
-                duration: 0.5
-            }, "<")
-            .to('.sec-1', {
-                yPercent: 100,
-                ease: "expo.in",
-                duration: 1
-            })
-            .to('.sec-2', {
-                yPercent: -100,
-                ease: 'expo.in',
-                duration: 1
-            }, "<")
-            .from('.hero', {
-                yPercent: 100,
-                ease: 'expo.out',
-                duration: 0.5,
-                delay: 0.3,
-            })
-            .from('.nav-item', {
-                yPercent: -100,
-                ease: 'expo.out',
-                duration: 0.3,
-            }, "<")
-            .set(loading.current, { display: 'none' })
+                .from('.loading-1', {
+                    opacity: 0,
+                    yPercent: -100,
+                    ease: 'expo.out',
+                    duration: 0.3
+                })
+                .from('.loading-3', {
+                    opacity: 0,
+                    yPercent: 100,
+                    ease: 'expo.out',
+                    duration: 0.3
+                }, "<")
+                .from('.mid-div', {
+                    yPercent: 100,
+                    ease: 'expo.out',
+                    duration: 1
+                })
+                .to('.loading-1', {
+                    opacity: 0,
+                    y: -100,
+                    ease: 'expo.in',
+                    duration: 0.3,
+                })
+                .to('.loading-3', {
+                    opacity: 0,
+                    yPercent: 100,
+                    ease: 'expo.in',
+                    duration: 0.3,
+                }, "<")
+                .to(split.chars, {
+                    opacity: 0,
+                    xPercent: 100,
+                    ease: "expo.in",
+                    stagger: 0.1,
+                    duration: 0.5
+                })
+                .to('.mid-div', {
+                    opacity: 0,
+                    y: -100,
+                    ease: 'expo.in',
+                    duration: 0.5
+                }, "<")
+                .to('.sec-1', {
+                    yPercent: 100,
+                    ease: "expo.in",
+                    duration: 1
+                })
+                .to('.sec-2', {
+                    yPercent: -100,
+                    ease: 'expo.in',
+                    duration: 1
+                }, "<")
+                .from('.hero', {
+                    yPercent: 100,
+                    ease: 'expo.out',
+                    duration: 0.5,
+                    delay: 0.3,
+                })
+                .from('.nav-item', {
+                    yPercent: -100,
+                    ease: 'expo.out',
+                    duration: 0.3,
+                }, "<")
+                .set(loading.current, { display: 'none' })
+
+        })
 
     }, { scope: wrapper })
 
@@ -324,204 +329,4 @@ function AboutUs() {
     )
 }
 
-function Services() {
 
-    const services = useRef(null);
-
-    useGSAP(() => {
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: services.current,
-                toggleActions: 'play none none none',
-                start: 'top 75%'
-            }
-        });
-        tl.from('.service-text', {
-            autoAlpha: 0,
-            duration: 1,
-            y: 100,
-            ease: 'power3.out',
-        }).from('.cards', {
-            autoAlpha: 0,
-            x: 50,
-            ease: 'power3.out',
-            duration: 1,
-            stagger: 0.1,
-        })
-    }, { scope: services })
-
-    return (
-        <>
-            <section ref={services} className='min-h-[90svh]' id="main">
-
-                <div className='inset-4 h-full w-full bg-stone-950 bg-blend-multiply px-4 py-16 sm:p-16 text-soft-200 '>
-                    <h2 className='service-text mb-2 sm:mb-4 text-center sm:text-left'>Our services</h2>
-                    <div className='flex flex-col sm:flex-row sm:items-end'>
-                        <div className='flex-1'>
-                            <h3 className='service-text mb-8 sm:mb-0 text-6xl sm:text-8xl font-serif text-center sm:text-left text-soft-300' >
-                                Certified
-                                <br />
-                                Excellence
-                            </h3>
-                        </div>
-                        <div className='w-full sm:max-w-sm'>
-                            <p className='service-text text-sm text-justify '>
-                                Experience modern dentistry redefined — from LED whitening in our comfort lounge to advanced veneers and clear aligners. We blend cutting-edge tech with a serene, spa-like atmosphere to make every visit feel indulgent.
-                            </p>
-                            <div className='flex justify-around mt-4 font-bold text-base'>
-                                <Link
-                                    href={route('service')}
-                                    prefetch="hover"
-                                    className="service-text group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
-                                    <ChevronRight
-                                        className="absolute -left-7 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
-                                        size={20}
-                                    />
-                                    <span className="transition-all duration-300 group-hover:translate-x-2">
-                                        View All Services
-                                    </span>
-                                </Link>
-
-                                <button className="service-text group flex items-center gap-1 hover:text-soft-500 relative cursor-pointer">
-                                    <ChevronRight
-                                        className="absolute -left-7 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all duration-300"
-                                        size={20}
-                                    />
-                                    <span className="transition-all duration-300 group-hover:translate-x-2">
-                                        Book now
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Cards */}
-                    <div className='flex gap-4 mt-4 sm:mt-8 overflow-x-auto pb-4 scrollbar-minimal'>
-
-                        <Link
-                            href={route('teeth-whitening')}
-                            prefetch="hover"
-                            className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden transition-all duration-500
-                                        ease-out
-                                        '>
-                                <div className='absolute inset-0 bg-[url(/photos/teeth-whitening.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Teeth Whitening</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link
-                            href={route('veneers')}
-                            prefetch="hover"
-                            className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden
-                                        '>
-                                <div className='absolute inset-0 bg-[url(/photos/veneers.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Veneers</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Transform your smile with custom-made veneers — perfect for covering chips, gaps, or discoloration and achieving a naturally beautiful, flawless look.
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link
-                            href={route('clear-aligners')}
-                            prefetch="hover"
-                            className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden
-                                        '>
-                                <div className='absolute inset-0 bg-[url(/photos/services/3.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Clear Aligners</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Experience a brighter smile in one appointment with our professional Philips Zoom whitening, enhanced by LED light and paired with a complimentary hand massage, aromatherapy, or face mask for ultimate comfort.
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link
-                            href={route('smile-makeover')}
-                            prefetch="hover"
-                            className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden
-                                        '>
-                                <div className='absolute inset-0 bg-[url(/photos/smile-makeover.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Smile Makeover</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Transform your smile with a personalised smile makeover—combining cosmetic treatments to enhance your confidence and appearance.
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link
-                            href={route('checkup-and-cleans')}
-                            prefetch="hover"
-                            className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden
-                                        '>
-                                <div className='absolute inset-0 bg-[url(/photos/general-hygiene.jpg)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>General Hygiene</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Keep your smile fresh and healthy with professional dental hygiene care, including plaque removal, gum maintenance, and personalized oral health tips.
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link
-                            href={route('emergency-dentistry')}
-                            prefetch="hover"
-                            className='cards outline outline-soft-200/50 rounded-xl'>
-                            <div className='w-64 h-92 rounded-xl flex items-end p-4
-                                        group relative overflow-hidden
-                                        '>
-                                <div className='absolute inset-0 bg-[url(/photos/services/emergency.webp)] bg-center bg-cover transition-transform duration-500 ease-out group-hover:scale-110 rounded-xl'></div>
-                                <div className='w-full h-full absolute top-0 left-0 rounded-xl bg-gradient-to-b from-transparent to-stone-950 transition-all duration-500 ease-out' />
-                                <div className='z-10 transition-all duration-500 ease-out'>
-                                    <h3 className='text-lg font-bold tracking-wide mb-2 transition-all duration-500 ease-out'>Emergency Dentistry</h3>
-                                    <p className='text-sm opacity-0 group-hover:opacity-100 h-0 group-hover:h-auto transition-all duration-500 ease-out'>
-                                        Get fast, expert care for dental emergencies—relieving pain and protecting your smile when urgent issues arise.
-                                    </p>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link
-                            href={route('service')}
-                            prefetch="hover"
-                            className='cards w-64 h-92 rounded-xl flex items-center p-4
-                                        group
-                                        '>
-                            <p className="group-hover:underline">See More</p>
-                            <ChevronRight />
-                        </Link>
-
-                    </div>
-
-                </div>
-
-            </section>
-        </>
-    )
-}
