@@ -2,6 +2,7 @@ import { Head, Link } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import {SplitText} from 'gsap/SplitText'
 import { useRef, useEffect, useState, lazy } from 'react';
 import Testimonials from '@/components/home-pages/testimonials';
 import Footer from '@/components/home-pages/footer';
