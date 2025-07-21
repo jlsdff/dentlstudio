@@ -17,6 +17,10 @@ Route::get('/service', function () {
     return Inertia::render('service');
 })->name('service');
 
+Route::get('/new-patients', function() {
+    return Inertia::render('new-patient');
+})->name('new-patients');
+
 Route::get('/contact-us', function() {
     return Inertia::render('contact-us');
 })->name('contact-us');

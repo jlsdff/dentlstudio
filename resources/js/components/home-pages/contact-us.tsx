@@ -76,7 +76,7 @@ export default function ContactUs() {
                                     <p>Friday</p>
                                 </div>
                                 <div>
-                                    <p>9:00 AM - 4:00 PM</p>
+                                    <p>9:00 AM - 6:00 PM</p>
                                 </div>
                             </div>
                             <div className="flex gap-4 max-w-sm">

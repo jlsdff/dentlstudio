@@ -5,6 +5,7 @@ import { Link } from "@inertiajs/react";
 import Footer from '@/components/home-pages/footer';
 import ContactUs from "@/components/home-pages/contact-us";
 
+const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy( () => import('@/components/ui/nav-bar'))
 export default function EmergencyDentistry() {
 
@@ -39,7 +40,7 @@ export default function EmergencyDentistry() {
                 <link
                     rel="preload"
                     as="image"
-                    href="/photos/services/service-cover.jpg"
+                    href="/photos/services/service-cover.webp"
                     fetchPriority="high"
                 />
             </Head>
@@ -49,7 +50,7 @@ export default function EmergencyDentistry() {
             <header ref={header} className="
                 bg-stone-950 text-soft-200 min-h-[70svh] flex flex-col md:flex-row items-start md:items-end justify-end md:justify-between
                 p-8 md:p-16 gap-4 relative overflow-hidden
-                bg-[url(/photos/services/service-cover.jpg)]
+                bg-[url(/photos/services/service-cover.webp)]
                 bg-center bg-cover
                 ">
 
@@ -73,6 +74,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
+                <PopUp/>
 
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
@@ -93,7 +95,7 @@ export default function EmergencyDentistry() {
                         </p>
                         <a
                             aria-label="Book an appointment at The Dentl Studio"
-                            className={`px-4 py-2 inline-block text-sm rounded-md bg-soft-500 text-soft-200 hover:bg-soft-600 transition-all duration-300 shadow-lg`}
+                            className={`px-4 py-2 inline-block text-sm rounded-md bg-soft-800 text-soft-100 hover:bg-soft-900 transition-all duration-300 shadow-lg`}
                             href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
                             target="_blank"
                         >

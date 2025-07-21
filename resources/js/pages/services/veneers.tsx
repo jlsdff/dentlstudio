@@ -5,6 +5,7 @@ import { Link } from "@inertiajs/react";
 import Footer from '@/components/home-pages/footer';
 import ContactUs from "@/components/home-pages/contact-us";
 
+const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 export default function EmergencyDentistry() {
@@ -28,12 +29,6 @@ export default function EmergencyDentistry() {
         <>
             <Head title="Veneers in Clyde North">
 
-                <link rel="preconnect" href="https://fonts.bunny.net" />
-                <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
-
                 <meta name="description" content="Transform your smile with custom-designed porcelain veneers." />
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://thedentlstudio.com/veneers" />
@@ -46,7 +41,7 @@ export default function EmergencyDentistry() {
                 <link
                     rel="preload"
                     as="image"
-                    href="/photos/services/service-cover.jpg"
+                    href="/photos/services/service-cover.webp"
                     fetchPriority="high"
                 />
 
@@ -57,7 +52,7 @@ export default function EmergencyDentistry() {
             <header ref={header} className="
                 bg-stone-950 text-soft-200 min-h-[70svh] flex flex-col md:flex-row items-start md:items-end justify-end md:justify-between
                 p-8 md:p-16 gap-4 relative overflow-hidden
-                bg-[url(/photos/services/service-cover.jpg)]
+                bg-[url(/photos/services/service-cover.webp)]
                 bg-center bg-cover
                 ">
 
@@ -82,6 +77,8 @@ export default function EmergencyDentistry() {
 
             <main>
 
+                <PopUp/>
+
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Do you wish you could achieve a stunning smile that lights up the room? At our Clyde North dental practice, porcelain veneers offer a lasting solution for multiple aesthetic concerns, from stains to chips and gaps. Custom-crafted to your unique goals, these tooth covers provide both beauty and function. Our approach focuses on creating results that look and feel entirely natural.
@@ -97,7 +94,7 @@ export default function EmergencyDentistry() {
                         </p>
                         <a
                             aria-label="Book an appointment at The Dentl Studio"
-                            className={`mb-4 mt-4 px-4 py-2 inline-block text-sm rounded-md bg-soft-500 text-soft-200 hover:bg-soft-600 transition-all duration-300 shadow-lg`}
+                            className={`mb-4 mt-4 px-4 py-2 inline-block text-sm rounded-md bg-soft-800 text-soft-100 hover:bg-soft-900 transition-all duration-300 shadow-lg`}
                             href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
                             target="_blank"
                         >

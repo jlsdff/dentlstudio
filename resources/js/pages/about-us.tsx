@@ -2,6 +2,7 @@ import { Head } from "@inertiajs/react";
 import { useEffect, useRef, useState, lazy } from "react";
 import Footer from '@/components/home-pages/footer';
 
+const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 interface StaffInterface {
@@ -114,6 +115,8 @@ export default function AboutUs() {
 
             <main className="bg-soft-200 p-8 md:p-16">
 
+                <PopUp/>
+
                 <div className='pt-8 flex flex-col md:flex-row items-center md:items-end'>
                     <div className='p-5 flex-1'>
                         <h3 className='text-3xl md:text-7xl font-serif text-center md:text-left'>Meet Our Dedicated Experts</h3>
@@ -141,12 +144,14 @@ export default function AboutUs() {
 function StaffCard({ staff }: { staff: StaffInterface }) {
 
     return (
-        <div className="flex flex-col md:flex-row p-4 rounded-lg gap-4">
+        <div className="flex flex-col md:flex-row p-4 rounded-lg gap-4 border border-soft-300 shadow-md
+            bg-gradient-to-t from-soft-200 to-soft-300
+        ">
             <div className="flex justify-center items-end flex-shrink-0
-                bg-gradient-to-t from-stone-900/50 to-transparent rounded-xl
+                bg-gradient-to-tr from-soft-500 to-transparent rounded-xl
             ">
                 <img
-                    className="w-[150px] md:w-[150px] shrink-0 object-cover rounded-xl"
+                    className="w-[150px] md:w-[150px] shrink-0 object-cover rounded-md"
                     src={staff.avatarUrl}
                     alt={staff.name} />
             </div>

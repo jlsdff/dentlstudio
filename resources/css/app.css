@@ -133,6 +133,21 @@
     }
 }
 
+@layer utilities {
+    @keyframes pulse-scale {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+    }
+
+    .animate-pulse-scale {
+        animation: pulse-scale 1.5s ease-in-out infinite;
+    }
+}
+
 :root {
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
