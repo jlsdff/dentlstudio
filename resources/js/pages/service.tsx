@@ -8,6 +8,7 @@ import { TextPlugin } from "gsap/TextPlugin";
 import ScrollToPlugin from 'gsap/src/ScrollToPlugin';
 import Footer from '@/components/home-pages/footer';
 
+const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
@@ -82,6 +83,8 @@ export default function Services() {
 
             </header>
             <main >
+
+                <PopUp/>
 
                 <section className="min-h-[90svh] bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
 

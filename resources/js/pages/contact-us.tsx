@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Home, LoaderCircle, LucideMail, LucidePhoneCall } from 'lucide-react';
 import {lazy} from 'react'
 
+const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 
 gsap.registerPlugin(useGSAP, TextPlugin, ExpoScaleEase, ScrollTrigger, ScrollToPlugin);
@@ -72,6 +73,8 @@ export default function Services() {
                 <p>Fill out the form below or schedule a meeting with us at your convenience.</p>
             </header>
             <main >
+
+                <PopUp/>
 
                 <section className="min-h-[90svh] text-stone-950 bg-soft-200 p-8 md:p-16
                     grid grid-cols-1 md:grid-cols-6 gap-8 tracking-widest">
