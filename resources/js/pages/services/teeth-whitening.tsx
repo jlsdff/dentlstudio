@@ -84,7 +84,7 @@ export default function EmergencyDentistry() {
 
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
-                        Patient getting teeth whitenedBrighten your smile in a single visit with our advanced whitening system. Using Australia’s leading Philips Zoom technology, we deliver stunning results while ensuring your comfort throughout the process. Our approach combines professional results with a relaxing experience.
+                        Brighten your smile in a single visit with our advanced whitening system. Using Australia’s leading Philips Zoom technology, we deliver stunning results while ensuring your comfort throughout the process. Our approach combines professional results with a relaxing experience.
                     </p>
                 </section>
 
