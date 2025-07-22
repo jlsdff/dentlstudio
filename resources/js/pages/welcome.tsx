@@ -2,12 +2,12 @@ import { Head, Link } from '@inertiajs/react';
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import {SplitText} from 'gsap/SplitText'
+import { SplitText } from 'gsap/SplitText'
 import { useRef, useEffect, useState, lazy } from 'react';
 import Testimonials from '@/components/home-pages/testimonials';
 import Footer from '@/components/home-pages/footer';
 
-const ContactUs = lazy( () => import('@/components/home-pages/contact-us'))
+const ContactUs = lazy(() => import('@/components/home-pages/contact-us'))
 const Services = lazy(() => import('@/components/home-pages/services'))
 const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'));
@@ -174,17 +174,17 @@ export default function Welcome() {
                     >
                         <source src="/thedentlstudio.webm" type="video/webm" />
                     </video>
-                    <div className="absolute inset-0 bg-stone-950/30 z-0" />
+                    {/* <div className="absolute inset-0 bg-stone-950/30 z-0" /> */}
                     <div className="relative z-10 flex flex-col justify-end items-center md:justify-center md:items-start h-full p-8 md:px-16 md:py-8 gap-4
                         bg-gradient-to-t
-                        md:bg-gradient-to-r from-stone-950 to-transparent
+                        md:bg-gradient-to-r from-stone-950/80 to-transparent
                     ">
                         <div className="flex flex-col ">
                             <div className='overflow-hidden'>
                                 <h1 className="hero text-soft-100 text-center md:text-left text-2xl sm:text-3xl font-light font-serif tracking-widest">
                                     Where{" "}
                                     <span className="font-semibold"> Comfort</span>
-                                    <br/>
+                                    <br />
                                     Meets{" "}
                                     <span className='font-semibold'> Excellence</span>
                                 </h1>

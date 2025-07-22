@@ -17,20 +17,28 @@ Route::get('/service', function () {
     return Inertia::render('service');
 })->name('service');
 
-Route::get('/new-patients', function() {
+Route::get('/new-patients', function () {
     return Inertia::render('new-patient');
 })->name('new-patients');
 
-Route::get('/contact-us', function() {
+Route::get('/contact-us', function () {
     return Inertia::render('contact-us');
 })->name('contact-us');
 
-Route::post('/contact-us', function() {
+Route::post('/contact-us', function () {
     return back()->with([
         'success' => true,
         'message' => 'Thank you for reaching out! We will get back to you as soon as possible. In the meantime, feel free to browse our site or follow us on social media for updates.'
     ]);
 })->name('contact-us.store');
+
+Route::get('/meet-the-team', function () {
+    return Inertia::render('meet-the-team');
+})->name('meet-the-team');
+
+Route::get('/gallery', function () {
+    return Inertia::render('gallery');
+})->name('gallery');
 
 Route::get('/about-us', function () {
     return Inertia::render('about-us');

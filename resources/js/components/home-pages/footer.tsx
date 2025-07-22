@@ -55,7 +55,7 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="min-w-[200px]">
+                <div className="min-w-[200px] mt-4 md:mt-0">
                     <h3 className="text-xl font-semibold">Useful Links</h3>
                     <ul className='text-lg  '>
                         <li>
@@ -83,6 +83,24 @@ export default function Footer() {
                         </li>
                         <li>
                             <Link
+                                href={route('meet-the-team')}
+                                prefetch="hover"
+                                className="hover:underline"
+                            >
+                                Meet The Team
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href={route('gallery')}
+                                prefetch="hover"
+                                className="hover:underline"
+                            >
+                                Gallery
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
                                 href={route('blogs.index')}
                                 prefetch="hover"
                                 className="hover:underline"
@@ -94,7 +112,7 @@ export default function Footer() {
 
                 </div>
                 {/* Services */}
-                <div className="min-w-[200px]">
+                <div className="min-w-[200px] mt-4 sm:mt-0">
                     <h3 className="text-xl font-semibold">Services</h3>
                     <ul className='text-lg  '>
                         <li>

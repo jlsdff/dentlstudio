@@ -58,7 +58,7 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
             if (current === 'main' && main.current) {
                 requestAnimationFrame(
                     () => {
-                        if(!main.current){
+                        if (!main.current) {
                             return
                         }
                         gsap.fromTo(main.current.children, {
@@ -216,6 +216,16 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
                                     <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
                                         <Link href={route('about-us')} prefetch={"hover"} >
                                             About us
+                                        </Link>
+                                    </li>
+                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                        <Link href={route('meet-the-team')} prefetch={"hover"} >
+                                            Meet The Team
+                                        </Link>
+                                    </li>
+                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                        <Link href={route('gallery')} prefetch={"hover"} >
+                                            Gallery
                                         </Link>
                                     </li>
                                     <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
