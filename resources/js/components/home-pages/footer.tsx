@@ -116,24 +116,42 @@ export default function Footer() {
                     <h3 className="text-xl font-semibold">Services</h3>
                     <ul className='text-lg  '>
                         <li>
-                            <a href={`${route("service")}#general-dentistry`} className="hover:underline duration-900 ease-in ">
+                            <Link
+                                href={`${route("service")}#general-dentistry`}
+                                prefetch='hover'
+                                className="hover:underline duration-900 ease-in ">
                                 General Dentistry
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href={`${route("service")}#cosmetic-dentistry`} className="hover:underline">
+                            <Link
+                                href={`${route("service")}#cosmetic-dentistry`}
+                                prefetch="hover"
+                                className="hover:underline">
                                 Cosmetic Dentistry
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href={`${route("service")}#restorative-dentistry`} className="hover:underline">
+                            <Link
+                                href={`${route("service")}#restorative-dentistry`}
+                                prefetch='hover'
+                                className="hover:underline">
                                 Restorative Dentistry
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href={`${route("service")}#oral-surgery`} className="hover:underline">
+                            <Link
+                                href={`${route("service")}#oral-surgery`}
+                                className="hover:underline">
                                 Oral Surgery
-                            </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href={`${route("service")}#cosmetic-injectables`}
+                                className="hover:underline">
+                                Cosmetic Injectables & Fillers
+                            </Link>
                         </li>
                     </ul>
 

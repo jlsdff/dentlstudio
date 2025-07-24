@@ -12,7 +12,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Home, LoaderCircle, LucideMail, LucidePhoneCall } from 'lucide-react';
-import {lazy} from 'react'
+import { lazy } from 'react'
 
 const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
@@ -74,7 +74,7 @@ export default function Services() {
             </header>
             <main >
 
-                <PopUp/>
+                <PopUp />
 
                 <section className="min-h-[90svh] text-stone-950 bg-soft-200 p-8 md:p-16
                     grid grid-cols-1 md:grid-cols-6 gap-8 tracking-widest">
@@ -133,7 +133,7 @@ export default function Services() {
                                             <p>Friday</p>
                                         </div>
                                         <div>
-                                            <p>9:00 AM - 4:00 PM</p>
+                                            <p>9:00 AM - 6:00 PM</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4 max-w-sm">
