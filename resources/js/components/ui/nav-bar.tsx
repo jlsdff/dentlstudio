@@ -11,7 +11,7 @@ type NavigationBarProps = {
 export default function NavigationBar({ scrolled }: NavigationBarProps) {
 
     const [open, setOpen] = useState(false);
-    const [current, setCurrent] = useState<'main' | 'general' | 'restorative' | 'oral' | 'cosmetic'>('main');
+    const [current, setCurrent] = useState<'main' | 'general' | 'restorative' | 'oral' | 'cosmetic' | 'injectables'>('main');
     const navMenu = useRef(null);
 
     const main = useRef<HTMLDivElement>(null);
@@ -19,6 +19,7 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
     const restorative = useRef<HTMLDivElement>(null);
     const oral = useRef<HTMLDivElement>(null);
     const cosmetic = useRef<HTMLDivElement>(null);
+    const injectables = useRef<HTMLDivElement>(null);
 
     const refs = {
         main,
@@ -26,6 +27,7 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
         restorative,
         oral,
         cosmetic,
+        injectables
     };
 
     useGSAP(() => {
@@ -139,11 +141,6 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
                   ${scrolled ? 'opacity-100' : 'opacity-0'}
                 `}
             />
-            {/*<div className={`absolute bottom-0 left-0 w-full h-full bg-gradient-to-tl from-amber-900 to-stone-950 z-39*/}
-            {/*${scrolled ? 'opacity-100' : 'opacity-0'}*/}
-            {/*`} />*/}
-            {/*<img src="/light-paper-fibers.png" alt="" className={`absolute bottom-0*/}
-            {/* left-0 w-full duration-500 ease-in-out object-cover z-41 ${scrolled ? 'opacity-20' : 'opacity-0'}`} />*/}
 
             <div className="group overflow-y-hidden z-42">
                 <button onClick={() => setOpen(!open)} className="cursor-pointer nav-item flex gap-2 items-center">
@@ -179,7 +176,7 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
 
             <div ref={navMenu} id="nav-menu"
                 className="fixed w-screen h-screen top-0 left-0 bg-soft-500/10 backdrop-blur z-100 bg-black/30 opacity-0 invisible">
-                <div className="nav-items w-full md:w-1/3 h-screen p-6 bg-stone-950 ">
+                <div className="nav-items w-full md:w-1/3 h-screen p-6 bg-stone-950 overflow-y-scroll scrollbar-minimal ">
 
                     <button className="flex gap-2 items-center w-full text-lg mb-12 cursor-pointer" onClick={() => setOpen(prev => !prev)}>
                         <X size={16} />
@@ -204,6 +201,9 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
                                     </li>
                                     <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
                                         <button className="cursor-pointer" onClick={() => setCurrent('oral')}>Oral Surgery</button>
+                                    </li>
+                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                        <button className="cursor-pointer" onClick={() => setCurrent('injectables')}>Cosmetic Injectables</button>
                                     </li>
                                 </div>
                                 <li className="main-items text-xs mt-8 mb-3 text-soft-200/80">More about us</li>
@@ -234,6 +234,39 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
                                         </Link>
                                     </li>
                                 </div>
+                            </ul>
+                        </div>
+
+                        {/* Injectables Sub-menu */}
+                        <div ref={injectables} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}>
+                            <ul className="space-y-4 text-2xl tracking-widest font-bold ">
+                                <div className="injectables-items">
+                                    <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
+                                        <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
+                                        <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
+                                            Cosmetic Injectables
+                                        </span>
+                                    </button>
+                                </div>
+                                {[
+                                    { label: "Forehead Creases", url: 'forehead-creases' },
+                                    { label: "Frown Lines", url: 'frown-lines' },
+                                    { label: "Crows Feet", url: 'crows-feet' },
+                                    { label: "Brow Lift", url: 'brow-lift' },
+                                    { label: "Bunny Lines", url: 'bunny-lines' },
+                                    { label: "Hyperhydrosis", url: 'hyperhydrosis' },
+                                    { label: "Lip Flip", url: 'lip-flip' },
+                                    { label: "Gummy Smile", url: 'gummy-smile' },
+                                    { label: "Upper Lip Lines", url: 'upper-lip-lines' },
+                                    { label: "Downward Smile", url: 'downward-smile' },
+                                    { label: "Dimpled Chin", url: 'dimpled-chin' },
+                                    { label: "Neferti Neck Lift / Platysmal Bands", url: 'neferti-neck-lift' },
+                                    { label: "Masseters / Jaw Slimming", url: 'masseters' },
+                                ].map((item, index) => (
+                                    <li key={index} className="injectables-items text-soft-100 hover:text-white cursor-pointer">
+                                        <Link href={route(`${item.url}`)} prefetch="hover" >{item.label}</Link>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
 
@@ -333,11 +366,6 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
                                 <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
                                     <Link href={route('dental-contouring')} prefetch="hover">
                                         Dental Contouring
-                                    </Link>
-                                </li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('cosmetic-injectables')} prefetch="hover">
-                                        Cosmetic Injectables and Fillers
                                     </Link>
                                 </li>
                             </ul>
