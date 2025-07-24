@@ -43,7 +43,12 @@ export default function EmergencyDentistry() {
                     href="/injectables-ad.webm"
                     fetchPriority="high"
                 />
-
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/frosted.jpg"
+                    fetchPriority="high"
+                />
             </Head>
 
             <NavigationBar scrolled={scrolledPastHeader} />

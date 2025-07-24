@@ -62,7 +62,7 @@ export default function AboutUs() {
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false)
     const header = useRef<HTMLHeadElement>(null)
 
-    const title = "Meet The Team Behind the The Dentl Studio"
+    const title = "Meet The Team Behind The Dentl Studio"
     const description = "Get to know the passionate dental professionals who make your smile their mission. Our skilled and caring team in Clyde North is dedicated to delivering exceptional care with a personal touch—every visit, every time."
 
     useEffect(() => {
