@@ -56,6 +56,19 @@ class GenerateSitemap extends Command
             ->add(Url::create('/extractions'))
             ->add(Url::create('/wisdom-teeth-removal'))
             ->add(Url::create('/dental-implant-replacement-services'))
+            ->add(Url::create('/forehead-creases'))
+            ->add(Url::create('/frown-lines'))
+            ->add(Url::create('/crows-feet'))
+            ->add(Url::create('/brow-lift'))
+            ->add(Url::create('/bunny-lines'))
+            ->add(Url::create('/hyperhidrosis'))
+            ->add(Url::create('/lip-flip'))
+            ->add(Url::create('/gummy-smile'))
+            ->add(Url::create('/upper-lip-lines'))
+            ->add(Url::create('/downward-smile'))
+            ->add(Url::create('/dimpled-chin'))
+            ->add(Url::create('/neferti-neck-lift'))
+            ->add(Url::create('/masseters'))
             ->add(Url::create('/blogs'));
 
         Post::select(['slug'])->get()->each(function (Post $post) use ($sitemap) {
@@ -63,6 +76,5 @@ class GenerateSitemap extends Command
         });
 
         $sitemap->writeToFile(public_path('sitemap.xml'));
-
     }
 }
