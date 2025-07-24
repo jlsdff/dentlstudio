@@ -164,7 +164,7 @@ Route::get('bunny-lines', function () {
     return Inertia::render('services/bunny-lines');
 })->name('bunny-lines');
 
-Route::get('hyperhydrosis', function () {
+Route::get('hyperhidrosis', function () {
     return Inertia::render('services/hyperhydrosis');
 })->name('hyperhydrosis');
 

@@ -84,7 +84,7 @@ export default function Services() {
             </header>
             <main >
 
-                <PopUp/>
+                <PopUp />
 
                 <section className="min-h-[90svh] bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
 
@@ -342,8 +342,6 @@ export default function Services() {
 
                         <h2 className="text-left text-2xl font-bold ">Restorative Dentistry</h2>
                         <p className="text-left mt-2">
-                            <span className="font-bold">Restore function. Renew confidence.</span>
-                            <br />
                             We combine modern techniques with tailored care to repair, replace, or rebuild damaged teeth—helping you regain a seamless, natural-looking smile through crowns, implants, and more.
                         </p>
 
@@ -438,8 +436,6 @@ export default function Services() {
                     <div id="oral-surgery" >
                         <h2 className="text-left text-2xl font-bold ">Oral Surgery</h2>
                         <p className="text-left mt-2">
-                            <span className="font-bold">Expert care for complex needs.</span>
-                            <br />
                             Whether it's a simple extraction or full implant replacement, our oral surgery solutions are performed with precision and care—ensuring comfort, safety, and optimal results.
                         </p>
                         <div className="cards cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
@@ -485,6 +481,213 @@ export default function Services() {
                                     Restore missing teeth with precision-placed implants that look, feel, and function like natural teeth.
                                 </p>
                             </Link>
+
+                        </div>
+                    </div>
+
+                    <div id="cosmetic-injectables" >
+                        <h2 className="text-left text-2xl font-bold ">Cosmetic Injectables & Fillers</h2>
+                        <p className="text-left mt-2">
+                            Smooth wrinkles, enhance facial features, and rejuvenate your look with expertly applied cosmetic injectables and dermal fillers—tailored for natural, refined results.
+                        </p>
+                        <div className="cards cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 my-4 gap-4 ">
+
+                            <Link
+                                href={route('forehead-creases')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/forehead-lines.jpg" alt="Girl pointing at her forehead lines"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Forehead Crease</h3>
+                                <p className="text-sm">
+                                    Soften deep forehead lines and achieve a smoother, more refreshed appearance with targeted wrinkle relaxers.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('frown-lines')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/frown-lines.webp" alt="Girl pointing at her frown lines"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Frown Lines</h3>
+                                <p className="text-sm">
+                                    Reduce the “11s” between your brows for a calmer, more approachable look using precise anti-wrinkle injections.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('crows-feet')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/crows-feet.jpg" alt="Crows feet lines"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Crows Feet</h3>
+                                <p className="text-sm">
+                                    Smooth fine lines around the eyes to restore a youthful, relaxed expression.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('brow-lift')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/brow-lift.jpg" alt="brow-lift"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Brow Lift</h3>
+                                <p className="text-sm">
+                                    Subtly lift and shape your brows for a brighter, more open-eyed look—without surgery.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('brow-lift')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/brow-lift.jpg" alt="brow-lift"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Brow Lift</h3>
+                                <p className="text-sm">
+                                    Subtly lift and shape your brows for a brighter, more open-eyed look—without surgery.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('bunny-lines')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/bunny-lines.webp" alt="bunny-lines-lift"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Bunny Lines</h3>
+                                <p className="text-sm">
+                                    Gently soften fine wrinkles on the sides of the nose with delicate, natural-looking treatment.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('hyperhydrosis')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/hyperhidrosis.jpg" alt="Sweaty Arm pits"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Hyperhidrosis (Excessive Sweating)</h3>
+                                <p className="text-sm">
+                                    Effectively reduce underarm, hand, or foot sweating with safe, long-lasting injectable solutions.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('lip-flip')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/lip-flip.jpg" alt="Girl smiling with lip flip"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Lip Flip</h3>
+                                <p className="text-sm">
+                                    Enhance your upper lip’s shape with a subtle flip that adds volume and balance—no filler required.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('gummy-smile')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/gummy-smile.webp" alt="Girl smiling with gummy smile"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Gummy Smile</h3>
+                                <p className="text-sm">
+                                    Minimise gum visibility and enhance smile harmony using targeted injections for a more confident grin.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('upper-lip-lines')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/upper-lip-lines.webp" alt="Upper Lip Lines"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Upper Lip Lines</h3>
+                                <p className="text-sm">
+                                    Smooth vertical lines above the lips for a more youthful, polished mouth area.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('downward-smile')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/downward-smile.webp" alt="Downward Smile"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Downward Smile</h3>
+                                <p className="text-sm">
+                                    Gently lift drooping mouth corners to create a more lifted, friendly facial expression.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('dimpled-chin')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/dimpled-chin.png" alt="Dimpled Chin"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Dimpled Chin</h3>
+                                <p className="text-sm">
+                                    Soften chin dimpling for a smoother, more refined lower face profile.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('neferti-neck-lift')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/neferti.jpg" alt="Nefertiti Neck Lift Before and After Comparison"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Nefertiti Neck Lift / Platysmal Bands</h3>
+                                <p className="text-sm">
+                                    Rejuvenate your jawline and neck with a non-surgical lift that defines and tightens.
+                                </p>
+                            </Link>
+
+                            <Link
+                                href={route('masseters')}
+                                prefetch="hover"
+                                className="card p-4 hover:bg-stone-800 duration-300 ease-out rounded-xl"
+                            >
+                                <img src="/photos/services/masseters.webp" alt="Masseters"
+                                    className="rounded-t-lg w-full aspect-video object-cover"
+                                />
+                                <h3 className="text-lg font-semibold mt-3">Masseters / Jaw Slimming</h3>
+                                <p className="text-sm">
+                                    Slim and contour your jawline while reducing teeth grinding through masseter muscle injections.
+                                </p>
+                            </Link>
+
 
                         </div>
                     </div>
