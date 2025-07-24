@@ -108,7 +108,7 @@ function GalleryTabs() {
                     <PhotoProvider>
                         <div className="columns-1 sm:columns-2 md:columns-3 gap-2">
                             {
-                                range(1, 20).map((val) => (
+                                range(1, 22).map((val) => (
                                     <PhotoView key={val + 17287491823} src={`/our-space/our-space-${val}.webp`}>
                                         <img
                                             className="w-full mb-2 rounded-xl"
