@@ -109,10 +109,10 @@ function GalleryTabs() {
                         <div className="columns-1 sm:columns-2 md:columns-3 gap-2">
                             {
                                 range(1, 22).map((val) => (
-                                    <PhotoView key={val + 17287491823} src={`/our-space/our-space-${val}.webp`}>
+                                    <PhotoView key={val + 17287491823} src={`/our-space/thedentlstudio-space-${val}.webp`}>
                                         <img
                                             className="w-full mb-2 rounded-xl"
-                                            src={`/our-space/our-space-${val}.webp`} loading="lazy" decoding="async" alt="Inside of the dentl studio" />
+                                            src={`/our-space/thedentlstudio-space-${val}.webp`} loading="lazy" decoding="async" alt="Inside of the dentl studio" />
                                     </PhotoView>
                                 ))
                             }
