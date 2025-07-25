@@ -15,6 +15,7 @@ type RegisterForm = {
     email: string;
     password: string;
     password_confirmation: string;
+    code: string;
 };
 
 export default function Register() {
@@ -24,6 +25,7 @@ export default function Register() {
         email: '',
         password: '',
         password_confirmation: '',
+        code: ''
     });
 
     const submit: FormEventHandler = (e) => {
@@ -38,6 +40,23 @@ export default function Register() {
             <Head title="Register" />
             <form className="flex flex-col gap-6" onSubmit={submit}>
                 <div className="grid gap-6">
+
+                    <div className="grid gap-2">
+                        <Label htmlFor="firstname">Code</Label>
+                        <Input
+                            id="code"
+                            type="text"
+                            required
+                            autoFocus
+                            tabIndex={1}
+                            autoComplete="code"
+                            value={data.code}
+                            onChange={(e) => setData('code', e.target.value)}
+                            disabled={processing}
+                            placeholder="Code"
+                        />
+                        <InputError message={errors.code} className="mt-2" />
+                    </div>
 
                     <div className="grid gap-2">
                         <Label htmlFor="firstname">Firstname</Label>
