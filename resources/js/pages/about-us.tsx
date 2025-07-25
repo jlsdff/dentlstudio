@@ -83,7 +83,7 @@ export default function AboutUs() {
                         <img
                             rel="preload"
                             className="w-sm md:w-full rounded-xl"
-                            src="/our-space/our-space-20.webp"
+                            src="/our-space/thedentlstudio-space-20.webp"
                             alt="The Dentl Studio"
                             fetchPriority="high"
                         />
@@ -92,7 +92,7 @@ export default function AboutUs() {
 
                 <div className="grid grid-cols-1 md:grid-cols-6 mt-8 gap-4 ">
                     <div className="md:col-span-2">
-                        <img className="rounded-xl max-h-[450px] w-full object-cover " src="/our-space/our-space-5.webp" alt="The Dentl Studio" />
+                        <img className="rounded-xl max-h-[450px] w-full object-cover " src="/our-space/thedentlstudio-space-15.webp" alt="The Dentl Studio" />
                     </div>
                     <div className="md:col-span-4">
                         <div>

@@ -118,3 +118,13 @@ export interface Tag {
     id: number;
     name: string;
 }
+
+export interface Inquiry {
+    id: number;
+    firstname: string;
+    lastname: string;
+    email: string;
+    message: string;
+    created_at: string;
+    updated_at: string;
+}

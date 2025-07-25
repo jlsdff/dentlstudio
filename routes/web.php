@@ -7,6 +7,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ClientPostController;
+use App\Http\Controllers\InquiryController;
 use App\Models\Post;
 
 Route::get('/', function () {
@@ -21,16 +22,11 @@ Route::get('/new-patients', function () {
     return Inertia::render('new-patient');
 })->name('new-patients');
 
-Route::get('/contact-us', function () {
-    return Inertia::render('contact-us');
-})->name('contact-us');
+Route::get('/contact-us', [InquiryController::class, 'create'])
+    ->name('contact-us');
 
-Route::post('/contact-us', function () {
-    return back()->with([
-        'success' => true,
-        'message' => 'Thank you for reaching out! We will get back to you as soon as possible. In the meantime, feel free to browse our site or follow us on social media for updates.'
-    ]);
-})->name('contact-us.store');
+Route::post('/contact-us', [InquiryController::class, 'store'])
+    ->name('contact-us.store');
 
 Route::get('/meet-the-team', function () {
     return Inertia::render('meet-the-team');
@@ -207,6 +203,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // return Inertia::render('dashboard');
         return to_route('post.index');
     })->name('dashboard');
+
+    Route::get('/inquiries', [InquiryController::class, 'index'])
+        ->name('inquiry.index');
 
     Route::get('/medias', [MediaController::class, 'index'])
         ->name('media.index');
