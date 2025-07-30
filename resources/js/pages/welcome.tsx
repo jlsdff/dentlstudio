@@ -47,28 +47,35 @@ export default function Welcome() {
 
             document.body.style.overflow = 'hidden'
 
-            tl.from(split.chars, {
-                opacity: 0,
-                xPercent: 100,
+            gsap.set(split.chars, { xPercent: 100, autoAlpha: 0 });
+            gsap.set('.loading-1', { autoAlpha: 0, yPercent: -100 })
+            gsap.set('.loading-3', { autoAlpha: 0, yPercent: 100 })
+            gsap.set('.mid-div', { autoAlpha: 0, yPercent: 100 })
+
+            tl.to(split.chars, {
+                autoAlpha: 1,
+                opacity: 100,
+                xPercent: 0,
                 ease: "expo.out",
                 stagger: 0.1,
                 delay: 1,
                 duration: 0.5
             })
-                .from('.loading-1', {
-                    opacity: 0,
-                    yPercent: -100,
+                .to('.loading-1', {
+                    autoAlpha: 1,
+                    yPercent: 0,
                     ease: 'expo.out',
                     duration: 0.3
                 })
-                .from('.loading-3', {
-                    opacity: 0,
-                    yPercent: 100,
+                .to('.loading-3', {
+                    autoAlpha: 1,
+                    yPercent: 0,
                     ease: 'expo.out',
                     duration: 0.3
                 }, "<")
-                .from('.mid-div', {
-                    yPercent: 100,
+                .to('.mid-div', {
+                    autoAlpha: 1,
+                    yPercent: 0,
                     ease: 'expo.out',
                     duration: 1
                 })
@@ -131,12 +138,12 @@ export default function Welcome() {
 
                 <meta name="description" content="Clyde North dentists & team provide exceptional care and offer an array of smile-enhancing services and luxurious touches. Book an appointment today!" />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com" />
+                <link rel="canonical" href="https://www.thedentlstudio.com" />
 
                 <meta property="og:title" content="The Dentl Studio | Trusted Dentists in Clyde North" />
                 <meta property="og:description" content="Clyde North dentists & team provide exceptional care and offer an array of smile-enhancing services and luxurious touches. Book an appointment today!" />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com" />
+                <meta property="og:url" content="https://www.thedentlstudio.com" />
                 <meta property="og:type" content="website" />
 
             </Head>
@@ -145,7 +152,7 @@ export default function Welcome() {
             <div ref={wrapper} >
 
                 <div ref={loading} aria-hidden="true">
-                    <div className='fixed top-0 left-0 z-50 h-screen w-screen flex'>
+                    <div className='fixed top-0 left-0 z-50 h-screen w-screen flex '>
                         <div className='bg-black flex-1 sec-1' />
                         <div className='mid-div w-[2px] bg-gray-600/50 absolute top-0 left-1/2 h-screen' />
                         <div className='bg-black flex-1 sec-2' />
@@ -153,7 +160,7 @@ export default function Welcome() {
                     <div className='z-100 text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif '>
                         <div className='overflow-hidden'>
                             <span className='loading-1 font-sans text-sm sm:text-base block '>THE</span>
-                            <span className='loading-2 block text-4xl sm:text-6xl' >DENTL</span>
+                            <span className='loading-2 block text-4xl sm:text-6xl  ' >DENTL</span>
                             <span className='loading-3 font-sans text-sm sm:text-base block text-right'>STUDIO</span>
                         </div>
                     </div>
@@ -181,7 +188,7 @@ export default function Welcome() {
                     ">
                         <div className="flex flex-col ">
                             <div className='overflow-hidden'>
-                                <h1 className="hero text-soft-100 text-center md:text-left text-2xl sm:text-3xl font-light font-serif tracking-widest">
+                                <h1 className="hero text-soft-100 text-center md:text-left text-2xl sm:text-5xl font-light font-serif tracking-widest">
                                     Where{" "}
                                     <span className="font-semibold"> Comfort</span>
                                     <br />
@@ -190,14 +197,14 @@ export default function Welcome() {
                                 </h1>
                             </div>
                             <div className='overflow-hidden mt-4'>
-                                <p className="hero text-soft-100 text-center md:text-left text-xs max-w-md tracking-wide">
+                                <p className="hero text-soft-100 text-center md:text-left text-sm max-w-md tracking-wide">
                                     At <span className='font-semibold' >The Dentl Studio</span>, we’re transforming dental care in Melbourne with tailored, high-quality services built on trust, safety, and innovation. Our mission is to deliver a world-class experience that engages the senses and sets a new benchmark in personalised dentistry.
                                 </p>
                             </div>
                             <div className='overflow-hidden mt-4 flex justify-center md:justify-start items-center'>
                                 <Link
                                     href={route('service')}
-                                    className="hero text-soft-100 text-center md:text-left text-xs max-w-md tracking-wide px-5 py-2.5 rounded-lg bg-soft-800 text-soft-200 hover:bg-soft-900">
+                                    className="hero text-center md:text-left text-sm max-w-md tracking-wide px-5 py-2.5 rounded-lg bg-soft-800 text-soft-200 hover:bg-soft-900">
                                     Our Services
                                 </Link>
                             </div>
@@ -237,7 +244,7 @@ function AboutUs() {
         const el = aboutus.current;
         if (!el) return;
 
-        const tl = gsap.timeline({
+        gsap.timeline({
             scrollTrigger: {
                 trigger: aboutus.current,
                 start: 'top 60%',
