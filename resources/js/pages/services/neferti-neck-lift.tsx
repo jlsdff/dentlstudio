@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Lift and redefine your jawline and neck with non-surgical injectables targeting platysmal bands for a smoother, more youthful contour." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/neferti-neck-lift" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/neferti-neck-lift" />
 
                 <meta property="og:title" content=" Nefertiti Neck Lift & Platysmal Bands Treatment | The Dentl Studio" />
                 <meta property="og:description" content=" Lift and redefine your jawline and neck with non-surgical injectables targeting platysmal bands for a smoother, more youthful contour." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/neferti-neck-lift" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/neferti-neck-lift" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

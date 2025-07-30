@@ -37,12 +37,12 @@ export default function Services() {
 
                 <meta name="description" content="Discover our full range of dental services tailored to meet every smile’s needs. From general check-ups to advanced cosmetic and restorative treatments, The Dentl Studio in Clyde North is committed to providing expert care in a calm, modern environment. Explore how we help you achieve and maintain optimal oral health." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https ://thedentlstudio.com/service" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/service" />
 
                 <meta property="og:title" content="Services - The Dentl Studio" />
                 <meta property="og:description" content="Discover our full range of dental services tailored to meet every smile’s needs. From general check-ups to advanced cosmetic and restorative treatments, The Dentl Studio in Clyde North is committed to providing expert care in a calm, modern environment. Explore how we help you achieve and maintain optimal oral health." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/service" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/service" />
                 <meta property="og:type" content="website" />
 
                 <link rel="preload" as="image" href={`/reception.jpg`} fetchPriority="high" />

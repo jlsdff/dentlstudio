@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Lift a downward smile with cosmetic injectables designed to relax the muscles that pull corners of the mouth down—restoring a naturally pleasant expression." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/downward-smile" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/downward-smile" />
 
                 <meta property="og:title" content=" Downward Smile Treatment in Clyde North | The Dentl Studio" />
                 <meta property="og:description" content=" Lift a downward smile with cosmetic injectables designed to relax the muscles that pull corners of the mouth down—restoring a naturally pleasant expression." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/downward-smile" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/downward-smile" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

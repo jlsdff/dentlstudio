@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Improve your gum line and smile symmetry with precise reshaping." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/crown-lengthening" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/crown-lengthening" />
 
                 <meta property="og:title" content="Crown Lengthening in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Improve your gum line and smile symmetry with precise reshaping." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/crown-lengthening" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/crown-lengthening" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -77,7 +77,7 @@ export default function EmergencyDentistry() {
 
             <main>
 
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         At The Dentl Studio, we’re committed to offering a wide range of dental services tailored to meet the diverse needs of our patients. Crown lengthening is one such procedure that can play a crucial role in both cosmetic and restorative dental treatments, ensuring optimal outcomes for various dental issues.

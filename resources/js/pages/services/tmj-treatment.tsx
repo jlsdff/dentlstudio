@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Customized solutions for jaw pain, stiffness, and TMJ-related discomfort." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/tmj-treatment" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/tmj-treatment" />
 
                 <meta property="og:title" content="TMJ Treatment in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Customized solutions for jaw pain, stiffness, and TMJ-related discomfort." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/tmj-treatment" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/tmj-treatment" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -78,7 +78,7 @@ export default function EmergencyDentistry() {
 
             <main>
 
-                <PopUp/>
+                <PopUp />
 
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>

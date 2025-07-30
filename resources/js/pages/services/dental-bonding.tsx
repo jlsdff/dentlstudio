@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Fix chips, cracks, or gaps with fast and affordable dental bonding." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dental-bonding" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dental-bonding" />
 
                 <meta property="og:title" content="Dental Bonding in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Fix chips, cracks, or gaps with fast and affordable dental bonding." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dental-bonding" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dental-bonding" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -77,7 +77,7 @@ export default function EmergencyDentistry() {
 
             <main>
 
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Minor chips, cracks, worn edges, or uneven tooth shapes can subtly impact your smile and, perhaps, your confidence. The good news is they don’t have to. Dental bonding at The Dentl Studio provides a fast and minimally invasive solution to refresh your teeth and enhance your natural beauty.

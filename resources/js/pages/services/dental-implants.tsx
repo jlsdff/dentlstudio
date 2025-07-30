@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Permanent tooth replacements that look and feel real." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dental-implants" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dental-implants" />
 
                 <meta property="og:title" content="Dental Implants in Clyde North" />
                 <meta property="og:description" content="Permanent tooth replacements that look and feel real." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dental-implants" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dental-implants" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Missing teeth can interrupt more than how you look. They may change how you speak, bite, and feel about your smile. That’s why dental bridges at The Dentl Studio are about more than filling a gap; they’re crafted to restore comfort, confidence, and connection.

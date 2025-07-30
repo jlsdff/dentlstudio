@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Enhance your smile subtly with a non-surgical Lip Flip. Achieve a fuller-looking upper lip using anti-wrinkle injections." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/lip-flip" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/lip-flip" />
 
                 <meta property="og:title" content=" Lip Flip Treatment in Clyde North | The Dentl Studio" />
                 <meta property="og:description" content=" Enhance your smile subtly with a non-surgical Lip Flip. Achieve a fuller-looking upper lip using anti-wrinkle injections." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/lip-flip" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/lip-flip" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

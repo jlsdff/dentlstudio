@@ -48,12 +48,12 @@ export default function Services() {
 
                 <meta name="description" content="Get in touch with The Dentl Studio in Clyde North. Book an appointment, ask a question, or find our clinic location and hours.  " />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/contact-us" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/contact-us" />
 
                 <meta property="og:title" content=" Contact The Dentl Studio - The Dentl Studio" />
                 <meta property="og:description" content="Get in touch with The Dentl Studio in Clyde North. Book an appointment, ask a question, or find our clinic location and hours.  " />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/contact-us" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/contact-us" />
                 <meta property="og:type" content="website" />
             </Head>
 

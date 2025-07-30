@@ -30,12 +30,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Say goodbye to angry-looking frown lines with targeted injectables that relax and smooth your brow for a refreshed appearance." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/frown-lines" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/frown-lines" />
 
                 <meta property="og:title" content=" Frown Line Treatment – Smooth Glabellar Lines | The Dentl Studio" />
                 <meta property="og:description" content=" Say goodbye to angry-looking frown lines with targeted injectables that relax and smooth your brow for a refreshed appearance." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/frown-lines" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/frown-lines" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

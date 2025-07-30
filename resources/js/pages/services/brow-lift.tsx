@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Lift and open your eyes with a non-surgical brow lift using wrinkle relaxers. A refreshed, youthful look—no downtime needed." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/brow-lift" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/brow-lift" />
 
                 <meta property="og:title" content=" Non-Surgical Brow Lift in Clyde North | The Dentl Studio" />
                 <meta property="og:description" content=" Lift and open your eyes with a non-surgical brow lift using wrinkle relaxers. A refreshed, youthful look—no downtime needed." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/brow-lift" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/brow-lift" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

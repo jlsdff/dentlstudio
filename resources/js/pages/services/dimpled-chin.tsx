@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Smooth out a dimpled or puckered chin with quick cosmetic injectables for a softer, more refined appearance." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dimpled-chin" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dimpled-chin" />
 
                 <meta property="og:title" content=" Dimpled Chin Treatment in Clyde North | The Dentl Studio" />
                 <meta property="og:description" content=" Smooth out a dimpled or puckered chin with quick cosmetic injectables for a softer, more refined appearance." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dimpled-chin" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dimpled-chin" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

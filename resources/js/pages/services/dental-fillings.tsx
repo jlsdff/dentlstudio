@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Treat cavities with natural-looking, tooth-colored fillings." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dental-fillings" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dental-fillings" />
 
                 <meta property="og:title" content="Dental Fillings in Clyde North" />
                 <meta property="og:description" content="Treat cavities with natural-looking, tooth-colored fillings." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dental-fillings" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dental-fillings" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Nobody loves hearing they need a filling. But fixing a cavity doesn’t have to be a hassle. At The Dentl Studio, dental fillings are efficient, comfortable, and tailored to suit your needs. Whether you’ve spotted a new issue or are midway through a treatment plan, our team is here to help you restore your smile with minimal fuss.

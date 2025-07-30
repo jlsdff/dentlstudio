@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Protect and rebuild damaged teeth with high-quality crowns." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dental-crowns" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dental-crowns" />
 
                 <meta property="og:title" content="Dental Crowns in Clyde North" />
                 <meta property="og:description" content="Protect and rebuild damaged teeth with high-quality crowns." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dental-crowns" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dental-crowns" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Whether you’re fixing a cracked tooth, restoring it after root canal therapy, or just want to improve your smile’s appearance, a crown can do more than patch things up; it can bring your tooth back to complete form and function.

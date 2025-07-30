@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Quick, effective screenings for early signs of oral cancer." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/screening-for-oral-cancer" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/screening-for-oral-cancer" />
 
                 <meta property="og:title" content="Oral Cancer Screening in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Quick, effective screenings for early signs of oral cancer." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/screening-for-oral-cancer" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/screening-for-oral-cancer" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         While cancer can be a scary word to hear, there is something patients can do to help limit their chances of being diagnosed during a late stage of the disease. When it comes to oral cancer, the disease is generally 80-90% curable when caught early.

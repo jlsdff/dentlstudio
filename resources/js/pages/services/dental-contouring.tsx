@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Smooth out uneven teeth for a balanced, refined smile." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dental-contouring" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dental-contouring" />
 
                 <meta property="og:title" content="Dental Contouring in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Smooth out uneven teeth for a balanced, refined smile." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dental-contouring" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dental-contouring" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Dental contouring at The Dentl Studio is a cosmetic dental procedure that can be used to improve the appearance of your teeth. The procedure involves removing a small amount of tooth enamel to change the shape or size of your teeth. It is usually done in conjunction with other cosmetic dental procedures, such as teeth whitening or bonding.

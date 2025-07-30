@@ -36,7 +36,7 @@ export default function EmergencyDentistry() {
                 <meta property="og:title" content="Cosmetic Injectables in Clyde North" />
                 <meta property="og:description" content="Subtle facial enhancements for a youthful, natural look." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/cosmetic-injectables" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/cosmetic-injectables" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -77,7 +77,7 @@ export default function EmergencyDentistry() {
 
             <main>
 
-                <PopUp/>
+                <PopUp />
 
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>

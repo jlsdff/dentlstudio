@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Smooth fine lines above the lips with precision anti-wrinkle injections. Subtle, natural results for a youthful, refreshed look." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/upper-lip-lines" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/upper-lip-lines" />
 
                 <meta property="og:title" content=" Upper Lip Lines Treatment in Clyde North | The Dentl Studio" />
                 <meta property="og:description" content=" Smooth fine lines above the lips with precision anti-wrinkle injections. Subtle, natural results for a youthful, refreshed look." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/upper-lip-lines" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/upper-lip-lines" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

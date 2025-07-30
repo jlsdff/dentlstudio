@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Reduce excessive gum display and enhance your smile with a quick, non-surgical Gummy Smile treatment using anti-wrinkle injections." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/gummy-smile" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/gummy-smile" />
 
                 <meta property="og:title" content=" Gummy Smile Treatment in Clyde North | The Dentl Studio" />
                 <meta property="og:description" content=" Reduce excessive gum display and enhance your smile with a quick, non-surgical Gummy Smile treatment using anti-wrinkle injections." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/gummy-smile" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/gummy-smile" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

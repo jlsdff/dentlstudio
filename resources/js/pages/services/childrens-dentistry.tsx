@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Gentle, expert dental care tailored to kids and young patients." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/childrens-dentistry" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/childrens-dentistry" />
 
                 <meta property="og:title" content="Children&apos;s Dentistry in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Gentle, expert dental care tailored to kids and young patients." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/childrens-dentistry" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/childrens-dentistry" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -77,7 +77,7 @@ export default function EmergencyDentistry() {
 
             <main>
 
-                <PopUp/>
+                <PopUp />
 
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>

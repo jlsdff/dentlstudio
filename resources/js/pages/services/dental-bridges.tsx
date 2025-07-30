@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Replace missing teeth with fixed, natural-looking bridges." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dental-bridges" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dental-bridges" />
 
                 <meta property="og:title" content="Dental Bridges in Clyde North" />
                 <meta property="og:description" content="Replace missing teeth with fixed, natural-looking bridges." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dental-bridges" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dental-bridges" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

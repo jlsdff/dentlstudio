@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Stop excessive underarm sweating with our safe and effective hyperhidrosis treatment. Lasting dryness and renewed confidence." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/hyperhidrosis" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/hyperhidrosis" />
 
                 <meta property="og:title" content=" Stop excessive underarm sweating with our safe and effective hyperhidrosis treatment. Lasting dryness and renewed confidence." />
                 <meta property="og:description" content=" Soften nose wrinkles with bunny line injections for a smoother, more youthful appearance. Subtle results with no downtime." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/hyperhidrosis" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/hyperhidrosis" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

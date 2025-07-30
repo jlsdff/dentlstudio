@@ -6,7 +6,7 @@ import Footer from '@/components/home-pages/footer';
 import ContactUs from "@/components/home-pages/contact-us";
 
 const PopUp = lazy(() => import('@/components/ui/PopUp'))
-const NavigationBar = lazy( () => import('@/components/ui/nav-bar'))
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 export default function EmergencyDentistry() {
 
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false)
@@ -30,12 +30,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Maintain oral health with regular dental exams and professional teeth cleaning." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/checkup-and-cleans" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/checkup-and-cleans" />
 
                 <meta property="og:title" content=" Checkup and Cleans in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Maintain oral health with regular dental exams and professional teeth cleaning." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/checkup-and-cleans" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/checkup-and-cleans" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -74,7 +74,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
 
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>

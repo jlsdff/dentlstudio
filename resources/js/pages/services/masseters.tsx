@@ -33,12 +33,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Slim your jawline and reduce teeth grinding with masseter injectables for a softer, more balanced facial appearance." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/masseters" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/masseters" />
 
                 <meta property="og:title" content=" Masseter Reduction & Jaw Slimming Treatment | The Dentl Studio" />
                 <meta property="og:description" content=" Slim your jawline and reduce teeth grinding with masseter injectables for a softer, more balanced facial appearance." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/masseters" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/masseters" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

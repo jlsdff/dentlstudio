@@ -31,12 +31,12 @@ export default function AboutUs() {
 
                 <meta name="description" content="Take a visual tour of The Dentl Studio in Clyde North. Explore our state-of-the-art clinic, calming interiors, and luxurious patient experience." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/gallery" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/gallery" />
 
                 <meta property="og:title" content="Gallery | Step Inside The Dentl Studio – Clyde North Dental Clinic" />
                 <meta property="og:description" content="Take a visual tour of The Dentl Studio in Clyde North. Explore our state-of-the-art clinic, calming interiors, and luxurious patient experience." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/gallery" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/gallery" />
                 <meta property="og:type" content="website" />
 
                 <link

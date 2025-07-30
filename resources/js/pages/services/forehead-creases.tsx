@@ -30,12 +30,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Reduce forehead lines and achieve a smoother, youthful look with our tailored cosmetic injectables in Clyde North." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/forehead-creases" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/forehead-creases" />
 
                 <meta property="og:title" content="Forehead Crease Treatment – Smooth Fine Lines | The Dentl Studio" />
                 <meta property="og:description" content=" Reduce forehead lines and achieve a smoother, youthful look with our tailored cosmetic injectables in Clyde North." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/forehead-creases" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/forehead-creases" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Full cosmetic plans to enhance your smile’s beauty and confidence." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/smile-makeover" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/smile-makeover" />
 
                 <meta property="og:title" content="Smile Makeover in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Full cosmetic plans to enhance your smile’s beauty and confidence." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/smile-makeover" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/smile-makeover" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         A stunning smile may help boost your confidence and how you present yourself to the world. Our smile makeovers combine multiple dental procedures to address your specific concerns, creating natural-looking results that enhance your overall appearance. Whether you’re looking to correct minor imperfections or desire a complete transformation, we’ll create a plan tailored to your goals.

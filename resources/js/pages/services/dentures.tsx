@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Custom full or partial dentures for comfortable, confident smiles." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/dentures" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/dentures" />
 
                 <meta property="og:title" content="Dentures in Clyde North" />
                 <meta property="og:description" content="Custom full or partial dentures for comfortable, confident smiles." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/dentures" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/dentures" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         You deserve to smile with greater confidence. If you’re dealing with missing teeth or uncomfortable dentures that fit incorrectly, our high-quality denture solutions can restore both your smile and your quality of life. Missing teeth can affect everything, from your nutrition to your self-esteem—which is precisely why The Dentl Studio offers a comprehensive denture service focused on comfort, aesthetics, and functionality.

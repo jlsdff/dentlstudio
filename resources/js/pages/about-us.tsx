@@ -28,12 +28,12 @@ export default function AboutUs() {
 
                 <meta name="description" content="At The Dentl Studio, we combine innovation, precision, and compassion to deliver elevated dental experiences. Learn more about our story, values, and commitment to exceptional care." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/about-us" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/about-us" />
 
                 <meta property="og:title" content="About The Dentl Studio | Trusted Dentist in Clyde North" />
                 <meta property="og:description" content="At The Dentl Studio, we combine innovation, precision, and compassion to deliver elevated dental experiences. Learn more about our story, values, and commitment to exceptional care." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/about-us" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/about-us" />
                 <meta property="og:type" content="website" />
 
                 <link

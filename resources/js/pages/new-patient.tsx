@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/react";
 import Footer from '@/components/home-pages/footer';
 import ContactUs from "@/components/home-pages/contact-us";
 
-const NavigationBar = lazy( () => import('@/components/ui/nav-bar'))
+const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
 export default function NewPatient() {
 
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false)
@@ -29,12 +29,12 @@ export default function NewPatient() {
 
                 <meta name="description" content="Enjoy a complete dental check-up, X-rays, and professional clean for just $199 or gap free with private health. Includes complimentary spa-like comforts to help you relax." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/new-patients" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/new-patients" />
 
                 <meta property="og:title" content=" New Patient Dental Check-Up & Clean – Just $199 or Gap Free - The Dentl Studio" />
                 <meta property="og:description" content="Enjoy a complete dental check-up, X-rays, and professional clean for just $199 or gap free with private health. Includes complimentary spa-like comforts to help you relax." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/new-patients" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/new-patients" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -69,7 +69,7 @@ export default function NewPatient() {
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Includes a thorough examination, X-rays, and a professional clean for a fresh, healthy start.
-                        <br/>
+                        <br />
                         Enjoy complimentary comforts like hand or head massages, aromatherapy, weighted blankets, and cappuccinos — relax your way, on every visit.
                     </p>
                 </section>

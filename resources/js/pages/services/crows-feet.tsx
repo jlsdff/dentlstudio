@@ -30,12 +30,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content=" Reduce fine lines around the eyes with anti-wrinkle injections for a refreshed, youthful look. Subtle, natural results." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/crows-feet" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/crows-feet" />
 
                 <meta property="og:title" content=" Crow’s Feet Treatment – Smooth Eye Wrinkles | The Dentl Studio" />
                 <meta property="og:description" content=" Reduce fine lines around the eyes with anti-wrinkle injections for a refreshed, youthful look. Subtle, natural results." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/crows-feet" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/crows-feet" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"

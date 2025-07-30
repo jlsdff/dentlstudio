@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Immediate care for toothaches, injuries, or urgent dental issues—available when your smile needs it most." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/emergency-dentistry" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/emergency-dentistry" />
 
                 <meta property="og:title" content=" Emergency Dentistry in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Immediate care for toothaches, injuries, or urgent dental issues—available when your smile needs it most." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/emergency-dentistry" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/emergency-dentistry" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         When tooth pain or injury strikes unexpectedly, getting prompt dental care matters. Whether your child has chipped a tooth or you’re experiencing severe discomfort, our skilled team is ready to help with reserved same-day appointments. We understand the stress and anxiety that comes with emergencies, so we prioritise your comfort and swift care.

@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Save infected teeth with precise, pain-free root canal therapy." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/root-canal" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/root-canal" />
 
                 <meta property="og:title" content="Root Canal in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Save infected teeth with precise, pain-free root canal therapy." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/root-canal" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/root-canal" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -77,7 +77,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         A sore tooth that won’t settle down? Throbbing, swelling, or a sharp jolt when you chew? You might need a root canal, but

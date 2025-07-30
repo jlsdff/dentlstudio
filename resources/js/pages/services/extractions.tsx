@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Safe removal of damaged or decayed teeth." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/extractions" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/extractions" />
 
                 <meta property="og:title" content="Extractions in Clyde North" />
                 <meta property="og:description" content="Safe removal of damaged or decayed teeth." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/extractions" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/extractions" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         Need a tooth removed? We provide safe, gentle extractions with minimal discomfort. Whether it’s decay, damage, or overcrowding, our experienced team ensures a smooth, stress-free experience in a calming, modern clinic environment.

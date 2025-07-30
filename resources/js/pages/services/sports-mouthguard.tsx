@@ -31,12 +31,12 @@ export default function EmergencyDentistry() {
 
                 <meta name="description" content="Custom-fit mouthguards to protect your teeth during sports and physical activity." />
                 <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://thedentlstudio.com/sports-mouthguard" />
+                <link rel="canonical" href="https://www.thedentlstudio.com/sports-mouthguard" />
 
                 <meta property="og:title" content="Sports Mouthguards in Clyde North - The Dentl Studio" />
                 <meta property="og:description" content="Custom-fit mouthguards to protect your teeth during sports and physical activity." />
                 <meta property="og:image" content="https://thedentlstudio.com/photos/thedentlstudio.jpg" />
-                <meta property="og:url" content="https://thedentlstudio.com/checkup-and-cleans" />
+                <meta property="og:url" content="https://www.thedentlstudio.com/checkup-and-cleans" />
                 <meta property="og:type" content="website" />
                 <link
                     rel="preload"
@@ -76,7 +76,7 @@ export default function EmergencyDentistry() {
             </header>
 
             <main>
-                <PopUp/>
+                <PopUp />
                 <section className="bg-stone-950 text-soft-200 p-8 md:p-16 tracking-widest">
                     <p>
                         If you’re athletic, or have a child involved in contact sports, chances are you know all too well the dangers and seriousness that a mouth injury entails.
