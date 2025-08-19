@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import { Link } from "@inertiajs/react"
-import { ChevronLeft, Menu, X } from "lucide-react"
+import { ChevronLeft, Menu, X, Phone } from "lucide-react"
 import React, { useState, useRef } from "react";
 import { gsap } from "gsap"
 
@@ -131,39 +131,59 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
 
 
     return (
-        <nav
-            className="fixed top-0 left-0 z-40 transition-all duration-300 px-6 py-4 flex justify-between items-center w-screen text-white overflow-y-hidden shadow-sm"
-        >
-            <div
-                className={`absolute inset-0 z-[-1] transition-opacity duration-700 ease-in-out
+        <>
+            {/* Mobile Call Banner */}
+            <div className="md:hidden fixed top-0 left-0 w-full bg-soft-800 text-soft-100 px-4 py-2 h-[38px] text-center text-sm z-50">
+                <a href="tel:+61370503943" className="flex items-center justify-center gap-2 hover:text-white transition-colors">
+                    <Phone size={16} />
+                    <span>Call +61 3 7050 3943</span>
+                </a>
+            </div>
+
+            <nav
+                className="fixed top-[38px] md:top-0 left-0 z-40 transition-all duration-300 px-6 py-5 flex justify-between items-center w-screen text-white overflow-y-hidden shadow-sm"
+            >
+                <div
+                    className={`absolute inset-0 z-[-1] transition-opacity duration-700 ease-in-out
                   bg-[url('/black-linen.webp'),linear-gradient(to_bottom_right,#1d1a18,#44413c)]
                   bg-blend-overlay
                   ${scrolled ? 'opacity-100' : 'opacity-0'}
                 `}
-            />
+                />
 
-            <div className="group overflow-y-hidden z-42">
-                <button onClick={() => setOpen(!open)} className="cursor-pointer nav-item flex gap-2 items-center">
-                    <Menu />
-                    <span className={`relative text-sm after:content-[''] after:block after:h-[2px] after:w-0 group-hover:after:w-full after:transition-all after:duration-500 after:ease-out
+                <div className="group overflow-y-hidden z-42">
+                    <button onClick={() => setOpen(!open)} className="cursor-pointer nav-item flex gap-2 items-center">
+                        <Menu />
+                        <span className={`relative text-sm after:content-[''] after:block after:h-[2px] after:w-0 group-hover:after:w-full after:transition-all after:duration-500 after:ease-out
                         after:bg-white`}>
-                        Menu
-                    </span>
-                </button>
-            </div>
+                            Menu
+                        </span>
+                    </button>
+                </div>
 
-            <div className="overflow-y-hidden z-42">
-                <Link href="/">
-                    <img
-                        src="/logo.png"
-                        alt="the dentl studio"
-                        className={`w-24 sm:w-32 filter nav-item inline-block invert`}
-                    />
-                </Link>
-            </div>
+                {/* Centered Logo */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 overflow-y-hidden z-42">
+                    <Link href="/">
+                        <img
+                            src="/logo.png"
+                            alt="the dentl studio"
+                            className={`w-24 sm:w-32 filter nav-item inline-block invert`}
+                        />
+                    </Link>
+                </div>
 
-            <div className="overflow-y-hidden z-42 p-1">
-                <div className="nav-item">
+                {/* Right side - Phone + Book Now (hidden on mobile) */}
+                <div className="hidden md:flex z-42 items-center gap-4">
+                    {/* Phone Number */}
+                    <a
+                        href="tel:+61370503943"
+                        className="text-sm text-soft-200 hover:text-white transition-colors flex items-center gap-2"
+                    >
+                        <Phone size={16} />
+                        <span>+61 3 7050 3943</span>
+                    </a>
+
+                    {/* Book Now Button */}
                     <a
                         className={`px-4 py-2 inline-block text-sm rounded-md bg-soft-800 text-soft-100 hover:bg-soft-900 transition-all duration-300 shadow-lg`}
                         href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
@@ -172,281 +192,292 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
                         Book Now
                     </a>
                 </div>
-            </div>
 
-            <div ref={navMenu} id="nav-menu"
-                className="fixed w-screen h-screen top-0 left-0 bg-soft-500/10 backdrop-blur z-100 bg-black/30 opacity-0 invisible">
-                <div className="nav-items w-full md:w-1/3 h-screen p-6 bg-stone-950 overflow-y-scroll scrollbar-minimal ">
+                {/* Mobile Book Now Button */}
+                <div className="md:hidden z-42">
+                    <a
+                        className={`px-3 py-2 inline-block text-xs rounded-md bg-soft-800 text-soft-100 hover:bg-soft-900 transition-all duration-300 shadow-lg`}
+                        href='https://www.corepractice.is/practices/thedentlstudio/the-dentl-studio#/'
+                        target="_blank"
+                    >
+                        Book Now
+                    </a>
+                </div>
 
-                    <button className="flex gap-2 items-center w-full text-lg mb-12 cursor-pointer" onClick={() => setOpen(prev => !prev)}>
-                        <X size={16} />
-                        <span className="text-base">Close</span>
-                    </button>
+                <div ref={navMenu} id="nav-menu"
+                    className="fixed w-screen h-screen top-0 left-0 bg-soft-500/10 backdrop-blur z-100 bg-black/30 opacity-0 invisible">
+                    <div className="nav-items w-full md:w-1/3 h-screen p-6 bg-stone-950 overflow-y-scroll scrollbar-minimal ">
 
-                    <div className="relative h-full ">
+                        <button className="flex gap-2 items-center w-full text-lg mb-12 cursor-pointer" onClick={() => setOpen(prev => !prev)}>
+                            <X size={16} />
+                            <span className="text-base">Close</span>
+                        </button>
 
-                        {/* Main Menu */}
-                        <div ref={main} className="absolute top-0 left-0 w-full h-full">
-                            <ul className="text-2xl tracking-widest font-bold ">
-                                <li className="main-items text-xs mb-3 text-soft-200/80">Our Services</li>
-                                <div className="space-y-4">
-                                    <li className="main-items text-soft-200 hover:text-white" >
-                                        <button className="cursor-pointer" onClick={() => setCurrent('general')}>General Dentistry</button>
+                        <div className="relative h-full ">
+
+                            {/* Main Menu */}
+                            <div ref={main} className="absolute top-0 left-0 w-full h-full">
+                                <ul className="text-2xl tracking-widest font-bold ">
+                                    <li className="main-items text-xs mb-3 text-soft-200/80">Our Services</li>
+                                    <div className="space-y-4">
+                                        <li className="main-items text-soft-200 hover:text-white" >
+                                            <button className="cursor-pointer" onClick={() => setCurrent('general')}>General Dentistry</button>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer" >
+                                            <button className="cursor-pointer" onClick={() => setCurrent('cosmetic')}>Cosmetic Dentistry</button>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <button className="cursor-pointer" onClick={() => setCurrent('restorative')}>Restorative Dentistry</button>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <button className="cursor-pointer" onClick={() => setCurrent('oral')}>Oral Surgery</button>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <button className="cursor-pointer" onClick={() => setCurrent('injectables')}>Cosmetic Injectables</button>
+                                        </li>
+                                    </div>
+                                    <li className="main-items text-xs mt-8 mb-3 text-soft-200/80">More about us</li>
+                                    <div className="space-y-4">
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <Link href={route('contact-us')} prefetch="hover">
+                                                Contact Us
+                                            </Link>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <Link href={route('about-us')} prefetch={"hover"} >
+                                                About us
+                                            </Link>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <Link href={route('meet-the-team')} prefetch={"hover"} >
+                                                Meet The Team
+                                            </Link>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <Link href={route('gallery')} prefetch={"hover"} >
+                                                Gallery
+                                            </Link>
+                                        </li>
+                                        <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
+                                            <Link href={route('blogs.index')} prefetch="hover">
+                                                Blogs
+                                            </Link>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </div>
+
+                            {/* Injectables Sub-menu */}
+                            <div ref={injectables} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}>
+                                <ul className="space-y-4 text-2xl tracking-widest font-bold ">
+                                    <div className="injectables-items">
+                                        <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
+                                            <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
+                                            <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
+                                                Cosmetic Injectables
+                                            </span>
+                                        </button>
+                                    </div>
+                                    {[
+                                        { label: "Forehead Creases", url: 'forehead-creases' },
+                                        { label: "Frown Lines", url: 'frown-lines' },
+                                        { label: "Crows Feet", url: 'crows-feet' },
+                                        { label: "Brow Lift", url: 'brow-lift' },
+                                        { label: "Bunny Lines", url: 'bunny-lines' },
+                                        { label: "Hyperhydrosis", url: 'hyperhydrosis' },
+                                        { label: "Lip Flip", url: 'lip-flip' },
+                                        { label: "Gummy Smile", url: 'gummy-smile' },
+                                        { label: "Upper Lip Lines", url: 'upper-lip-lines' },
+                                        { label: "Downward Smile", url: 'downward-smile' },
+                                        { label: "Dimpled Chin", url: 'dimpled-chin' },
+                                        { label: "Neferti Neck Lift / Platysmal Bands", url: 'neferti-neck-lift' },
+                                        { label: "Masseters / Jaw Slimming", url: 'masseters' },
+                                    ].map((item, index) => (
+                                        <li key={index} className="injectables-items text-soft-100 hover:text-white cursor-pointer">
+                                            <Link href={route(`${item.url}`)} prefetch="hover" >{item.label}</Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* General Dentistry Sub-menu */}
+                            <div ref={general} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
+                                <ul className="space-y-4 text-2xl tracking-widest font-bold ">
+                                    <div className="general-items">
+                                        <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
+                                            <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
+                                            <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
+                                                General Dentistry
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('emergency-dentistry')} prefetch="hover" >Emergency Dentistry</Link>
                                     </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer" >
-                                        <button className="cursor-pointer" onClick={() => setCurrent('cosmetic')}>Cosmetic Dentistry</button>
-                                    </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <button className="cursor-pointer" onClick={() => setCurrent('restorative')}>Restorative Dentistry</button>
-                                    </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <button className="cursor-pointer" onClick={() => setCurrent('oral')}>Oral Surgery</button>
-                                    </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <button className="cursor-pointer" onClick={() => setCurrent('injectables')}>Cosmetic Injectables</button>
-                                    </li>
-                                </div>
-                                <li className="main-items text-xs mt-8 mb-3 text-soft-200/80">More about us</li>
-                                <div className="space-y-4">
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <Link href={route('contact-us')} prefetch="hover">
-                                            Contact Us
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('checkup-and-cleans')} prefetch="hover" >
+                                            Checkup and Cleans
                                         </Link>
                                     </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <Link href={route('about-us')} prefetch={"hover"} >
-                                            About us
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('teeth-grinding')} prefetch="hover" >
+                                            Teeth Grinding
                                         </Link>
                                     </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <Link href={route('meet-the-team')} prefetch={"hover"} >
-                                            Meet The Team
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('tmj-treatment')} prefetch="hover">
+                                            TMJ Treatment
                                         </Link>
                                     </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <Link href={route('gallery')} prefetch={"hover"} >
-                                            Gallery
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('root-canal')} prefetch="hover">
+                                            Root Canals
                                         </Link>
                                     </li>
-                                    <li className="main-items text-soft-200 hover:text-white cursor-pointer ">
-                                        <Link href={route('blogs.index')} prefetch="hover">
-                                            Blogs
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('sports-mouthguard')} prefetch="hover">
+                                            Sports Mouthguards
                                         </Link>
                                     </li>
-                                </div>
-                            </ul>
-                        </div>
-
-                        {/* Injectables Sub-menu */}
-                        <div ref={injectables} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}>
-                            <ul className="space-y-4 text-2xl tracking-widest font-bold ">
-                                <div className="injectables-items">
-                                    <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
-                                        <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
-                                        <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
-                                            Cosmetic Injectables
-                                        </span>
-                                    </button>
-                                </div>
-                                {[
-                                    { label: "Forehead Creases", url: 'forehead-creases' },
-                                    { label: "Frown Lines", url: 'frown-lines' },
-                                    { label: "Crows Feet", url: 'crows-feet' },
-                                    { label: "Brow Lift", url: 'brow-lift' },
-                                    { label: "Bunny Lines", url: 'bunny-lines' },
-                                    { label: "Hyperhydrosis", url: 'hyperhydrosis' },
-                                    { label: "Lip Flip", url: 'lip-flip' },
-                                    { label: "Gummy Smile", url: 'gummy-smile' },
-                                    { label: "Upper Lip Lines", url: 'upper-lip-lines' },
-                                    { label: "Downward Smile", url: 'downward-smile' },
-                                    { label: "Dimpled Chin", url: 'dimpled-chin' },
-                                    { label: "Neferti Neck Lift / Platysmal Bands", url: 'neferti-neck-lift' },
-                                    { label: "Masseters / Jaw Slimming", url: 'masseters' },
-                                ].map((item, index) => (
-                                    <li key={index} className="injectables-items text-soft-100 hover:text-white cursor-pointer">
-                                        <Link href={route(`${item.url}`)} prefetch="hover" >{item.label}</Link>
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('childrens-dentistry')} prefetch="hover">
+                                            Children&apos;s Dentistry
+                                        </Link>
                                     </li>
-                                ))}
-                            </ul>
-                        </div>
+                                    <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('screening-for-oral-cancer')} prefetch="hover">
+                                            Oral Cancer Screenings
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        {/* General Dentistry Sub-menu */}
-                        <div ref={general} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
-                            <ul className="space-y-4 text-2xl tracking-widest font-bold ">
-                                <div className="general-items">
-                                    <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
-                                        <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
-                                        <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
-                                            General Dentistry
-                                        </span>
-                                    </button>
-                                </div>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('emergency-dentistry')} prefetch="hover" >Emergency Dentistry</Link>
-                                </li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('checkup-and-cleans')} prefetch="hover" >
-                                        Checkup and Cleans
-                                    </Link>
-                                </li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('teeth-grinding')} prefetch="hover" >
-                                        Teeth Grinding
-                                    </Link>
-                                </li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('tmj-treatment')} prefetch="hover">
-                                        TMJ Treatment
-                                    </Link>
-                                </li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('root-canal')} prefetch="hover">
-                                        Root Canals
-                                    </Link>
-                                </li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('sports-mouthguard')} prefetch="hover">
-                                        Sports Mouthguards
-                                    </Link>
-                                </li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('childrens-dentistry')} prefetch="hover">
-                                        Children&apos;s Dentistry
-                                    </Link>
-                                </li>
-                                <li className="general-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('screening-for-oral-cancer')} prefetch="hover">
-                                        Oral Cancer Screenings
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
+                            {/* Cosmetic Dentistry Sub-menu */}
+                            <div ref={cosmetic} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
+                                <ul className="space-y-4 text-2xl tracking-widest font-bold ">
+                                    <div className="cosmetic-items">
+                                        <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
+                                            <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
+                                            <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
+                                                Cosmetic Dentistry
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('veneers')} prefetch="hover">
+                                            Veneers
+                                        </Link>
+                                    </li>
+                                    <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('teeth-whitening')} prefetch="hover">
+                                            Teeth Whitening
+                                        </Link>
+                                    </li>
+                                    <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('smile-makeover')} prefetch="hover">
+                                            Smile Makeover
+                                        </Link>
+                                    </li>
+                                    <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('clear-aligners')} prefetch="hover">
+                                            Clear Aligners
+                                        </Link>
+                                    </li>
+                                    <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dental-bonding')} prefetch="hover">
+                                            Dental Bonding
+                                        </Link>
+                                    </li>
+                                    <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('crown-lengthening')} prefetch="hover">
+                                            Crown Lengthening
+                                        </Link>
+                                    </li>
+                                    <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dental-contouring')} prefetch="hover">
+                                            Dental Contouring
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        {/* Cosmetic Dentistry Sub-menu */}
-                        <div ref={cosmetic} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
-                            <ul className="space-y-4 text-2xl tracking-widest font-bold ">
-                                <div className="cosmetic-items">
-                                    <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
-                                        <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
-                                        <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
-                                            Cosmetic Dentistry
-                                        </span>
-                                    </button>
-                                </div>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('veneers')} prefetch="hover">
-                                        Veneers
-                                    </Link>
-                                </li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('veneers')} prefetch="hover">
-                                        Teeth Whitening
-                                    </Link>
-                                </li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('smile-makeover')} prefetch="hover">
-                                        Smile Makeover
-                                    </Link>
-                                </li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('clear-aligners')} prefetch="hover">
-                                        Clear Aligners
-                                    </Link>
-                                </li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dental-bonding')} prefetch="hover">
-                                        Dental Bonding
-                                    </Link>
-                                </li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('crown-lengthening')} prefetch="hover">
-                                        Crown Lengthening
-                                    </Link>
-                                </li>
-                                <li className="cosmetic-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dental-contouring')} prefetch="hover">
-                                        Dental Contouring
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
+                            {/* Restorative Dentistry Sub-menu */}
+                            <div ref={restorative} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
+                                <ul className="space-y-4 text-2xl tracking-widest font-bold ">
+                                    <div className="restorative-items">
+                                        <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
+                                            <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
+                                            <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
+                                                Restorative Dentistry
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dental-fillings')} prefetch="hover">
+                                            Dental Fillings
+                                        </Link>
+                                    </li>
+                                    <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('inlays-and-onlays')} prefetch="hover">
+                                            Inlays and Onlays
+                                        </Link>
+                                    </li>
+                                    <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dental-crowns')} prefetch="hover">
+                                            Dental Crowns
+                                        </Link>
+                                    </li>
+                                    <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dental-bridges')} prefetch="hover">
+                                            Dental Bridges
+                                        </Link>
+                                    </li>
+                                    <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dental-implants')} prefetch="hover">
+                                            Dental Implants
+                                        </Link>
+                                    </li>
+                                    <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dentures')} prefetch="hover">
+                                            Dentures
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        {/* Restorative Dentistry Sub-menu */}
-                        <div ref={restorative} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
-                            <ul className="space-y-4 text-2xl tracking-widest font-bold ">
-                                <div className="restorative-items">
-                                    <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
-                                        <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
-                                        <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
-                                            Restorative Dentistry
-                                        </span>
-                                    </button>
-                                </div>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dental-fillings')} prefetch="hover">
-                                        Dental Fillings
-                                    </Link>
-                                </li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('inlays-and-onlays')} prefetch="hover">
-                                        Inlays and Onlays
-                                    </Link>
-                                </li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dental-crowns')} prefetch="hover">
-                                        Dental Crowns
-                                    </Link>
-                                </li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dental-bridges')} prefetch="hover">
-                                        Dental Bridges
-                                    </Link>
-                                </li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dental-implants')} prefetch="hover">
-                                        Dental Implants
-                                    </Link>
-                                </li>
-                                <li className="restorative-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dentures')} prefetch="hover">
-                                        Dentures
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
+                            {/* Oral Surgery Sub-menu */}
+                            <div ref={oral} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
+                                <ul className="space-y-4 text-2xl tracking-widest font-bold ">
+                                    <div className="oral-items">
+                                        <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
+                                            <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
+                                            <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
+                                                Oral Surgery
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('extractions')} prefetch="hover">
+                                            Extractions
+                                        </Link>
+                                    </li>
+                                    <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('wisdom-teeth-removal')} prefetch="hover">
+                                            Wisdom Teeth Removal
+                                        </Link>
+                                    </li>
+                                    <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
+                                        <Link href={route('dental-implant-replacement-services')} prefetch="hover">
+                                            Implant Replacement
+                                        </Link>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        {/* Oral Surgery Sub-menu */}
-                        <div ref={oral} className="absolute top-0 left-0 w-full h-full" style={{ display: 'none' }}> {/* Initially hidden */}
-                            <ul className="space-y-4 text-2xl tracking-widest font-bold ">
-                                <div className="oral-items">
-                                    <button onClick={() => setCurrent('main')} className="flex gap-2 items-center text-base cursor-pointer group transition-all duration-300 ease-out">
-                                        <ChevronLeft size={18} className="group-hover:translate-x-[8px] transition-all duration-300 ease-out" />
-                                        <span className="group-hover:translate-x-[8px] transition-all duration-300 ease-out">
-                                            Oral Surgery
-                                        </span>
-                                    </button>
-                                </div>
-                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('extractions')} prefetch="hover">
-                                        Extractions
-                                    </Link>
-                                </li>
-                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('wisdom-teeth-removal')} prefetch="hover">
-                                        Wisdom Teeth Removal
-                                    </Link>
-                                </li>
-                                <li className="oral-items text-soft-100 hover:text-white cursor-pointer " >
-                                    <Link href={route('dental-implant-replacement-services')} prefetch="hover">
-                                        Implant Replacement
-                                    </Link>
-                                </li>
-                            </ul>
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </>
     );
 }
