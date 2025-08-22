@@ -52,7 +52,7 @@ export default function AboutUs() {
                 className="
                 bg-stone-950 text-soft-200 min-h-[50svh]
                 flex flex-col justify-end items-center
-                p-8 md:pt-18 gap-4 relative overflow-hidden
+                p-8 md:pt-18 gap-4 relative overflow-hidden pt-16
                 "
             >
                 <h1 className="mt-12 md:mt-0  text-center text-4xl sm:text-5xl font-light font-serif tracking-widest" >
