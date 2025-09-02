@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Inquiry as MailInquiry;
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
+use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 class InquiryController extends Controller
@@ -32,6 +34,9 @@ class InquiryController extends Controller
         ]);
 
         Inquiry::create($request->all());
+
+        Mail::to("juliusterrence.duff@gmail.com")
+            ->queue(new MailInquiry($request->email, $request->firstname, $request->lastname, $request->message));
 
         return back()->with([
             'success' => true,
