@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\Inquiry as MailInquiry;
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
@@ -35,8 +36,14 @@ class InquiryController extends Controller
 
         Inquiry::create($request->all());
 
-        Mail::to("juliusterrence.duff@gmail.com")
-            ->queue(new MailInquiry($request->email, $request->firstname, $request->lastname, $request->message));
+        $payload = [
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname,
+            'email' => $request->email,
+            'message' => $request->message
+        ];
+
+        $response = Http::post('https://mailer-dentlstudio.vercel.app/api/contact-us', $payload);
 
         return back()->with([
             'success' => true,
