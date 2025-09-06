@@ -31,6 +31,7 @@ class InquiryController extends Controller
             'firstname' => ['required', 'string'],
             'lastname' => ['required', 'string'],
             'email' => ['required', 'email'],
+            'phone_number' => ['required', 'integer', 'min_digits:10', 'max_digits:11'],
             'message' => ['required', 'string']
         ]);
 
@@ -40,10 +41,11 @@ class InquiryController extends Controller
             'firstname' => $request->firstname,
             'lastname' => $request->lastname,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
             'message' => $request->message
         ];
 
-        $response = Http::post('https://mailer-dentlstudio.vercel.app/api/contact-us', $payload);
+        Http::post(config('mail.api_url') . "/contact-us", $payload);
 
         return back()->with([
             'success' => true,

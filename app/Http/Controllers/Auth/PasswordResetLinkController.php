@@ -61,7 +61,7 @@ class PasswordResetLinkController extends Controller
 
         // Send the data to your API
         try {
-            $response = Http::post('https://mailer-dentlstudio.vercel.app/api/reset-password', [
+            $response = Http::post(config('mail.api_url') . '/reset-password', [
                 'email' => $request->email,
                 'reset_url' => $resetUrl,
                 'token' => $token,

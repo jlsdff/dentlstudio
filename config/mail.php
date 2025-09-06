@@ -113,4 +113,6 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'api_url' => env('MAIL_API_URL', 'http://localhost:3000/api')
+
 ];
