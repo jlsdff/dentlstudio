@@ -13,6 +13,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Home, LoaderCircle, LucideMail, LucidePhoneCall } from 'lucide-react';
 import { lazy } from 'react'
+import InputError from '@/components/input-error';
 
 const PopUp = lazy(() => import('@/components/ui/PopUp'))
 const NavigationBar = lazy(() => import('@/components/ui/nav-bar'))
@@ -174,14 +175,17 @@ type ContactUsForm = {
     firstname: string;
     lastname: string;
     email: string;
+    phone_number: undefined | string | number;
     message: string;
 }
+
 function ContactUsForm() {
 
     const { data, setData, post, processing, errors, reset } = useForm<Required<ContactUsForm>>({
         firstname: "",
         lastname: "",
         email: "",
+        phone_number: undefined,
         message: ""
     })
 
@@ -214,6 +218,7 @@ function ContactUsForm() {
                         onChange={e => setData('firstname', e.target.value)}
                         required
                     />
+                    <InputError message={errors.firstname} />
                 </div>
                 <div>
                     <Label className="text-xs" htmlFor="lastname" >Last Name</Label>
@@ -225,6 +230,7 @@ function ContactUsForm() {
                         onChange={e => setData('lastname', e.target.value)}
                         required
                     />
+                    <InputError message={errors.lastname} />
                 </div>
             </div>
 
@@ -241,7 +247,25 @@ function ContactUsForm() {
                     onChange={e => setData('email', e.target.value)}
                     required
                 />
+                <InputError message={errors.email} />
             </div>
+
+            <div>
+                <Label className="text-xs" htmlFor="phone_number" >Phone Number</Label>
+                <Input
+                    type="tel"
+                    autoComplete="tel"
+                    id="phone_number"
+                    name="phone_number"
+                    placeholder="+61 4xx xxx xxx"
+                    className="border border-stone-900  focus-visible:border-stone-950"
+                    value={data.phone_number}
+                    onChange={e => setData('phone_number', e.target.value)}
+                    required
+                />
+                <InputError message={errors.phone_number} />
+            </div>
+
             <div>
                 <Label className="text-xs" htmlFor="message" >Message</Label>
                 <Textarea
@@ -255,6 +279,7 @@ function ContactUsForm() {
                     required
                 >
                 </Textarea>
+                <InputError message={errors.message} />
             </div>
             <div>
                 <Button className="bg-stone-800 w-full" disabled={processing} >
