@@ -18,7 +18,6 @@ export default function Welcome() {
 
     const wrapper = useRef<HTMLDivElement>(null)
     const header = useRef<HTMLDivElement>(null)
-    const loading = useRef(null)
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
 
     useEffect(() => {
@@ -90,7 +89,6 @@ export default function Welcome() {
                     >
                         <source src="/thedentlstudio.webm" type="video/webm" />
                     </video>
-                    {/* <div className="absolute inset-0 bg-stone-950/30 z-0" /> */}
                     <div className="relative z-10 flex flex-col justify-end items-center md:justify-center md:items-start h-full p-8 md:px-16 md:py-8 gap-4
                         bg-gradient-to-t
                         md:bg-gradient-to-r from-stone-950/80 to-transparent
