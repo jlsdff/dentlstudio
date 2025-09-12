@@ -35,97 +35,21 @@ export default function Welcome() {
 
     useGSAP(() => {
 
-        const tl = gsap.timeline({
-            onComplete: () => {
-                document.body.style.overflow = ''
-            }
-        })
-
-        const split = SplitText.create('.loading-2', { type: "chars" })
+        const tl = gsap.timeline()
 
         requestAnimationFrame(() => {
 
-            document.body.style.overflow = 'hidden'
-
-            gsap.set(split.chars, { xPercent: 100, autoAlpha: 0 });
-            gsap.set('.loading-1', { autoAlpha: 0, yPercent: -100 })
-            gsap.set('.loading-3', { autoAlpha: 0, yPercent: 100 })
-            gsap.set('.mid-div', { autoAlpha: 0, yPercent: 100 })
-
-            tl.to(split.chars, {
-                autoAlpha: 1,
-                opacity: 100,
-                xPercent: 0,
-                ease: "expo.out",
-                stagger: 0.1,
-                delay: 1,
-                duration: 0.5
+            tl.from('.hero', {
+                yPercent: 100,
+                ease: 'expo.out',
+                duration: 2,
+                delay: 0.3,
             })
-                .to('.loading-1', {
-                    autoAlpha: 1,
-                    yPercent: 0,
-                    ease: 'expo.out',
-                    duration: 0.3
-                })
-                .to('.loading-3', {
-                    autoAlpha: 1,
-                    yPercent: 0,
-                    ease: 'expo.out',
-                    duration: 0.3
-                }, "<")
-                .to('.mid-div', {
-                    autoAlpha: 1,
-                    yPercent: 0,
-                    ease: 'expo.out',
-                    duration: 1
-                })
-                .to('.loading-1', {
-                    opacity: 0,
-                    y: -100,
-                    ease: 'expo.in',
-                    duration: 0.3,
-                })
-                .to('.loading-3', {
-                    opacity: 0,
-                    yPercent: 100,
-                    ease: 'expo.in',
-                    duration: 0.3,
-                }, "<")
-                .to(split.chars, {
-                    opacity: 0,
-                    xPercent: 100,
-                    ease: "expo.in",
-                    stagger: 0.1,
-                    duration: 0.5
-                })
-                .to('.mid-div', {
-                    opacity: 0,
-                    y: -100,
-                    ease: 'expo.in',
-                    duration: 0.5
-                }, "<")
-                .to('.sec-1', {
-                    yPercent: 100,
-                    ease: "expo.in",
-                    duration: 1
-                })
-                .to('.sec-2', {
-                    yPercent: -100,
-                    ease: 'expo.in',
-                    duration: 1
-                }, "<")
-                .from('.hero', {
-                    yPercent: 100,
-                    ease: 'expo.out',
-                    duration: 0.5,
-                    delay: 0.3,
-                })
                 .from('.nav-item', {
                     yPercent: -100,
                     ease: 'expo.out',
-                    duration: 0.3,
+                    duration: 2,
                 }, "<")
-                .set(loading.current, { display: 'none' })
 
         })
 
@@ -150,21 +74,6 @@ export default function Welcome() {
 
 
             <div ref={wrapper} >
-
-                <div ref={loading} aria-hidden="true">
-                    <div className='fixed top-0 left-0 z-50 h-screen w-screen flex '>
-                        <div className='bg-black flex-1 sec-1' />
-                        <div className='mid-div w-[2px] bg-gray-600/50 absolute top-0 left-1/2 h-screen' />
-                        <div className='bg-black flex-1 sec-2' />
-                    </div>
-                    <div className='z-100 text-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-serif '>
-                        <div className='overflow-hidden'>
-                            <span className='loading-1 font-sans text-sm sm:text-base block '>THE</span>
-                            <span className='loading-2 block text-4xl sm:text-6xl  ' >DENTL</span>
-                            <span className='loading-3 font-sans text-sm sm:text-base block text-right'>STUDIO</span>
-                        </div>
-                    </div>
-                </div>
 
                 <NavigationBar scrolled={scrolledPastHeader} />
 

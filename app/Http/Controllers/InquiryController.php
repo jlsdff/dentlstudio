@@ -6,7 +6,6 @@ use App\Mail\Inquiry as MailInquiry;
 use Illuminate\Http\Request;
 use App\Models\Inquiry;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
 class InquiryController extends Controller
