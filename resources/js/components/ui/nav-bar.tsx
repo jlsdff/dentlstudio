@@ -279,18 +279,10 @@ export default function NavigationBar({ scrolled }: NavigationBarProps) {
                                         </button>
                                     </div>
                                     {[
-                                        { label: "Forehead Creases", url: 'forehead-creases' },
-                                        { label: "Frown Lines", url: 'frown-lines' },
-                                        { label: "Crows Feet", url: 'crows-feet' },
-                                        { label: "Brow Lift", url: 'brow-lift' },
-                                        { label: "Bunny Lines", url: 'bunny-lines' },
-                                        { label: "Hyperhydrosis", url: 'hyperhydrosis' },
                                         { label: "Lip Flip", url: 'lip-flip' },
                                         { label: "Gummy Smile", url: 'gummy-smile' },
                                         { label: "Upper Lip Lines", url: 'upper-lip-lines' },
                                         { label: "Downward Smile", url: 'downward-smile' },
-                                        { label: "Dimpled Chin", url: 'dimpled-chin' },
-                                        { label: "Neferti Neck Lift / Platysmal Bands", url: 'neferti-neck-lift' },
                                         { label: "Masseters / Jaw Slimming", url: 'masseters' },
                                     ].map((item, index) => (
                                         <li key={index} className="injectables-items text-soft-100 hover:text-white cursor-pointer">

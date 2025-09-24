@@ -26,22 +26,10 @@ const staffs: StaffInterface[] = [
         avatarUrl: '/staffs/Elijah.png'
     },
     {
-        name: 'Alima Malakyar',
-        position: 'Oral Health therapist',
-        bio: 'Alima plays a key role in ensuring our patients maintain great oral health. From preventive care to restorative treatments for children, she’s passionate about making sure every patient understands their oral health journey. With a gentle approach and a calming presence, Alima helps patients feel comfortable, cared for, and confident every step of the way.',
-        avatarUrl: '/staffs/Alima.png'
-    },
-    {
         name: 'Devna Dayal',
         position: 'Dentist',
         bio: 'Devna is all about delivering high-quality dental care with heart. Whether it’s general, cosmetic, or emergency treatment, her mission is simple: make sure every patient feels informed, empowered, and totally at ease. She takes the time to educate and explain, helping patients feel confident in their care every step of the way.',
         avatarUrl: '/staffs/Devna.png'
-    },
-    {
-        name: 'Sheena Sidhu',
-        position: 'Cosmetic Nurse',
-        bio: 'Sheena brings years of experience in cosmetic nursing and a sharp eye for natural, balanced results. At our clinic, we believe in overall facial harmony and having Sheena on the team means we can offer patients a truly comprehensive experience. Her approach is all about enhancing what’s already there, with subtlety, care, and confidence.',
-        avatarUrl: '/staffs/Sheena.png'
     },
     {
         name: 'Nishani Ramaneithasan',

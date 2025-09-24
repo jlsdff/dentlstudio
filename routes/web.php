@@ -140,30 +140,6 @@ Route::get('dental-implant-replacement-services', function () {
     return Inertia::render('services/dental-implant-replacement-services');
 })->name('dental-implant-replacement-services');
 
-Route::get('forehead-creases', function () {
-    return Inertia::render('services/forehead-creases');
-})->name('forehead-creases');
-
-Route::get('frown-lines', function () {
-    return Inertia::render('services/frown-lines');
-})->name('frown-lines');
-
-Route::get('crows-feet', function () {
-    return Inertia::render('services/crows-feet');
-})->name('crows-feet');
-
-Route::get('brow-lift', function () {
-    return Inertia::render('services/brow-lift');
-})->name('brow-lift');
-
-Route::get('bunny-lines', function () {
-    return Inertia::render('services/bunny-lines');
-})->name('bunny-lines');
-
-Route::get('hyperhidrosis', function () {
-    return Inertia::render('services/hyperhydrosis');
-})->name('hyperhydrosis');
-
 Route::get('lip-flip', function () {
     return Inertia::render('services/lip-flip');
 })->name('lip-flip');
@@ -179,14 +155,6 @@ Route::get('upper-lip-lines', function () {
 Route::get('downward-smile', function () {
     return Inertia::render('services/downward-smile');
 })->name('downward-smile');
-
-Route::get('dimpled-chin', function () {
-    return Inertia::render('services/dimpled-chin');
-})->name('dimpled-chin');
-
-Route::get('neferti-neck-lift', function () {
-    return Inertia::render('services/neferti-neck-lift');
-})->name('neferti-neck-lift');
 
 Route::get('masseters', function () {
     return Inertia::render('services/masseters');
